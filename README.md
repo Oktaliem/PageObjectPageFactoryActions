@@ -9,6 +9,10 @@ Features :
    Page Object i.e. 
    
    private By userNameLogin = By.id("login");
+   
+   selenium action :
+   driver.findElement(userNameLogin).click();
+   
    ```
    
    ```
@@ -16,6 +20,10 @@ Features :
    
    @FindBy(id = "login")
    private WebElement userName;
+   
+   selenium action :
+   userName.click();
+   
    ```
 
 3. Self logging each keyword action
