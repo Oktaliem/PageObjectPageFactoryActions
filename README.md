@@ -34,12 +34,12 @@ Features :
    ```
    
    ```
-   With Selenium action wrapper library
+   With Selenium keyword library
    
-   Page Object i.e.
+   Selenium action :
+   
    clickOn(userNameLogin);
-   
-   Page Factory i.e.
+   or
    clickOn(userName);
    
    ```
