@@ -11,6 +11,15 @@ Features :
    WebDriverManager.edgedriver().setup();
    WebDriverManager.iedriver().setup();
    ```
+   or initiate WebDriver by Zalenium
+   ```
+   DesiredCapabilities capability = DesiredCapabilities.chrome();
+   capability.setBrowserName("chrome");
+   capability.setPlatform(Platform.MAC);
+   capability.setCapability("name", method.getName());
+   driver = new RemoteWebDriver(new URL(System.getProperty("grid_url")), capability);
+   ```
+   
    
 2. Selenium keyword for Page Object Model & Page Factory
    
@@ -51,7 +60,7 @@ Features :
    Dec 08, 2019 10:07:55 PM org.openqa.selenium.remote.ProtocolHandshake createSession
    INFO: Detected dialect: W3C
    2019-12-08 22:07:55,701 [main] INFO  Library Test  - Landing to Login Page: http://localhost/web/login/
-   2019-12-08 22:07:55,924 [main] INFO  Library Test  - User inputs field with element: By.id: login and value       user@example.com
+   2019-12-08 22:07:55,924 [main] INFO  Library Test  - User inputs field with element: By.id: login and value   user@example.com
    2019-12-08 22:07:56,008 [main] INFO  Library Test  - User inputs field with element: By.id: password and value bitnami
    2019-12-08 22:07:56,009 [main] WARN  Library Test  - Element is not clickable, try to click with Javascript
    2019-12-08 22:07:56,805 [main] INFO  Library Test  - click on [[ChromeDriver: chrome on MAC (20875a88bc047c7f7bcf57ec125b7008)] -> class name: btn-primary] via javascript succeed
