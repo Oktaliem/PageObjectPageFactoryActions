@@ -1,5 +1,5 @@
 # PageObjectPageFactoryActions
-Keyword for Selenium Page Object &amp; Page Factory
+Keyword Library for Selenium Page Object &amp; Page Factory
 
 Features :
 1. Initiate WebDriver by WebDriverManager (https://github.com/bonigarcia/webdrivermanager)
