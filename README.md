@@ -3,8 +3,12 @@ Keyword Library for Selenium Page Object &amp; Page Factory
 
 ### Features :
 1. Initiate WebDriver by WebDriverManager (https://github.com/bonigarcia/webdrivermanager)
+
+   private WebDriver driver ;
+
    ```
    WebDriverManager.chromedriver().setup(); 
+   driver = new ChromeDriver();
    ```
    or initiate WebDriver by Zalenium (Docker)
    ```
