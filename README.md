@@ -5,19 +5,18 @@ Features :
 1. Initiate WebDriver by WebDriverManager (https://github.com/bonigarcia/webdrivermanager)
    ```
    WebDriverManager.chromedriver().setup(); 
-   WebDriverManager.firefoxdriver().setup(); 
-   WebDriverManager.operadriver().setup();
-   WebDriverManager.phantomjs().setup();
-   WebDriverManager.edgedriver().setup();
-   WebDriverManager.iedriver().setup();
    ```
-   or initiate WebDriver by Zalenium
+   or initiate WebDriver by Zalenium (Docker)
    ```
    DesiredCapabilities capability = DesiredCapabilities.chrome();
    capability.setBrowserName("chrome");
    capability.setPlatform(Platform.MAC);
    capability.setCapability("name", method.getName());
    driver = new RemoteWebDriver(new URL(System.getProperty("grid_url")), capability);
+   ```
+   or initiate Webdriver via binary
+   ```
+   driver = new ChromeDriver();
    ```
    
    
