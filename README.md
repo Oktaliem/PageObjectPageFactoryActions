@@ -76,13 +76,15 @@ Keyword Library for Selenium Page Object &amp; Page Factory
    ### Run The Test
    ```
    via WebDriver binary :
-   mvn clean test
+   $ mvn clean test
    
    via Zalenium :
-   mvn clean test -Dbrowser="zalenium" -Dgrid_url="http://localhost:4444/wd/hub"
+   $ docker run --rm -ti --name zalenium -p 4444:4444     -v /var/run/docker.sock:/var/run/docker.sock     -v /tmp/videos:/home/seluser/videos     --privileged dosel/zalenium start
+   
+   $ mvn clean test -Dbrowser="zalenium" -Dgrid_url="http://localhost:4444/wd/hub"
    
    via WebDriverManager :
-   mvn clean test -Dbrowser="bonagarcia"
+   $ mvn clean test -Dbrowser="bonagarcia"
    ```
    
    
