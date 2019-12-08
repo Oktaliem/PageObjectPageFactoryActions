@@ -4,7 +4,12 @@ Keyword Actions for Selenium Page Object &amp; Page Factory
 Features :
 1. Initiate WebDriver by WebDriverManager (https://github.com/bonigarcia/webdrivermanager)
    ```
-   WebDriverManager.chromedriver().setup();
+   WebDriverManager.chromedriver().setup(); 
+   WebDriverManager.firefoxdriver().setup(); 
+   WebDriverManager.operadriver().setup();
+   WebDriverManager.phantomjs().setup();
+   WebDriverManager.edgedriver().setup();
+   WebDriverManager.iedriver().setup();
    ```
    
 2. Selenium action wrapper for Page Object Model & Page Factory
