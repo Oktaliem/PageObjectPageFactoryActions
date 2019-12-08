@@ -1,7 +1,7 @@
 # PageObjectPageFactoryActions
 Keyword Library for Selenium Page Object &amp; Page Factory
 
-Features :
+### Features :
 1. Initiate WebDriver by WebDriverManager (https://github.com/bonigarcia/webdrivermanager)
    ```
    WebDriverManager.chromedriver().setup(); 
@@ -67,4 +67,13 @@ Features :
    2019-12-08 22:07:57,054 [main] INFO  Library Test  - User clicks On Element: [[ChromeDriver: chrome on MAC (20875a88bc047c7f7bcf57ec125b7008)] -> class name: dropdown-item]
    2019-12-08 22:07:57,054 [main] INFO  Library Test  - Select Drop down List Element by visible text : Settings
 
+   ```
+   
+   ### Run The Test
+   ```
+   mvn clean test
+   
+   mvn clean test -Dbrowser="zalenium" -Dgrid_url="http://localhost:4444/wd/hub"
+   
+   mvn clean test . -Dbrowser="bonagarcia"
    ```
