@@ -25,7 +25,7 @@ Features :
    ```
    
    ```
-   With Selenium action wrapper
+   With Selenium action wrapper library
    
    Page Object i.e.
    clickOn(userNameLogin);
