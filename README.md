@@ -75,16 +75,20 @@ Keyword Library for Selenium Page Object &amp; Page Factory
    
    ### Run The Test
    ```
+   via WebDriver binary :
    mvn clean test
    
+   via Zalenium :
    mvn clean test -Dbrowser="zalenium" -Dgrid_url="http://localhost:4444/wd/hub"
    
+   via WebDriverManager :
    mvn clean test -Dbrowser="bonagarcia"
    ```
    
    
    ### References 
    https://github.com/bonigarcia/webdrivermanager
+   
    https://github.com/zalando/zalenium
    
    ### Application Under Test
