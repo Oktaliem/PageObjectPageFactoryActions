@@ -6,7 +6,7 @@ Features :
 2. Selenium keyword action for Page Object Model & Page Factory
    
    ```
-   Page Object Model i.e. 
+   Page Object i.e. 
    
    private By userNameLogin = By.id("login");
    ```
