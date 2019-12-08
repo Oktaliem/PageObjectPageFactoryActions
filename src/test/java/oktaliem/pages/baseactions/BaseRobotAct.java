@@ -1,6 +1,6 @@
 package oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.RobotActions;
+import oktaliem.pages.webactions.IRobotActions;
 import org.openqa.selenium.WebDriver;
 
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
 /**
  * Author : Okta Liem
  */
-public class BaseRobotAct extends BaseWaitAct implements RobotActions {
+public class BaseRobotAct extends BaseWaitAct implements IRobotActions {
 
     public BaseRobotAct(WebDriver driver) {
         super(driver);

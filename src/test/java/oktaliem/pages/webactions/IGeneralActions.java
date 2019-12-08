@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Author : Okta Liem
  */
-public interface GeneralActions {
+public interface IGeneralActions {
 
     void refreshPage();
     void goToPreviousPage();

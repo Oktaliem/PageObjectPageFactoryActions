@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Author : Okta Liem
  */
-public interface MouseAndKeyboardActions {
+public interface IMouseAndKeyboardActions {
 
     /** Keyboard & Mouse Action - Page Object */
     void doubleClick(By el);

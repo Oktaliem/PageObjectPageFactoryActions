@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Author : Okta Liem
  */
-public interface WaitActions {
+public interface IWaitActions {
 
     void wait(int miliseconds);
     void waitWithJavascriptExecutor(int miliseconds);

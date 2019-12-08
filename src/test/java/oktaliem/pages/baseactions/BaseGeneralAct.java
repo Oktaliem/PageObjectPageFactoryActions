@@ -1,6 +1,6 @@
 package oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.GeneralActions;
+import oktaliem.pages.webactions.IGeneralActions;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 /**
  * Author : Okta Liem
  */
-public class BaseGeneralAct implements GeneralActions {
+public class BaseGeneralAct implements IGeneralActions {
 
     public WebDriver driver;
     public static Logger log = Logger.getLogger("Library Test");

@@ -1,6 +1,6 @@
 package oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.MouseAndKeyboardActions;
+import oktaliem.pages.webactions.IMouseAndKeyboardActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 /**
  * Author : Okta Liem
  */
-public class BaseMouseKeyboardAct extends BaseRobotAct implements MouseAndKeyboardActions {
+public class BaseMouseKeyboardAct extends BaseRobotAct implements IMouseAndKeyboardActions {
 
     public BaseMouseKeyboardAct(WebDriver driver) {
         super(driver);

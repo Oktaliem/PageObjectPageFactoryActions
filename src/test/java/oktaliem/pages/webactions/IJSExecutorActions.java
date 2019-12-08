@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Author : Okta Liem
  */
-public interface JSExecutorActions {
+public interface IJSExecutorActions {
 
     void clickViaJavascriptExecutor(WebElement element);
     void scrollToBottomPage();

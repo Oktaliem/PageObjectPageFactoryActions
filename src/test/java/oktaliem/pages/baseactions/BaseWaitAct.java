@@ -1,6 +1,6 @@
 package oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.WaitActions;
+import oktaliem.pages.webactions.IWaitActions;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Author : Okta Liem
  */
-public class BaseWaitAct extends BaseAssertionAct implements WaitActions {
+public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
 
     public BaseWaitAct(WebDriver driver) {
         super(driver);

@@ -1,6 +1,6 @@
 package oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.JSExecutorActions;
+import oktaliem.pages.webactions.IJSExecutorActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Author : Okta Liem
  */
-public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements JSExecutorActions {
+public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecutorActions {
 
     public BaseJSExecutorAct(WebDriver driver) {
         super(driver);

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Author : Okta Liem
  */
-public interface ElementActions {
+public interface IElementActions {
 
     /** Web Action - Page Object **/
     void clickOn(By el);

@@ -97,7 +97,7 @@ public class LoginPage extends BasePage {
         String value = values.substring(values.length() - 42, values.length() - 1);
 
         //This test is intended to fail
-        //Assert.assertEquals(value, "01122a113f7377a85655c778b1143914eaa38884o");
+        Assert.assertEquals(value, "01122a113f7377a85655c778b1143914eaa38884o");
         log.info("Regex Result: " + values);
         log.info("Result: " + value);
     }
@@ -109,6 +109,7 @@ public class LoginPage extends BasePage {
         wait(5000);
     }
 
+    @Step
     public void loginSamplePOWithTabAndEnter() {
         inputTextAndTab(userNameLogin,"user@example.com");
         inputTextAndEnter(passwordLogin,"bitnami");

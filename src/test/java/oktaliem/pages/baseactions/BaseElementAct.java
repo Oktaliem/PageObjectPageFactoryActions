@@ -1,6 +1,6 @@
 package oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.ElementActions;
+import oktaliem.pages.webactions.IElementActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Author : Okta Liem
  */
-public class BaseElementAct extends BaseJSExecutorAct implements ElementActions {
+public class BaseElementAct extends BaseJSExecutorAct implements IElementActions {
 
     public BaseElementAct(WebDriver driver) {
         super(driver);

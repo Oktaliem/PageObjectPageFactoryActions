@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Author : Okta Liem
  */
-public interface RobotActions {
+public interface IRobotActions {
     /** https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/event/KeyEvent.html*/
 
     void robotKeyPress(int keyEvent) throws AWTException;

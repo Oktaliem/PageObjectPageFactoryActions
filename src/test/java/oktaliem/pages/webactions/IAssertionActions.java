@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Author : Okta Liem
  */
-public interface AssertionActions {
+public interface IAssertionActions {
 
     /** Verification - Page Factory **/
     void checkIfTextIsExpected(WebElement element, String expected);

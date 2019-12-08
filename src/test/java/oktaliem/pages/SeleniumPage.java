@@ -1,5 +1,6 @@
 package oktaliem.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -64,41 +65,50 @@ public class SeleniumPage extends BasePage {
     @FindBy(css = "body:nth-child(2) form:nth-child(3) > input:nth-child(1)")
     private WebElement uploadFilePF;
 
+    @Step
     public void goToSeleniumOfficialWeb() {
         goToWeb(SELENIUM_WEB);
     }
 
+    @Step
     public void gotToMoreNewsButtonPO() {
         scrollUntilViewElement(moreNews);
         wait(5000);
     }
 
+    @Step
     public void gotToMoreNewsButtonPF() {
         wait(3000);
         scrollUntilViewElement(moreNewsBtn.get(1));
         wait(3000);
     }
 
+    @Step
     public void doubleClickMoreNewsButtonPF() {
         doubleClick(moreNewsBtn.get(1));
     }
 
+    @Step
     public void doubleClickMoreNewsButtonPO() {
         doubleClick(moreNews);
     }
 
+    @Step
     public void movePointerToNewsButtonPO() {
         moveMousePointerTo(moreNews);
     }
 
+    @Step
     public void movePointerToNewsButtonPF() {
         moveMousePointerTo(moreNewsBtn.get(1));
     }
 
+    @Step
     public void goToW3SchoolDropAndDropPage() {
         goToWeb(W3SCHOOLDRAGANDDROP);
     }
 
+    @Step
     public void performDragAndDropPF() {
         switchToIframeByIdOrName(iframe);
         dragFromAndDropTo(origin, target);
@@ -106,6 +116,7 @@ public class SeleniumPage extends BasePage {
         wait(5000);
     }
 
+    @Step
     public void performDragAndDropPO() {
         switchToIframeByIndex(0);
         dragFromAndDropTo(originPO, targetPO);
@@ -113,26 +124,31 @@ public class SeleniumPage extends BasePage {
         wait(5000);
     }
 
+    @Step
     public void launchTheApplicationGuru99() {
         goToWeb("https://www.guru99.com/");
     }
 
+    @Step
     public void goToTestingAndClickCucumberPF() {
         moveMousePointerTo(guruDropDown.get(0));
         moveMouseAndClick(guruDropDown.get(0), cucumber);
         wait(5000);
     }
 
+    @Step
     public void goToTestingAndClickCucumberPO() {
         moveMousePointerTo(guruDrPO);
         moveMouseAndClick(guruDrPO, cucumberPO);
         wait(3000);
     }
 
+    @Step
     public void waitViaJavaScriptExecutor() {
         waitWithJavascriptExecutor(10000);
     }
 
+    @Step
     public void selectCountryDropDownList() {
         switchToIframeByIndex(0);
         selectOnDropDownListByText(country, "USA");
@@ -143,6 +159,7 @@ public class SeleniumPage extends BasePage {
         wait(5000);
     }
 
+    @Step
     public void selectRadioW3SchoolText() {
         switchToIframeByIndex(0);
         selectOnRadioButtonByText(options, "Option 2");
@@ -151,6 +168,7 @@ public class SeleniumPage extends BasePage {
         wait(5000);
     }
 
+    @Step
     public void selectRadioW3SchoolValue() {
         switchToIframeByIndex(0);
         selectOnRadioButtonByValue(inputs, "Firefox");
@@ -159,6 +177,7 @@ public class SeleniumPage extends BasePage {
         wait(5000);
     }
 
+    @Step
     public void uploadFilePOPF() {
         switchToIframeByIndex(0);
         uploadFile(uploadFilePO, "/actualhtmltext/loginpage.txt");

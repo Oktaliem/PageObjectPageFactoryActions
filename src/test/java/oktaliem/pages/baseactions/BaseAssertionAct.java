@@ -1,6 +1,6 @@
 package oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.AssertionActions;
+import oktaliem.pages.webactions.IAssertionActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import org.testng.Assert;
 /**
  * Author : Okta Liem
  */
-public class BaseAssertionAct extends BaseGeneralAct implements AssertionActions {
+public class BaseAssertionAct extends BaseGeneralAct implements IAssertionActions {
 
     public BaseAssertionAct(WebDriver driver) {
         super(driver);
