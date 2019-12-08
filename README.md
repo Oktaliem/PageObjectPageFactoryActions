@@ -37,7 +37,6 @@ Features :
    With Selenium keyword library
    
    Selenium action :
-   
    clickOn(userNameLogin);
    or
    clickOn(userName);
