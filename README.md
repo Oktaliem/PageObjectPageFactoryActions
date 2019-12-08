@@ -75,5 +75,13 @@ Keyword Library for Selenium Page Object &amp; Page Factory
    
    mvn clean test -Dbrowser="zalenium" -Dgrid_url="http://localhost:4444/wd/hub"
    
-   mvn clean test . -Dbrowser="bonagarcia"
+   mvn clean test -Dbrowser="bonagarcia"
    ```
+   
+   
+   ### References 
+   https://github.com/bonigarcia/webdrivermanager
+   https://github.com/zalando/zalenium
+   
+   ### Application Under Test
+   https://hub.docker.com/r/bitnami/odoo/
