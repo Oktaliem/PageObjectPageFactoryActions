@@ -36,7 +36,7 @@ Features :
    ```
    With Selenium keyword library
    
-   Selenium action :
+   Selenium action i.e.
    clickOn(userNameLogin);
    or
    clickOn(userName);
