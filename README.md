@@ -10,16 +10,17 @@ Keyword Library for Selenium Page Object &amp; Page Factory
    WebDriverManager.chromedriver().setup(); 
    driver = new ChromeDriver();
    ```
-   or initiate WebDriver by Zalenium (Docker)
+   or initiate WebDriver by Zalenium (Selenium Grid in Docker)
    ```
    DesiredCapabilities capability = DesiredCapabilities.chrome();
    capability.setBrowserName("chrome");
-   capability.setPlatform(Platform.MAC);
    capability.setCapability("name", method.getName());
    driver = new RemoteWebDriver(new URL(System.getProperty("grid_url")), capability);
    ```
    or initiate Webdriver via binary
    ```
+   System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver-mac");
+   System.out.println(System.getProperty("user.dir") + "/drivers/chromedriver-mac");
    driver = new ChromeDriver();
    ```
    
@@ -76,15 +77,14 @@ Keyword Library for Selenium Page Object &amp; Page Factory
    ### Run The Test
    ```
    via WebDriver binary :
-   $ mvn clean test
-   
-   via Zalenium :
-   $ docker run --rm -ti --name zalenium -p 4444:4444     -v /var/run/docker.sock:/var/run/docker.sock     -v /tmp/videos:/home/seluser/videos     --privileged dosel/zalenium start
-   
-   $ mvn clean test -Dbrowser="zalenium" -Dgrid_url="http://localhost:4444/wd/hub"
-   
+   $ mvn clean test -Dsurfire.suiteXmlFiles=TestNG.xml
+
    via WebDriverManager :
-   $ mvn clean test -Dbrowser="bonagarcia"
+   $ mvn clean test -Dbrowser="bonagarcia" -Dsurfire.suiteXmlFiles=TestNG.xml
+
+   via Zalenium :
+   $ docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start
+   $ mvn clean test -Dbrowser="zalenium" -Dgrid_url="http://{your_ip_address}:4444/wd/hub" -Dsurfire.suiteXmlFiles=TestNG.xml
    ```
    
    

@@ -27,7 +27,6 @@ public class BaseTest {
             if (System.getProperty("browser").equals("zalenium")) {
                 DesiredCapabilities capability = DesiredCapabilities.chrome();
                 capability.setBrowserName("chrome");
-                capability.setPlatform(Platform.MAC);
                 capability.setCapability("name", method.getName());
                 driver = new RemoteWebDriver(new URL(System.getProperty("grid_url")), capability);
             }
