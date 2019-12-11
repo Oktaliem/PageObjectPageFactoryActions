@@ -3,7 +3,7 @@
 <suite name="Library Unit Test - Author : Okta Liem" >
     <test name="Selenium Library Unit Test">
         <classes>
-            <class name="UnitTest">
+            <class name="com.oktaliem.testsuit.UnitTest">
             </class>
         </classes>
     </test>

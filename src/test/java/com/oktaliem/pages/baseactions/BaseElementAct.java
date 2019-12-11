@@ -31,7 +31,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
                 element.click();
                 log.info("User clicks On Element: " + element);
             } catch (ElementClickInterceptedException e) {
-                clickViaJavascriptExecutor(element);
+                clickElementViaJSExecutor(element);
             }
         } else {
             log.info(element + " is not displayed");
@@ -144,7 +144,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
                 element.click();
                 log.info("User clicks On Element: " + element);
             } catch (ElementClickInterceptedException e) {
-                clickViaJavascriptExecutor(element);
+                clickElementViaJSExecutor(element);
             }
         } else {
             log.info(element + " is not displayed");

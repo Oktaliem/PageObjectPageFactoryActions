@@ -88,28 +88,68 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
     }
 
     @Override
-    public WebElement findElementByJSExecutor(String by, String element) {
+    public WebElement findElementByJSExecutor(String by, String element, int index) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        WebElement el = (WebElement) jsExecutor.executeScript("return document.getElementById('" + by + "')");
+        WebElement el;
         switch (by) {
             case "id":
-                el = (WebElement) jsExecutor.executeScript("return document.getElementById('" + by + "')");
+                el = (WebElement) jsExecutor.executeScript("return document.getElementById('" + element + "')");
+                log.info("return document.getElementById('" + element + "')" + " Succeed");
                 break;
             case "tagName":
-                el = (WebElement) jsExecutor.executeScript("return document.getElementByTagName('" + by + "')");
+                el = (WebElement) jsExecutor.executeScript("return document.getElementsByTagName('" + element + "')" +
+                        "[" + index + "]");
+                log.info("return document.getElementBysTagName('" + element + "')[" + index + "]" + " Succeed");
                 break;
             case "class":
-                el = (WebElement) jsExecutor.executeScript("return document.getElementByClassName('" + by + "')");
+                el = (WebElement) jsExecutor.executeScript("return document.getElementsByClassName('" + element + "')" +
+                        "[" + index + "]");
+                log.info("return document.getElementsByClassName('" + element + "')[" + index + "]" + " Succeed");
                 break;
             case "name":
-                el = (WebElement) jsExecutor.executeScript("return document.getElementByName('" + by + "')");
+                el = (WebElement) jsExecutor.executeScript("return document.getElementsByName('" + element + "')" +
+                        "[" + index + "]");
+                log.info("return document.getElementsByName('" + element + "')[" + index + "]" + " Succeed");
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + element);
         }
         return el;
     }
 
     @Override
-    public void clickViaJavascriptExecutor(WebElement element) {
+    public String getTextElementViaJSExecutor(String by, String element, int index) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        WebElement el;
+        switch (by) {
+            case "id":
+                el = (WebElement) jsExecutor.executeScript("return document.getElementById('" + element + "')");
+                log.info("return document.getElementById('" + element + "')" + " Succeed");
+                break;
+            case "tagName":
+                el = (WebElement) jsExecutor.executeScript("return document.getElementsByTagName('" + element + "')" +
+                        "[" + index + "]");
+                log.info("return document.getElementBysTagName('" + element + "')[" + index + "]" + " Succeed");
+                break;
+            case "class":
+                el = (WebElement) jsExecutor.executeScript("return document.getElementsByClassName('" + element + "')" +
+                        "[" + index + "]");
+                log.info("return document.getElementsByClassName('" + element + "')[" + index + "]" + " Succeed");
+                break;
+            case "name":
+                el = (WebElement) jsExecutor.executeScript("return document.getElementsByName('" + element + "')" +
+                        "[" + index + "]");
+                log.info("return document.getElementsByName('" + element + "')[" + index + "]" + " Succeed");
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + element);
+        }
+        String text = el.getText();
+        return text;
+    }
+
+    @Override
+    public void clickElementViaJSExecutor(WebElement element) {
         log.warn("Element is not clickable, try to click with Javascript");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);

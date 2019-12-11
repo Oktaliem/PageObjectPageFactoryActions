@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
  */
 public interface IJSExecutorActions {
 
-    void clickViaJavascriptExecutor(WebElement element);
+    void clickElementViaJSExecutor(WebElement element);
     void scrollToBottomPage();
     void scrollToTopPage();
     void scrollUntilViewElement(By el);
@@ -17,6 +17,7 @@ public interface IJSExecutorActions {
     void handleJavascriptPopUp(String info);
     void openNewTab();
     Object executeJavascript(String javascript);
-    WebElement findElementByJSExecutor(String by,String element);
+    WebElement findElementByJSExecutor(String by,String element, int index);
+    String getTextElementViaJSExecutor(String by,String element, int index);
 
 }

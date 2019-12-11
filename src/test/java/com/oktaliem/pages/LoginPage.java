@@ -25,7 +25,10 @@ public class LoginPage extends BasePage {
 
     private String userNameJS = "login";
     private String passwordJS = "password";
-
+    private String loginBtnJS = "btn-primary";
+    private String csrfToken = "csrf_token";
+    private String msg = "alert-danger";
+    private String tag = "input";
 
     @FindBy(id = "login")
     private WebElement userName;
@@ -83,7 +86,7 @@ public class LoginPage extends BasePage {
     public void login() {
         inputTextBox(userNameLogin, "user@example.com");
         inputTextBox(passwordLogin, "bitnami");
-        clickViaJavascriptExecutor(loginBtn);
+        clickElementViaJSExecutor(loginBtn);
     }
 
     @Step("Login URL")
@@ -121,8 +124,15 @@ public class LoginPage extends BasePage {
 
     @Step
     public void performSomeJSFindElement() {
-        findElementByJSExecutor("id",userNameJS).sendKeys("abc");
-        findElementByJSExecutor("id",passwordJS).sendKeys("abc");
-
+        findElementByJSExecutor("id",userNameJS,0).sendKeys("abc");
+        findElementByJSExecutor("id",passwordJS,0).sendKeys("abc");
+        findElementByJSExecutor("class",loginBtnJS,0).click();
+        String csrf_value = findElementByJSExecutor("tagName",tag,0).getAttribute("value");
+        System.out.println("Get CSRF value by TagName: "+csrf_value);
+        String csrf_value_2 = findElementByJSExecutor("name",csrfToken,0).getAttribute("value");
+        System.out.println("Get CSRF value by name: "+ csrf_value_2);
+        String message = getTextElementViaJSExecutor("class",msg,0);
+        System.out.println("Error Message is: "+ message);
+        wait(5000);
     }
 }

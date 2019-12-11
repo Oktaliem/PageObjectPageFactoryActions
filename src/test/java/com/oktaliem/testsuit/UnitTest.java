@@ -3,7 +3,6 @@ package com.oktaliem.testsuit;
 import com.oktaliem.pages.Path;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
-import org.testng.annotations.TestInstance;
 
 import java.io.IOException;
 
@@ -321,7 +320,7 @@ public class UnitTest extends BaseTest{
 
     @Test(description = "General - Some javascript find element")
     public void TC37(){
-        user.loginPage().login();
+        user.loginPage().goToWeb("http://localhost/web/login");
         user.loginPage().performSomeJSFindElement();
     }
 

@@ -5,37 +5,35 @@
 
                 <title>Odoo</title>
                 <link type="image/x-icon" rel="shortcut icon" href="/web/static/src/img/favicon.ico">
-            <link type="text/css" rel="stylesheet" href="/web/content/654-4cce8d0/web.assets_common.css">
-            <link type="text/css" rel="stylesheet" href="/web/content/664-fa3905a/web.assets_frontend.css">
+            <link type="text/css" rel="stylesheet" href="/web/content/430-3c01eea/web.assets_common.css">
+            <link type="text/css" rel="stylesheet" href="/web/content/431-2b2ce13/web.assets_frontend.css">
         
 
                 <script type="text/javascript">
                     var odoo = {
-                        csrf_token: "084fe74ba23c4f63fa84fb25f9b0c84e12456f39o",
+                        csrf_token: "7c79cab65053dfb890d152175f55383c1194fb79o",
                         debug: "",
                     };
                 </script>
             <script type="text/javascript">
-                odoo.session_info = {"is_admin": false, "is_system": false, "is_website_user": false, "user_id": false, "is_frontend": true, "translationURL": "/website/translations", "cache_hashes": {"translations": "3f9840f92d2d22f10fb83244d7f7c08c01533309"}};
+                odoo.session_info = {"is_admin": false, "is_system": false, "is_website_user": false, "user_id": false, "is_frontend": true};
             </script>
-            <script defer="defer" type="text/javascript" src="/web/content/424-d600052/web.assets_common_minimal_js.js"></script>
-            <script defer="defer" type="text/javascript" src="/web/content/425-bd52e6b/web.assets_frontend_minimal_js.js"></script>
+            <script defer="defer" type="text/javascript" src="/web/content/432-178fe0e/web.assets_common_minimal_js.js"></script>
+            <script defer="defer" type="text/javascript" src="/web/content/433-4fef38a/web.assets_frontend_minimal_js.js"></script>
             
         
     
-            <script defer="defer" type="text/javascript" src="/web/content/665-8cfe83a/web.assets_common_lazy.js"></script>
-            <script defer="defer" type="text/javascript" data-src="/web/content/666-cd9c4df/web.assets_frontend_lazy.js"></script>
+            <script defer="defer" type="text/javascript" src="/web/content/434-383b496/web.assets_common_lazy.js"></script>
+            <script defer="defer" type="text/javascript" data-src="/web/content/435-a16725c/web.assets_frontend_lazy.js"></script>
         
 
                 
             </head>
             <body class="bg-100">
-                <div id="wrapwrap" class="  ">
+                <div id="wrapwrap" class="">
                 
                 <main>
                     
-            
-        
             
             
             
@@ -49,7 +47,7 @@
                         </div>
                         
             <form class="oe_login_form" role="form" method="post" onsubmit="this.action = this.action + location.hash" action="/web/login">
-                <input type="hidden" name="csrf_token" value="4293d2d0b1b206956d0fe0e5c0cad7ca0704c227o1576077105">
+                <input type="hidden" name="csrf_token" value="a32410ce162ab63f71fa4ca4a95d06663dbbe172o1575914525">
 
                 
 
@@ -68,11 +66,6 @@
 
                 <div class="clearfix oe_login_buttons text-center mb-1 pt-3">
                     <button type="submit" class="btn btn-primary btn-block">Log in</button>
-                <div class="justify-content-between mt-2 d-flex small">
-                    <a href="/web/signup?">Don't have an account?</a>
-                    <a href="/web/reset_password?">Reset Password</a>
-                </div>
-            
                     
                     <div class="o_login_auth"></div>
                 </div>
