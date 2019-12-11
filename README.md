@@ -94,6 +94,15 @@ Martin Flower :
    via Zalenium :
    $ docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start
    $ mvn clean test -Dbrowser="zalenium" -Dgrid_url="http://{your_ip_address}:4444/wd/hub" -Dsurfire.suiteXmlFiles=TestNG.xml
+   
+   run one method (testcase) or many methods (testcases)
+   $ mvn clean test -Dtest=UnitTest#TC03
+   $ mvn clean test -Dtest=UnitTest#TC03+TC04+TC05
+   
+   run one class (testsuit) or many classes (testsuites)
+   $ mvn clean test -Dtest=UnitTest
+   $ mvn clean test -Dtest=UnitTest,{another_class}
+   $ mvn clean test -Dtest=com.oktaliem.testsuit.**"
    ```
    
    

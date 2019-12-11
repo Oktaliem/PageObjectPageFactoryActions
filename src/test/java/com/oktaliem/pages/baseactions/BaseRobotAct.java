@@ -1,6 +1,6 @@
-package oktaliem.pages.baseactions;
+package com.oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.IRobotActions;
+import com.oktaliem.pages.webactions.IRobotActions;
 import org.openqa.selenium.WebDriver;
 
 import java.awt.*;

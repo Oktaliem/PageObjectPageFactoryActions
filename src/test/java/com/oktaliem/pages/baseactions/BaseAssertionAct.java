@@ -1,6 +1,6 @@
-package oktaliem.pages.baseactions;
+package com.oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.IAssertionActions;
+import com.oktaliem.pages.webactions.IAssertionActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

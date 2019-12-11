@@ -1,6 +1,6 @@
-package oktaliem.testsuit;
+package com.oktaliem.testsuit;
 
-import oktaliem.pages.Path;
+import com.oktaliem.pages.Path;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 

@@ -1,4 +1,4 @@
-package oktaliem.pages.webactions;
+package com.oktaliem.pages.webactions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

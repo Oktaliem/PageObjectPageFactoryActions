@@ -1,7 +1,7 @@
-package oktaliem.pages;
+package com.oktaliem.pages;
 
 import io.qameta.allure.Step;
-import oktaliem.pages.baseactions.BaseElementAct;
+import com.oktaliem.pages.baseactions.BaseElementAct;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

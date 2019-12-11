@@ -1,6 +1,6 @@
-package oktaliem.pages.baseactions;
+package com.oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.IGeneralActions;
+import com.oktaliem.pages.webactions.IGeneralActions;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;

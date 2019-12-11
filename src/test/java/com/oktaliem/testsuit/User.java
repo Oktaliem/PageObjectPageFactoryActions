@@ -1,9 +1,9 @@
-package oktaliem.testsuit;
+package com.oktaliem.testsuit;
 
 
-import oktaliem.pages.LoginPage;
-import oktaliem.pages.SeleniumPage;
-import oktaliem.pages.SettingPage;
+import com.oktaliem.pages.LoginPage;
+import com.oktaliem.pages.SeleniumPage;
+import com.oktaliem.pages.SettingPage;
 import org.openqa.selenium.WebDriver;
 
 public class User {

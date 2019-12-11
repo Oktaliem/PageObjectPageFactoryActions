@@ -1,4 +1,4 @@
-package oktaliem.pages;
+package com.oktaliem.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -9,8 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-import static oktaliem.pages.Path.SELENIUM_WEB;
-import static oktaliem.pages.Path.W3SCHOOLDRAGANDDROP;
+import static com.oktaliem.pages.Path.SELENIUM_WEB;
+import static com.oktaliem.pages.Path.W3SCHOOLDRAGANDDROP;
 
 public class SeleniumPage extends BasePage {
     /**

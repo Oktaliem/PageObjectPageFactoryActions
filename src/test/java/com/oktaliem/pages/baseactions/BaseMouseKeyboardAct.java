@@ -1,6 +1,6 @@
-package oktaliem.pages.baseactions;
+package com.oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.IMouseAndKeyboardActions;
+import com.oktaliem.pages.webactions.IMouseAndKeyboardActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

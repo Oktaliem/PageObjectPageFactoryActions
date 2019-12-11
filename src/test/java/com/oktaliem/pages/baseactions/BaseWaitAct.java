@@ -1,6 +1,6 @@
-package oktaliem.pages.baseactions;
+package com.oktaliem.pages.baseactions;
 
-import oktaliem.pages.webactions.IWaitActions;
+import com.oktaliem.pages.webactions.IWaitActions;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 

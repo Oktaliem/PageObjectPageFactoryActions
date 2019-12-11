@@ -1,4 +1,4 @@
-package oktaliem.pages.webactions;
+package com.oktaliem.pages.webactions;
 
 import java.awt.*;
 
