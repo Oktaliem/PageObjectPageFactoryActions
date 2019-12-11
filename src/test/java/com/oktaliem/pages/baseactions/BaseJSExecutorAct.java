@@ -88,6 +88,27 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
     }
 
     @Override
+    public WebElement findElementByJSExecutor(String by, String element) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        WebElement el = (WebElement) jsExecutor.executeScript("return document.getElementById('" + by + "')");
+        switch (by) {
+            case "id":
+                el = (WebElement) jsExecutor.executeScript("return document.getElementById('" + by + "')");
+                break;
+            case "tagName":
+                el = (WebElement) jsExecutor.executeScript("return document.getElementByTagName('" + by + "')");
+                break;
+            case "class":
+                el = (WebElement) jsExecutor.executeScript("return document.getElementByClassName('" + by + "')");
+                break;
+            case "name":
+                el = (WebElement) jsExecutor.executeScript("return document.getElementByName('" + by + "')");
+                break;
+        }
+        return el;
+    }
+
+    @Override
     public void clickViaJavascriptExecutor(WebElement element) {
         log.warn("Element is not clickable, try to click with Javascript");
         JavascriptExecutor js = (JavascriptExecutor) driver;

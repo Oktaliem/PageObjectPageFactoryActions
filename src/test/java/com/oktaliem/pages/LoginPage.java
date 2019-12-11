@@ -23,6 +23,9 @@ public class LoginPage extends BasePage {
     private By loginButton = By.className("btn-primary");
     private By DBManage = By.className("border-right");
 
+    private String userNameJS = "login";
+    private String passwordJS = "password";
+
 
     @FindBy(id = "login")
     private WebElement userName;
@@ -114,5 +117,12 @@ public class LoginPage extends BasePage {
         inputTextAndTab(userNameLogin,"user@example.com");
         inputTextAndEnter(passwordLogin,"bitnami");
         wait(5000);
+    }
+
+    @Step
+    public void performSomeJSFindElement() {
+        findElementByJSExecutor("id",userNameJS).sendKeys("abc");
+        findElementByJSExecutor("id",passwordJS).sendKeys("abc");
+
     }
 }

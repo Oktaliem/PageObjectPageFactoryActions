@@ -3,6 +3,7 @@ package com.oktaliem.testsuit;
 import com.oktaliem.pages.Path;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
+import org.testng.annotations.TestInstance;
 
 import java.io.IOException;
 
@@ -316,6 +317,12 @@ public class UnitTest extends BaseTest{
     public void TC36(){
         user.seleniumPage().goToWeb("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
         user.seleniumPage().uploadFilePOPF();
+    }
+
+    @Test(description = "General - Some javascript find element")
+    public void TC37(){
+        user.loginPage().login();
+        user.loginPage().performSomeJSFindElement();
     }
 
 }

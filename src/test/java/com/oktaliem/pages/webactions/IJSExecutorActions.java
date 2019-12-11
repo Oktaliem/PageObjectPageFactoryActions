@@ -17,5 +17,6 @@ public interface IJSExecutorActions {
     void handleJavascriptPopUp(String info);
     void openNewTab();
     Object executeJavascript(String javascript);
+    WebElement findElementByJSExecutor(String by,String element);
 
 }
