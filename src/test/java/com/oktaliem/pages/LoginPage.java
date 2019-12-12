@@ -18,7 +18,7 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    private By userNameLogin = By.id("ç");
+    private By userNameLogin = By.id("login");
     private By passwordLogin = By.id("password");
     private By loginButton = By.className("btn-primary");
     private By DBManage = By.className("border-right");
@@ -147,9 +147,9 @@ public class LoginPage extends BasePage {
 
         navigateViaJSExecutor("https://www.detik.com/");
         executeJavascript("window.scrollBy(0,1500)");
-        wait(2000);
+        wait(1000);
         executeJavascript("window.history.back()");
-        wait(2000);
+        wait(1000);
         executeJavascript("window.history.forward()");
         navigateViaJSExecutor("http://localhost/web/login");
 
@@ -157,6 +157,9 @@ public class LoginPage extends BasePage {
         executeJavascript("document.querySelector('#login').value='okta'"); //To call element by id, use "#id"
         String csrf_aja = executeJavascript("return document.querySelector('input').getAttribute('value')").toString(); //To call element by tagname, use "tagname"
         System.out.println("get csrf token: " + csrf_aja);
+        executeJavascript("document.body.style.zoom = '300%';");
+        wait(2000);
+        executeJavascript("window.open(arguments[0])");
         wait(5000);
     }
 }
