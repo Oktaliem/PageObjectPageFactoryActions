@@ -2,7 +2,6 @@ package com.oktaliem.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,7 +18,7 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    private By userNameLogin = By.id("login");
+    private By userNameLogin = By.id("ç");
     private By passwordLogin = By.id("password");
     private By loginButton = By.className("btn-primary");
     private By DBManage = By.className("border-right");
@@ -148,7 +147,16 @@ public class LoginPage extends BasePage {
 
         navigateViaJSExecutor("https://www.detik.com/");
         executeJavascript("window.scrollBy(0,1500)");
-        executeJavascript("document.frames.length;");
+        wait(2000);
+        executeJavascript("window.history.back()");
+        wait(2000);
+        executeJavascript("window.history.forward()");
+        navigateViaJSExecutor("http://localhost/web/login");
+
+        executeJavascript("document.querySelector('.btn-primary').click()"); //To call an element with class name, use ".classname"
+        executeJavascript("document.querySelector('#login').value='okta'"); //To call element by id, use "#id"
+        String csrf_aja = executeJavascript("return document.querySelector('input').getAttribute('value')").toString(); //To call element by tagname, use "tagname"
+        System.out.println("get csrf token: " + csrf_aja);
         wait(5000);
     }
 }
