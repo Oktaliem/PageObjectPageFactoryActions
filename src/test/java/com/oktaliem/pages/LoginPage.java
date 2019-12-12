@@ -2,6 +2,7 @@ package com.oktaliem.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -131,8 +132,23 @@ public class LoginPage extends BasePage {
         System.out.println("Get CSRF value by TagName: "+csrf_value);
         String csrf_value_2 = findElementByJSExecutor("name",csrfToken,0).getAttribute("value");
         System.out.println("Get CSRF value by name: "+ csrf_value_2);
-        String message = getTextElementViaJSExecutor("class",msg,0);
-        System.out.println("Error Message is: "+ message);
+        getTextElementViaJSExecutor("class",msg,0);
+        getAttributeViaJSExecutor("class","border-right",0,"href");
+        inputTextByJSExecutor(userName,"kucing garong");
+        getURLByJSExecutor();
+        navigateViaJSExecutor("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
+        navigateViaJSExecutor("http://localhost/web/login");
+
+        String a = executeJavascript("return document.documentElement.innerText;").toString();
+        System.out.println("return document.documentElement.innerText; " + a);
+        String b = executeJavascript("return document.title; ").toString();
+        System.out.println("return document.title; "+ b);
+        String c = executeJavascript("return document.domain;").toString();
+        System.out.println("return document.domain; "+c);
+
+        navigateViaJSExecutor("https://www.detik.com/");
+        executeJavascript("window.scrollBy(0,1500)");
+        executeJavascript("document.frames.length;");
         wait(5000);
     }
 }

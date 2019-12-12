@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 public interface IJSExecutorActions {
 
     void clickElementViaJSExecutor(WebElement element);
+    void inputTextByJSExecutor(WebElement element, String text);
     void scrollToBottomPage();
     void scrollToTopPage();
     void scrollUntilViewElement(By el);
@@ -19,5 +20,7 @@ public interface IJSExecutorActions {
     Object executeJavascript(String javascript);
     WebElement findElementByJSExecutor(String by,String element, int index);
     String getTextElementViaJSExecutor(String by,String element, int index);
-
+    String getAttributeViaJSExecutor(String by,String element, int index, String attribute);
+    String getURLByJSExecutor();
+    void navigateViaJSExecutor(String url);
 }

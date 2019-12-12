@@ -16,5 +16,5 @@ public interface IRobotActions {
     void robotPressEnter()throws AWTException;
     void robotPressTab()throws AWTException;
     void robotSelectAll()throws AWTException;
-    void robotType(String keyboard) throws AWTException;
+    void robotInputText(String keyboard) throws AWTException;
 }

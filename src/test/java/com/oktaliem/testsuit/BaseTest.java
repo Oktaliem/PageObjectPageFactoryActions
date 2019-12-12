@@ -12,11 +12,12 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+
 /**
  * Author : Okta Liem
  */
 public class BaseTest {
-    private WebDriver driver ;
+    private WebDriver driver;
     public User user;
 
 
@@ -41,10 +42,11 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         user = new User(driver);
+        System.out.println("I'm on test: " + method.getName());
     }
 
     @AfterMethod
-    public void teardown () {
+    public void teardown() {
         driver.quit();
     }
 

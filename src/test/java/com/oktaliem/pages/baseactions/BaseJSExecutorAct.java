@@ -119,40 +119,47 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
 
     @Override
     public String getTextElementViaJSExecutor(String by, String element, int index) {
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        WebElement el;
-        switch (by) {
-            case "id":
-                el = (WebElement) jsExecutor.executeScript("return document.getElementById('" + element + "')");
-                log.info("return document.getElementById('" + element + "')" + " Succeed");
-                break;
-            case "tagName":
-                el = (WebElement) jsExecutor.executeScript("return document.getElementsByTagName('" + element + "')" +
-                        "[" + index + "]");
-                log.info("return document.getElementBysTagName('" + element + "')[" + index + "]" + " Succeed");
-                break;
-            case "class":
-                el = (WebElement) jsExecutor.executeScript("return document.getElementsByClassName('" + element + "')" +
-                        "[" + index + "]");
-                log.info("return document.getElementsByClassName('" + element + "')[" + index + "]" + " Succeed");
-                break;
-            case "name":
-                el = (WebElement) jsExecutor.executeScript("return document.getElementsByName('" + element + "')" +
-                        "[" + index + "]");
-                log.info("return document.getElementsByName('" + element + "')[" + index + "]" + " Succeed");
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + element);
-        }
+        WebElement el = findElementByJSExecutor(by, element, index);
         String text = el.getText();
+        log.info("get text By: " + by + "element: " + element + " with value " + text);
         return text;
+    }
+
+    @Override
+    public String getAttributeViaJSExecutor(String by, String element, int index, String attribute) {
+        WebElement el = findElementByJSExecutor(by, element, index);
+        String text = el.getAttribute(attribute);
+        log.info("get attribute " + attribute + " By: " + by + " element: " + element + " with value " + text);
+        return text;
+    }
+
+    @Override
+    public String getURLByJSExecutor() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        String text = jsExecutor.executeScript("return document.URL;").toString();
+        log.info("get url " + text);
+        return text;
+    }
+
+    @Override
+    public void navigateViaJSExecutor(String url) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("window.location = '" + url + "'");
+        log.info("navigate via JSExecutor to " + url);
+    }
+
+    @Override
+    public void inputTextByJSExecutor(WebElement element, String text) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].value='" + text + "'", element);
+        log.info("input text in " + element + " with value " + text);
     }
 
     @Override
     public void clickElementViaJSExecutor(WebElement element) {
         log.warn("Element is not clickable, try to click with Javascript");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", element);
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].click();", element);
         log.info("click on " + element + " via javascript succeed");
     }
 

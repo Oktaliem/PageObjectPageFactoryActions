@@ -90,7 +90,7 @@ public class BaseRobotAct extends BaseWaitAct implements IRobotActions {
     }
 
     @Override
-    public void robotType(String keyboard) throws AWTException {
+    public void robotInputText(String keyboard) throws AWTException {
         Robot robot = new Robot();
         switch (keyboard) {
             case "alt": robot.keyPress(KeyEvent.VK_ALT); break;
