@@ -6,10 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class LoginPage extends BasePage {
@@ -23,6 +25,8 @@ public class LoginPage extends BasePage {
     private By passwordLogin = By.id("password");
     private By loginButton = By.className("btn-primary");
     private By DBManage = By.className("border-right");
+    private By fieldLogin = By.className("field-login");
+    private By tagNameInput = By.tagName("input");
 
     private String userNameJS = "login";
     private String passwordJS = "password";
@@ -45,6 +49,11 @@ public class LoginPage extends BasePage {
 
     @FindBy(className = "border-right")
     private WebElement manageDB;
+
+    @FindBys({
+            @FindBy(className = "field-login"),
+            @FindBy(tagName = "input")})
+    private WebElement userNameChains;
 
     @Step("Go to Odoo Login Page")
     public void launchTheApplication() {
@@ -155,8 +164,9 @@ public class LoginPage extends BasePage {
         executeJavascript("window.scrollBy(0,1500)");
         wait(1000);
         executeJavascript("window.history.back()");
-        wait(1000);
+        wait(2000);
         executeJavascript("window.history.forward()");
+        wait(2000);
         navigateViaJSExecutor("http://localhost/web/login");
 
         executeJavascript("document.querySelector('.btn-primary').click()"); //To call an element with class name, use ".classname"
@@ -166,6 +176,10 @@ public class LoginPage extends BasePage {
         executeJavascript("document.body.style.zoom = '300%';");
         wait(2000);
         executeJavascript("window.open(arguments[0])");
+        String docTitle = executeJavascript("return document.title").toString();
+        System.out.println("Document Title: " + docTitle);
+        executeJavascript("window.scrollByPages(3)");
+
         wait(5000);
     }
 
@@ -189,5 +203,15 @@ public class LoginPage extends BasePage {
     public void highlightPasswordFieldAndSave() throws IOException {
         highlightElement(password);
         takeScreenShot("TC39");
+    }
+
+    @Step
+    public void inputUserNameByChainElements() {
+        findElementByDoubleChain(By.className("field-login"),By.tagName("input")).sendKeys("Akto");
+        wait(2000);
+        findElementByDoubleChain(fieldLogin,tagNameInput).sendKeys("qwerty");
+        wait(2000);
+        inputTextBox(userNameChains,"akulah");
+        wait(2000);
     }
 }

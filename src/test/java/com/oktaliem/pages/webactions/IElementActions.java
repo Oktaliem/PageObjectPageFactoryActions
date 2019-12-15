@@ -20,6 +20,7 @@ public interface IElementActions {
     void selectOnRadioButtonByValue(By els, String text);
     void selectCheckBox(By el, String status, int index);
     void uploadFile(By el, String fileName);
+    WebElement findElementByDoubleChain(By el1, By el2);
 
     /** Web Action - Page Factory **/
     void clickOn(WebElement element);

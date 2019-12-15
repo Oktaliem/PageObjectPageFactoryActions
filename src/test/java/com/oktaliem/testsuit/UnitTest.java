@@ -258,14 +258,14 @@ public class UnitTest extends BaseTest{
     public void TC32() {
         user.loginPage().goToWeb(Path.LOGIN_PAGE_URL);
         user.loginPage().inputUserName("test123");
-        user.loginPage().inputUserName(Keys.chord(Keys.COMMAND, "a"));
+        user.loginPage().inputUserName(Keys.chord(Keys.COMMAND, "a")); //still not as expected
         user.loginPage().wait(2000);
         user.loginPage().performKeyboardAction(Keys.BACK_SPACE);
         user.loginPage().performKeyboardAction(Keys.BACK_SPACE);
-        user.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "C"));
+        user.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "C")); //still not as expected
         user.loginPage().wait(5000);
         user.loginPage().performKeyboardAction(Keys.TAB);
-        user.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "V"));
+        user.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "V")); //strill not as expected
         user.loginPage().wait(2000);
         user.loginPage().performKeyboardAction(Keys.TAB);
         user.loginPage().wait(2000);
@@ -341,5 +341,11 @@ public class UnitTest extends BaseTest{
     public void TC39() throws IOException {
         user.loginPage().goToWeb("http://localhost/web/login");
         user.loginPage().highlightPasswordFieldAndSave();
+    }
+
+    @Test(description = "Page Object Page Factory - Double chain alements")
+    public void TC40(){
+        user.loginPage().goToWeb("http://localhost/web/login");
+        user.loginPage().inputUserNameByChainElements();
     }
 }

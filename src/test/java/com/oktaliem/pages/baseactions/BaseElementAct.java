@@ -242,5 +242,12 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         log.info("Choose file name: " + fileName);
     }
 
+    @Override
+    public WebElement findElementByDoubleChain(By el1, By el2) {
+        WebElement els = driver.findElement(el1).findElement(el2);
+        log.info("Find element by: "+el1 +" and "+el2);
+        return els;
+    }
+
 
 }
