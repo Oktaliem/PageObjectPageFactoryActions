@@ -227,8 +227,6 @@ public class UnitTest extends BaseTest{
         user.seleniumPage().executeJavascript("window.open()");
         user.seleniumPage().executeJavascript("window.focus()");
         user.seleniumPage().executeJavascript("screen.height");
-
-        //https://chercher.tech/java/javascript-executor-selenium-webdriver
     }
 
     @Test(description = "General - Login with javascript executor (Negative Scenario) ")
@@ -259,7 +257,15 @@ public class UnitTest extends BaseTest{
     @Test(description = "General - Keyboard Action ")
     public void TC32() {
         user.loginPage().goToWeb(Path.LOGIN_PAGE_URL);
+        user.loginPage().inputUserName("test123");
+        user.loginPage().inputUserName(Keys.chord(Keys.COMMAND, "a"));
+        user.loginPage().wait(2000);
+        user.loginPage().performKeyboardAction(Keys.BACK_SPACE);
+        user.loginPage().performKeyboardAction(Keys.BACK_SPACE);
+        user.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "C"));
+        user.loginPage().wait(5000);
         user.loginPage().performKeyboardAction(Keys.TAB);
+        user.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "V"));
         user.loginPage().wait(2000);
         user.loginPage().performKeyboardAction(Keys.TAB);
         user.loginPage().wait(2000);
@@ -324,4 +330,16 @@ public class UnitTest extends BaseTest{
         user.loginPage().performSomeJSFindElement();
     }
 
+    @Test(description = "Page Object Page Factory - Check text contains")
+    public void TC38(){
+        user.loginPage().goToWeb("http://localhost/web/login");
+        user.loginPage().checkIfElementContainsExpectedResult();
+    }
+
+
+    @Test(description = "General - Highlight Element and save")
+    public void TC39() throws IOException {
+        user.loginPage().goToWeb("http://localhost/web/login");
+        user.loginPage().highlightPasswordFieldAndSave();
+    }
 }

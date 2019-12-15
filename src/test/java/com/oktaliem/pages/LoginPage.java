@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -48,6 +49,11 @@ public class LoginPage extends BasePage {
     @Step("Go to Odoo Login Page")
     public void launchTheApplication() {
         goToWeb(Path.LOGIN_PAGE_URL);
+    }
+
+    @Step
+    public void inputUserName(String name){
+        inputTextBox(userName, name);
     }
 
     @Step("Page Factory - Login")
@@ -161,5 +167,27 @@ public class LoginPage extends BasePage {
         wait(2000);
         executeJavascript("window.open(arguments[0])");
         wait(5000);
+    }
+
+    @Step
+    public void checkIfElementContainsExpectedResult() {
+        checkIfTextIsContains(manageDB,"Databas");
+        wait(2000);
+        checkIfTextIsContains(DBManage,"Data");
+        wait(2000);
+    }
+
+    @Step
+    public void performKeyboardAction(String key) {
+        Actions builder = new Actions(driver);
+        builder.sendKeys(key).build().perform();
+        builder.release().perform();
+        log.info("Keyboard Action: "+ key);
+    }
+
+    @Step
+    public void highlightPasswordFieldAndSave() throws IOException {
+        highlightElement(password);
+        takeScreenShot("TC39");
     }
 }

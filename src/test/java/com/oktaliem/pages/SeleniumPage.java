@@ -110,17 +110,17 @@ public class SeleniumPage extends BasePage {
 
     @Step
     public void performDragAndDropPF() {
-        switchToIframeByIdOrName(iframe);
+        switchToFrameByIdOrName(iframe);
         dragFromAndDropTo(origin, target);
-        switchIframeToDefaultContent();
+        switchFrameToDefaultContent();
         wait(5000);
     }
 
     @Step
     public void performDragAndDropPO() {
-        switchToIframeByIndex(0);
+        switchToFrameByIndex(0);
         dragFromAndDropTo(originPO, targetPO);
-        switchIframeToParentFrame();
+        switchFrameToParentFrame();
         wait(5000);
     }
 
@@ -150,7 +150,7 @@ public class SeleniumPage extends BasePage {
 
     @Step
     public void selectCountryDropDownList() {
-        switchToIframeByIndex(0);
+        switchToFrameByIndex(0);
         selectOnDropDownListByText(country, "USA");
         wait(5000);
         selectOnDropDownListByValue(country, "canada");
@@ -161,7 +161,7 @@ public class SeleniumPage extends BasePage {
 
     @Step
     public void selectRadioW3SchoolText() {
-        switchToIframeByIndex(0);
+        switchToFrameByIndex(0);
         selectOnRadioButtonByText(options, "Option 2");
         wait(5000);
         selectOnRadioButtonByText(optionPO, "Option 1");
@@ -170,7 +170,7 @@ public class SeleniumPage extends BasePage {
 
     @Step
     public void selectRadioW3SchoolValue() {
-        switchToIframeByIndex(0);
+        switchToFrameByIndex(0);
         selectOnRadioButtonByValue(inputs, "Firefox");
         wait(5000);
         selectOnRadioButtonByValue(inputPO, "Safari");
@@ -179,11 +179,11 @@ public class SeleniumPage extends BasePage {
 
     @Step
     public void uploadFilePOPF() {
-        switchToIframeByIndex(0);
+        switchToFrameByIndex(0);
         uploadFile(uploadFilePO, "/actualhtmltext/loginpage.txt");
         wait(3000);
         refreshPage();
-        switchToIframeByIndex(0);
+        switchToFrameByIndex(0);
         wait(3000);
         uploadFile(uploadFilePF, "/actualhtmltext/loginpage.txt");
         wait(3000);

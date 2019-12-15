@@ -149,6 +149,12 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
     }
 
     @Override
+    public void highlightElement(WebElement element) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].style.border='3px solid red'", element);
+    }
+
+    @Override
     public void inputTextByJSExecutor(WebElement element, String text) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].value='" + text + "'", element);

@@ -23,4 +23,5 @@ public interface IJSExecutorActions {
     String getAttributeViaJSExecutor(String by,String element, int index, String attribute);
     String getURLByJSExecutor();
     void navigateViaJSExecutor(String url);
+    void highlightElement (WebElement element);
 }

@@ -3,9 +3,7 @@ package com.oktaliem.pages.baseactions;
 import com.oktaliem.pages.webactions.IGeneralActions;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.BufferedReader;
@@ -116,25 +114,25 @@ public class BaseGeneralAct implements IGeneralActions {
     }
 
     @Override
-    public void switchToIframeByIndex(int index) {
+    public void switchToFrameByIndex(int index) {
         driver.switchTo().frame(index);
         log.info("Switch to iframe by index: " + index);
     }
 
     @Override
-    public void switchToIframeByIdOrName(WebElement element) {
+    public void switchToFrameByIdOrName(WebElement element) {
         driver.switchTo().frame(element);
         log.info("Switch to iframe by id or name: " + element);
     }
 
     @Override
-    public void switchIframeToDefaultContent() {
+    public void switchFrameToDefaultContent() {
         driver.switchTo().defaultContent();
         log.info("Switch to default content - Back to main Page");
     }
 
     @Override
-    public void switchIframeToParentFrame() {
+    public void switchFrameToParentFrame() {
         driver.switchTo().parentFrame();
         log.info("Switch to parent frame");
     }
@@ -154,5 +152,15 @@ public class BaseGeneralAct implements IGeneralActions {
         builder.release().perform();
         log.info("Keyboard Input Action: "+ text);
     }
+
+    @Override
+    public void takeScreenShot(String fileName) throws IOException {
+        String screenShotPath = System.getProperty("user.dir") + "/screenshots/" + fileName + ".png";
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        File filePath = new File(screenShotPath);
+        FileUtils.copyFile(source, filePath);
+    }
+
 
 }

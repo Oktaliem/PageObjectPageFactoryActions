@@ -10,4 +10,5 @@ public interface IWaitActions {
     void wait(int miliseconds);
     void waitWithJavascriptExecutor(int miliseconds);
     void robotWaitFor(int miliseconds) throws AWTException;
+
 }

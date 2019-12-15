@@ -20,10 +20,11 @@ public interface IGeneralActions {
     String getCurrentURL();
     String readFile(String filePath) throws IOException;
     void goToWeb(String url);
-    void switchToIframeByIndex(int index);
-    void switchToIframeByIdOrName(WebElement element);
-    void switchIframeToDefaultContent();
-    void switchIframeToParentFrame();
+    void switchToFrameByIndex(int index);
+    void switchToFrameByIdOrName(WebElement element);
+    void switchFrameToDefaultContent();
+    void switchFrameToParentFrame();
     void performKeyboardAction(Keys tab);
     void performKeyboardInputAction(String text);
+    void takeScreenShot(String fileName) throws IOException;
 }
