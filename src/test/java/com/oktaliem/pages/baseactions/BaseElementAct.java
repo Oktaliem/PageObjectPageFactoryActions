@@ -1,10 +1,9 @@
 package com.oktaliem.pages.baseactions;
 
 import com.oktaliem.pages.webactions.IElementActions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 
@@ -238,6 +237,12 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void uploadFile(WebElement element, String fileName) {
+        try {
+            // this function is to upload from web browser in docker/zalenium
+            if (driver instanceof RemoteWebDriver) {
+                ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
+            }
+        } catch (WebDriverException e) {}
         element.sendKeys(System.getProperty("user.dir") + "/src/main/resources/" + fileName);
         log.info("Choose file name: " + fileName);
     }

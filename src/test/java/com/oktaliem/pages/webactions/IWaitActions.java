@@ -1,5 +1,8 @@
 package com.oktaliem.pages.webactions;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import java.awt.*;
 
 /**
@@ -10,5 +13,11 @@ public interface IWaitActions {
     void wait(int miliseconds);
     void waitWithJavascriptExecutor(int miliseconds);
     void robotWaitFor(int miliseconds) throws AWTException;
+    boolean checkIfElementIsVisible(WebElement element, int inSeconds);
+    boolean checkIfElementIsPresent(By by, int inSeconds);
+    boolean checkIfElementIsInvisible(WebElement element, int inSeconds);
+    boolean checkIfElementIsClickAble(WebElement element, int inSeconds);
+    void waitForElementActionable(WebElement element, int time);
+    WebElement fluentWait(By by, int timeOut, int polling);
 
 }
