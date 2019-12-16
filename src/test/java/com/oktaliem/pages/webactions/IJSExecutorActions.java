@@ -14,10 +14,10 @@ public interface IJSExecutorActions {
     void scrollToTopPage();
     void scrollUntilViewElement(By el);
     void scrollUntilViewElement(WebElement element);
-    void refreshPageViaJavaScriptExecutor();
+    void refreshPageViaJSExecutor();
     void handleJavascriptPopUp(String info);
     void openNewTab();
-    Object executeJavascript(String javascript);
+    Object executeViaJSExecutor(String javascript);
     WebElement findElementByJSExecutor(String by,String element, int index);
     String getTextElementViaJSExecutor(String by,String element, int index);
     String getAttributeViaJSExecutor(String by,String element, int index, String attribute);

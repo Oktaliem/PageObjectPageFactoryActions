@@ -46,7 +46,6 @@ public class BaseTest {
             driver = new ChromeDriver();
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         user = new User(driver);
         System.out.println("I'm on testing test case no: " + method.getName());
     }

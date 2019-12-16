@@ -72,8 +72,9 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
         log.info("Scroll until element: " + element + " is displayed");
     }
 
+
     @Override
-    public void refreshPageViaJavaScriptExecutor() {
+    public void refreshPageViaJSExecutor() {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("history.go(0)");
         //or
@@ -82,7 +83,7 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
     }
 
     @Override
-    public Object executeJavascript(String javascript) {
+    public Object executeViaJSExecutor(String javascript) {
         log.info("execute javascript: " + javascript);
         return ((JavascriptExecutor) driver).executeScript(javascript);
     }

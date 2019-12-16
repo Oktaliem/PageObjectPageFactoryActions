@@ -2,6 +2,7 @@ package com.oktaliem.testsuit;
 
 import com.oktaliem.pages.Path;
 import org.openqa.selenium.Keys;
+import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -214,44 +215,44 @@ public class UnitTest extends BaseTest{
         user.seleniumPage().launchTheApplicationGuru99();
         user.seleniumPage().wait(5000);
         user.seleniumPage().wait(5000);
-        user.seleniumPage().executeJavascript("alert(\"Hello World!\")");
+        user.seleniumPage().executeViaJSExecutor("alert(\"Hello World!\")");
         user.seleniumPage().wait(5000);
         user.seleniumPage().handleJavascriptPopUp("Hello World!");
-        user.seleniumPage().executeJavascript("window.confirm(\"sometext\");");
+        user.seleniumPage().executeViaJSExecutor("window.confirm(\"sometext\");");
         user.seleniumPage().wait(5000);
         user.seleniumPage().handleJavascriptPopUp("cancel");
-        user.seleniumPage().executeJavascript("window.prompt(\"sometext\",\"defaultText\");");
+        user.seleniumPage().executeViaJSExecutor("window.prompt(\"sometext\",\"defaultText\");");
         user.seleniumPage().wait(5000);
         user.seleniumPage().handleJavascriptPopUp("defaultText");
-        user.seleniumPage().refreshPageViaJavaScriptExecutor();
-        user.seleniumPage().executeJavascript("window.open()");
-        user.seleniumPage().executeJavascript("window.focus()");
-        user.seleniumPage().executeJavascript("screen.height");
+        user.seleniumPage().refreshPageViaJSExecutor();
+        user.seleniumPage().executeViaJSExecutor("window.open()");
+        user.seleniumPage().executeViaJSExecutor("window.focus()");
+        user.seleniumPage().executeViaJSExecutor("screen.height");
     }
 
     @Test(description = "General - Login with javascript executor (Negative Scenario) ")
     public void TC30(){
-        user.loginPage().executeJavascript("window.location=\"http://localhost/web/login/\";");
+        user.loginPage().executeViaJSExecutor("window.location=\"http://localhost/web/login/\";");
         user.loginPage().wait(2000);
-        user.loginPage().executeJavascript("document.getElementById('login').value='bitnami'");
+        user.loginPage().executeViaJSExecutor("document.getElementById('login').value='bitnami'");
         user.loginPage().wait(2000);
-        user.loginPage().executeJavascript("document.getElementById('password').value='test'");
+        user.loginPage().executeViaJSExecutor("document.getElementById('password').value='test'");
         user.loginPage().wait(2000);
-        user.loginPage().executeJavascript("document.getElementsByClassName('btn-primary')[0].style.backgroundColor='red'");
+        user.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].style.backgroundColor='red'");
         user.loginPage().wait(2000);
-        user.loginPage().executeJavascript("document.getElementsByClassName('btn-primary')[0].click()");
+        user.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].click()");
         user.loginPage().wait(2000);
-        user.loginPage().executeJavascript("document.body.style.zoom='50'");
+        user.loginPage().executeViaJSExecutor("document.body.style.zoom='50'");
         user.loginPage().wait(2000);
     }
 
 
     @Test(description = "General - Login with javascript executor (Positive Scenario) ")
     public void TC31(){
-        user.loginPage().executeJavascript("window.location=\"http://localhost/web/login/\";");
-        user.loginPage().executeJavascript("document.getElementById('login').value='user@example.com'");
-        user.loginPage().executeJavascript("document.getElementById('password').value='bitnami'");
-        user.loginPage().executeJavascript("document.getElementsByClassName('btn-primary')[0].click()");
+        user.loginPage().executeViaJSExecutor("window.location=\"http://localhost/web/login/\";");
+        user.loginPage().executeViaJSExecutor("document.getElementById('login').value='user@example.com'");
+        user.loginPage().executeViaJSExecutor("document.getElementById('password').value='bitnami'");
+        user.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].click()");
     }
 
     @Test(description = "General - Keyboard Action ")
@@ -347,5 +348,12 @@ public class UnitTest extends BaseTest{
     public void TC40(){
         user.loginPage().goToWeb("http://localhost/web/login");
         user.loginPage().inputUserNameByChainElements();
+    }
+
+    @Test(description = "Sikuli - perform Sikuli action")
+    public void TC41() throws FindFailed {
+        user.loginPage().goToWeb("http://localhost/web/login");
+        user.loginPage().loginWithSikuli(); // return false positive , unable to click but test succeed,
+        // Sikuli works well for non-web UI
     }
 }

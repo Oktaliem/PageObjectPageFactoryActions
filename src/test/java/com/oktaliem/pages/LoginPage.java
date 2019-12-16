@@ -8,10 +8,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.sikuli.script.FindFailed;
 import org.testng.Assert;
 
 import java.io.IOException;
-import java.util.List;
 
 
 public class LoginPage extends BasePage {
@@ -54,6 +54,8 @@ public class LoginPage extends BasePage {
             @FindBy(className = "field-login"),
             @FindBy(tagName = "input")})
     private WebElement userNameChains;
+
+    String sikuliPath = System.getProperty("user.dir") + "/src/main/resources/sikuli/";
 
     @Step("Go to Odoo Login Page")
     public void launchTheApplication() {
@@ -153,32 +155,33 @@ public class LoginPage extends BasePage {
         navigateViaJSExecutor("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
         navigateViaJSExecutor("http://localhost/web/login");
 
-        String a = executeJavascript("return document.documentElement.innerText;").toString();
+        String a = executeViaJSExecutor("return document.documentElement.innerText;").toString();
         System.out.println("return document.documentElement.innerText; " + a);
-        String b = executeJavascript("return document.title; ").toString();
+        String b = executeViaJSExecutor("return document.title; ").toString();
         System.out.println("return document.title; "+ b);
-        String c = executeJavascript("return document.domain;").toString();
+        String c = executeViaJSExecutor("return document.domain;").toString();
         System.out.println("return document.domain; "+c);
 
         navigateViaJSExecutor("https://www.detik.com/");
-        executeJavascript("window.scrollBy(0,1500)");
+        executeViaJSExecutor("window.scrollBy(0,1500)");
         wait(1000);
-        executeJavascript("window.history.back()");
+        executeViaJSExecutor("window.history.back()");
         wait(2000);
-        executeJavascript("window.history.forward()");
+        executeViaJSExecutor("window.history.forward()");
         wait(2000);
         navigateViaJSExecutor("http://localhost/web/login");
 
-        executeJavascript("document.querySelector('.btn-primary').click()"); //To call an element with class name, use ".classname"
-        executeJavascript("document.querySelector('#login').value='okta'"); //To call element by id, use "#id"
-        String csrf_aja = executeJavascript("return document.querySelector('input').getAttribute('value')").toString(); //To call element by tagname, use "tagname"
+        executeViaJSExecutor("document.querySelector('.btn-primary').click()"); //To call an element with class name, use ".classname"
+        executeViaJSExecutor("document.querySelector('#login').value='okta'"); //To call element by id, use "#id"
+        String csrf_aja = executeViaJSExecutor("return document.querySelector('input').getAttribute('value')").toString(); //To call element by tagname, use "tagname"
         System.out.println("get csrf token: " + csrf_aja);
-        executeJavascript("document.body.style.zoom = '300%';");
+        executeViaJSExecutor("document.body.style.zoom = '300%';");
         wait(2000);
-        executeJavascript("window.open(arguments[0])");
-        String docTitle = executeJavascript("return document.title").toString();
+        executeViaJSExecutor("window.open(arguments[0])");
+        String docTitle = executeViaJSExecutor("return document.title").toString();
         System.out.println("Document Title: " + docTitle);
-        executeJavascript("window.scrollByPages(3)");
+
+        executeViaJSExecutor("window.scrollByPages(3)");
 
         wait(5000);
     }
@@ -213,5 +216,15 @@ public class LoginPage extends BasePage {
         wait(2000);
         inputTextBox(userNameChains,"akulah");
         wait(2000);
+    }
+
+    @Step
+    public void loginWithSikuli() throws FindFailed {
+        inputTextBox(userNameLogin, "user@example.com");
+        inputTextBox(passwordLogin, "bitnami");
+        clickOn(password);
+        wait(2000);
+        clickViaSikuli(sikuliPath,"login_button.png"); //test sukses tapi tapi berhasil, false positive
+        wait(5000);
     }
 }
