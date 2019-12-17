@@ -26,5 +26,4 @@ public interface IGeneralActions {
     void switchFrameToParentFrame();
     void performKeyboardAction(Keys tab);
     void performKeyboardInputAction(String text);
-    void takeScreenShot(String fileName) throws IOException;
 }

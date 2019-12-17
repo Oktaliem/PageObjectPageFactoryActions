@@ -23,4 +23,5 @@ public interface IMouseAndKeyboardActions {
     void inputTextAndEnter(WebElement element, String value);
     void inputTextAndTab(WebElement element, String value);
     void moveMouseAndClick(WebElement move, WebElement target);
+    void autoCompleteDroDownList(WebElement element, String text, int xOffset, int yOffset);
 }

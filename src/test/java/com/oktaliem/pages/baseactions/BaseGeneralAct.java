@@ -22,8 +22,8 @@ public class BaseGeneralAct extends BaseSikuliAct implements IGeneralActions {
     public WebDriver driver;
     public static Logger log = Logger.getLogger("Library Test");
 
-
-    public BaseGeneralAct (WebDriver driver) {
+    public BaseGeneralAct(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
@@ -151,15 +151,6 @@ public class BaseGeneralAct extends BaseSikuliAct implements IGeneralActions {
         builder.sendKeys(text).build().perform();
         builder.release().perform();
         log.info("Keyboard Input Action: "+ text);
-    }
-
-    @Override
-    public void takeScreenShot(String fileName) throws IOException {
-        String screenShotPath = System.getProperty("user.dir") + "/screenshots/" + fileName + ".png";
-        TakesScreenshot ts = (TakesScreenshot) driver;
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        File filePath = new File(screenShotPath);
-        FileUtils.copyFile(source, filePath);
     }
 
 

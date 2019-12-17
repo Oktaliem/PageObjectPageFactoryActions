@@ -2,6 +2,7 @@ package com.oktaliem.testsuit;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,6 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -26,6 +26,7 @@ public class BaseTest {
     private WebDriver driver;
     public User user;
     public static String screenShotPath;
+    public static Logger log = Logger.getLogger("Test Preparation");
 
     @BeforeMethod
     public void initialization(Method method) {
@@ -42,18 +43,21 @@ public class BaseTest {
             }
         } catch (Exception e) {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver-mac");
-            System.out.println(System.getProperty("user.dir") + "/drivers/chromedriver-mac");
+            //System.out.println(System.getProperty("user.dir") + "/drivers/chromedriver-mac");
+            log.info("I'm using Webdriver: "+System.getProperty("user.dir") + "/drivers/chromedriver-mac");
             driver = new ChromeDriver();
         }
         driver.manage().window().maximize();
         user = new User(driver);
-        System.out.println("I'm on testing test case no: " + method.getName());
+        //System.out.println("I'm on testing test case no: " + method.getName());
+        log.info("I'm on testing test case no: " + method.getName());
     }
 
     @AfterMethod
     public void teardown(ITestResult result, Method method) throws IOException {
         if (result.getStatus() == ITestResult.FAILURE){
-            System.out.println("TEST FAILED");
+            //System.out.println("TEST FAILED");
+            log.info("TEST FAILED");
             screenShotPath = System.getProperty("user.dir") + "/Screenshots/" + "SepFailed_" + method.getName() + ".png";
             TakesScreenshot ts = (TakesScreenshot) driver;
             File source = ts.getScreenshotAs(OutputType.FILE);
@@ -61,7 +65,8 @@ public class BaseTest {
             FileUtils.copyFile(source, filePath);
         }
         if (result.getStatus() == ITestResult.SUCCESS) {
-            System.out.println("TEST SUCCEED");
+            //System.out.println("TEST SUCCEED");
+            log.info("TEST SUCCEED");
         }
         driver.quit();
     }

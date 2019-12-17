@@ -25,6 +25,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public void clickOn(By el) {
         WebElement element = driver.findElement(el);
+        waitUntilLocatorIsVisible(element,4);
         if (element.isDisplayed()) {
             try {
                 element.click();
@@ -40,6 +41,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public void inputTextBox(By el, String value) {
         WebElement element = driver.findElement(el);
+        waitUntilLocatorIsVisible(element,4);
         if (element.isDisplayed()) {
             element.clear();
             element.sendKeys(value);
@@ -61,6 +63,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     public void selectOnDropDownListByText(By el, String text) {
         try {
             WebElement element = driver.findElement(el);
+            waitUntilLocatorIsVisible(element,4);
             Select select = new Select(element);
             select.selectByVisibleText(text);
             log.info("Select Drop down List Element by visible text : " + element);
@@ -79,6 +82,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public void selectOnDropDownListByValue(By el, String value) {
         WebElement element = driver.findElement(el);
+        waitUntilLocatorIsVisible(element,4);
         Select select = new Select(element);
         select.selectByValue(value);
         log.info("Select Drop down List Element by visible text : " + element);
@@ -109,6 +113,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public void selectCheckBox(By el, String status, int index) {
         WebElement element = driver.findElements(el).get(index);
+        waitUntilLocatorIsVisible(element,4);
         if (status.equals("n")) {
             if (element.isSelected()) {
                 clickOn(element);
@@ -128,6 +133,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public void uploadFile(By el, String fileName) {
         WebElement element = driver.findElement(el);
+        waitUntilLocatorIsVisible(element,4);
         element.sendKeys(System.getProperty("user.dir") + "/src/main/resources/" + fileName);
         log.info("Choose file name: " + fileName);
     }
@@ -138,6 +144,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
      */
     @Override
     public void clickOn(WebElement element) {
+        waitUntilLocatorIsVisible(element,4);
         if (element.isDisplayed()) {
             try {
                 element.click();
@@ -152,6 +159,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void inputTextBox(WebElement element, String value) {
+        waitUntilLocatorIsVisible(element,4);
         if (element.isDisplayed()) {
             element.clear();
             element.sendKeys(value);
@@ -163,6 +171,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public String getTextFromElement(WebElement element) {
+        waitUntilLocatorIsVisible(element,4);
         String text = element.getText();
         log.info("Get Text with value: " + text);
         return text;
@@ -171,6 +180,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void selectOnDropDownListByText(WebElement element, String text) {
+        waitUntilLocatorIsVisible(element,4);
         Select select = new Select(element);
         select.selectByVisibleText(text);
         log.info("Select Drop down List Element by visible text : " + element);
@@ -189,6 +199,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void selectOnDropDownListByValue(WebElement element, String value) {
+        waitUntilLocatorIsVisible(element,4);
         Select select = new Select(element);
         select.selectByValue(value);
         log.info("Select Drop down List Element by visible text : " + element);
@@ -219,6 +230,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void selectCheckBox(WebElement element, String status) {
+        waitUntilLocatorIsVisible(element,4);
         if (status.equals("n")) {
             if (element.isSelected()) {
                 clickOn(element);
@@ -237,8 +249,8 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void uploadFile(WebElement element, String fileName) {
+        waitUntilLocatorIsVisible(element,4);
         try {
-            // this function is to upload from web browser in docker/zalenium
             if (driver instanceof RemoteWebDriver) {
                 ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
             }

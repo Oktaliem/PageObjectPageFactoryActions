@@ -2,6 +2,7 @@ package com.oktaliem.pages.baseactions;
 
 import com.oktaliem.pages.webactions.ISikuli;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -9,10 +10,14 @@ import org.sikuli.script.Screen;
 /**
  * Author : Okta Liem
  */
-public class BaseSikuliAct implements ISikuli {
+public class BaseSikuliAct extends BaseScreenshot implements ISikuli {
     public static Logger log = Logger.getLogger("Library Test");
     private Pattern pattern;
     private Screen sikuli = new Screen();
+
+    public BaseSikuliAct(WebDriver driver) {
+        super(driver);
+    }
 
     @Override
     public void clickViaSikuli(String filePath, String fileName) throws FindFailed {

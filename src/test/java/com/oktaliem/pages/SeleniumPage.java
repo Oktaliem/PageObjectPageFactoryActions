@@ -145,7 +145,7 @@ public class SeleniumPage extends BasePage {
 
     @Step
     public void waitViaJavaScriptExecutor() {
-        waitWithJavascriptExecutor(10000);
+        waitWithJSExecutor(10000);
     }
 
     @Step

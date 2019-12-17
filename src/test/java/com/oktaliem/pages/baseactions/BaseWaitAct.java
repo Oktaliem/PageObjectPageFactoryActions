@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.awt.*;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 
 /**
  * Author : Okta Liem
@@ -82,8 +81,8 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
     }
 
     @Override
-    public void waitForElementActionable(WebElement element, int time) {
-        WebDriverWait wait = new WebDriverWait(driver, time);
+    public void waitForElementActionable(WebElement element, int inSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, inSeconds);
         wait.until(ExpectedConditions.or(
                 ExpectedConditions.visibilityOf(element),
                 ExpectedConditions.elementToBeClickable(element),
@@ -93,7 +92,7 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
 
 
     @Override
-    public void waitWithJavascriptExecutor(int miliseconds) {
+    public void waitWithJSExecutor(int miliseconds) {
         long start = System.currentTimeMillis();
         ((JavascriptExecutor) driver).executeAsyncScript(
                 "window.setTimeout(arguments[arguments.length - 1]," + miliseconds + ");");
@@ -109,21 +108,6 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
         log.info("Wait with Robot class for "+miliseconds+" miliseconds");
     }
 
-
-//    public void waitWithFluentWait(){
-//        FluentWait wait = new FluentWait(driver);
-//        //Specify the timout of the wait
-//        wait.withTimeout(5000, TimeUnit.MILLISECONDS);
-//        //Sepcify polling time
-//        wait.pollingEvery(250, TimeUnit.MILLISECONDS);
-//        //Specify what exceptions to ignore
-//        wait.ignoring(NoSuchElementException.class);
-//
-//        //This is how we specify the condition to wait on.
-//        //This is what we will explore more in this chapter
-//        wait.until(ExpectedConditions.visibilityOf());
-//    }
-
     @Override
     public WebElement fluentWait(By by, int timeOut, int polling) {
         Wait<WebDriver> wait = new FluentWait<>(driver)
@@ -132,6 +116,27 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
                 .ignoring(NoSuchElementException.class);
         WebElement element = wait.until(driver -> driver.findElement(by));
         return  element;
+    }
+
+    @Override
+    public void waitUntilLocatorIsVisible(WebElement element, int insSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, insSeconds);
+        wait.until(ExpectedConditions.visibilityOf(element));
+        log.info("wait until element: " + element + "is visible");
+    }
+
+    @Override
+    public void waitUntilTextIsPresentInLocator(WebElement element, String text) {
+        WebDriverWait wait = new WebDriverWait(driver, 4);
+        wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+        log.info("wait until text in element: " + element + "is present");
+    }
+
+    @Override
+    public void waitUntilLocatorIsInvisible(WebElement element, int inSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+        wait.until(ExpectedConditions.invisibilityOf(element));
+        log.info("wait until element: " + element + "is invisible");
     }
 
 }
