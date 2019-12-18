@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.awt.*;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * Author : Okta Liem
@@ -28,8 +29,10 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
         try {
             WebDriverWait wait = new WebDriverWait(driver, inSeconds);
             wait.until(ExpectedConditions.visibilityOf(element));
+            log.info(element + " is visible");
             return true;
         } catch (Exception e) {
+            log.info(element + " is not visible");
             return false;
         }
     }
@@ -39,8 +42,10 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
         try {
             WebDriverWait wait = new WebDriverWait(driver, inSeconds);
             wait.until(ExpectedConditions.presenceOfElementLocated(by));
+            log.info(by + " is present");
             return true;
         } catch (Exception e) {
+            log.info(by + " is not present");
             return false;
         }
     }
@@ -50,8 +55,10 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
         try {
             WebDriverWait wait = new WebDriverWait(driver, inSeconds);
             wait.until(ExpectedConditions.invisibilityOf(element));
+            log.info(element + " is invisible");
             return true;
         } catch (Exception e) {
+            log.info(element + " is not invisible");
             return false;
         }
     }
@@ -61,8 +68,10 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
         try {
             WebDriverWait wait = new WebDriverWait(driver, inSeconds);
             wait.until(ExpectedConditions.elementToBeClickable(element));
+            log.info(element + " is clickable");
             return true;
         } catch (Exception e) {
+            log.info(element + " is not clickable");
             return false;
         }
     }
@@ -86,8 +95,8 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
         wait.until(ExpectedConditions.or(
                 ExpectedConditions.visibilityOf(element),
                 ExpectedConditions.elementToBeClickable(element),
-                ExpectedConditions.presenceOfElementLocated((By) element),
                 ExpectedConditions.elementToBeSelected(element)));
+        log.info(element + " is visible, clickable and selected");
     }
 
 
@@ -115,6 +124,7 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
                 .pollingEvery(polling, TimeUnit.MILLISECONDS)
                 .ignoring(NoSuchElementException.class);
         WebElement element = wait.until(driver -> driver.findElement(by));
+        log.info("fluent wait is success waiting for "+element);
         return  element;
     }
 

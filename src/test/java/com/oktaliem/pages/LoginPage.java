@@ -2,6 +2,7 @@ package com.oktaliem.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.sikuli.script.FindFailed;
 import org.testng.Assert;
 
+import java.awt.*;
 import java.io.IOException;
 
 
@@ -27,6 +29,8 @@ public class LoginPage extends BasePage {
     private By DBManage = By.className("border-right");
     private By fieldLogin = By.className("field-login");
     private By tagNameInput = By.tagName("input");
+    private By dialogBox = By.xpath("/html[1]/body[1]/ul[1]/li[6]/div[1]/button[1]");
+    private By dialog = By.xpath("/html[1]/body[1]/ul[1]/li[5]/div[1]/button[1]");
 
     private String userNameJS = "login";
     private String passwordJS = "password";
@@ -57,6 +61,9 @@ public class LoginPage extends BasePage {
 
     String sikuliPath = System.getProperty("user.dir") + "/src/main/resources/sikuli/";
 
+    @FindBy(id = "swal2-title")
+    WebElement popUpTitle;
+
     @Step("Go to Odoo Login Page")
     public void launchTheApplication() {
         goToWeb(Path.LOGIN_PAGE_URL);
@@ -79,12 +86,6 @@ public class LoginPage extends BasePage {
         inputTextBox(userNameLogin, "user@example.com");
         inputTextBox(passwordLogin, "bitnami");
         clickOn(loginButton);
-    }
-
-    @Step("Landing to Discuss Page")
-    public void landingToDiscussPagePF() {
-        // checkIfElementIsVisible(pageHeader,10);
-        // waitForElementActionable(pageHeader,10);
     }
 
     @Step("Get Text sample Page Factory")
@@ -226,5 +227,32 @@ public class LoginPage extends BasePage {
         wait(2000);
         clickViaSikuli(sikuliPath,"login_button.png"); //test sukses tapi tapi berhasil, false positive
         wait(5000);
+    }
+
+    @Step
+    public void waitingGame() throws AWTException {
+        Assert.assertTrue(checkIfElementIsVisible(userName,3));
+        Assert.assertTrue(checkIfElementIsPresent(passwordLogin,3));
+        Assert.assertTrue(checkIfElementIsClickAble(loginBtn,2));
+        robotWaitFor(2000);
+        fluentWait(DBManage,2000,250);
+        waitUntilTextIsPresentInLocator(manageDB,"Manage Databases");
+        waitForElementActionable(loginBtn,2);
+        goToWeb("https://sweetalert2.github.io/");
+        scrollUntilViewElement(dialog);
+        wait(2000);
+        clickOn(dialogBox);
+        try{
+            waitUntilLocatorIsInvisible(popUpTitle,5);
+        }catch (TimeoutException e){
+            log.info("This step is intended to time out with element :"+popUpTitle);
+        }
+        try{
+            Assert.assertTrue(checkIfElementIsInvisible(popUpTitle,5));
+        }catch (TimeoutException e){
+            log.info("This step is intended to ignore time out error with element :"+popUpTitle);
+        }catch (AssertionError e){
+            log.info("This step is intended to ignore assertion error with element :"+popUpTitle);
+        }
     }
 }

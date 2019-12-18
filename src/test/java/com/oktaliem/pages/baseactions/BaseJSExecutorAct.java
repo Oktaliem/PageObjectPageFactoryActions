@@ -164,10 +164,10 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
 
     @Override
     public void clickElementViaJSExecutor(WebElement element) {
-        log.warn("Element is not clickable, try to click with Javascript");
+        log.warn("Element is not clickable, try to click with JSExecutor");
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].click();", element);
-        log.info("click on " + element + " via javascript succeed");
+        log.info("click on " + element + " via JSExecutor succeed");
     }
 
 

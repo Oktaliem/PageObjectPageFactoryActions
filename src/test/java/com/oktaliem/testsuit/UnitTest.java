@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.io.IOException;
 
 
@@ -355,5 +356,12 @@ public class UnitTest extends BaseTest{
         user.loginPage().goToWeb("http://localhost/web/login");
         user.loginPage().loginWithSikuli(); // return false positive , unable to click but test succeed,
         // Sikuli works well for non-web UI
+        }
+
+    @Test(description = "General - Several waiting Methods")
+    public void TC42() throws AWTException {
+        user.loginPage().goToWeb("http://localhost/web/login");
+        user.loginPage().waitingGame();
     }
+
 }
