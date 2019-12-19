@@ -364,4 +364,11 @@ public class UnitTest extends BaseTest{
         user.loginPage().waitingGame();
     }
 
+    @Test(description = "General - Autocomplete element")
+    public void TC43(){
+        user.seleniumPage().goToWeb("https://codepen.io/matt-west/full/jKnzG");
+        user.seleniumPage().selectTags("HTML");
+    }
+
+
 }

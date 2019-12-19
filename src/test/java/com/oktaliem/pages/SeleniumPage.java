@@ -65,6 +65,10 @@ public class SeleniumPage extends BasePage {
     @FindBy(css = "body:nth-child(2) form:nth-child(3) > input:nth-child(1)")
     private WebElement uploadFilePF;
 
+    @FindBy(css = "input#default")
+    private WebElement tags;
+
+
     @Step
     public void goToSeleniumOfficialWeb() {
         goToWeb(SELENIUM_WEB);
@@ -187,5 +191,12 @@ public class SeleniumPage extends BasePage {
         wait(3000);
         uploadFile(uploadFilePF, "/actualhtmltext/loginpage.txt");
         wait(3000);
+    }
+
+    @Step
+    public void selectTags(String text) {
+        wait(7000);
+        switchToFrameByIndex(0);
+        selectAutoCompleteDropDownList(tags,text,0,50);
     }
 }
