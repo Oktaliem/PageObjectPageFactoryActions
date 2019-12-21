@@ -25,30 +25,22 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public void clickOn(By el) {
         WebElement element = driver.findElement(el);
-        waitUntilLocatorIsVisible(element,4);
-        if (element.isDisplayed()) {
-            try {
-                element.click();
-                log.info("User clicks On Element: " + element);
-            } catch (ElementClickInterceptedException e) {
-                clickElementViaJSExecutor(element);
-            }
-        } else {
-            log.info(element + " is not displayed");
+        waitUntilLocatorIsVisible(element, 4);
+        try {
+            element.click();
+            log.info("User clicks On Element: " + element);
+        } catch (ElementClickInterceptedException e) {
+            clickElementViaJSExecutor(element);
         }
     }
 
     @Override
     public void inputTextBox(By el, String value) {
         WebElement element = driver.findElement(el);
-        waitUntilLocatorIsVisible(element,4);
-        if (element.isDisplayed()) {
-            element.clear();
-            element.sendKeys(value);
-            log.info("User inputs field with element: " + el + " and value " + value);
-        } else {
-            log.info(element + " is not displayed");
-        }
+        waitUntilLocatorIsVisible(element, 4);
+        element.clear();
+        element.sendKeys(value);
+        log.info("User inputs field with element: " + el + " and value " + value);
     }
 
     @Override
@@ -144,29 +136,21 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
      */
     @Override
     public void clickOn(WebElement element) {
-        waitUntilLocatorIsVisible(element,4);
-        if (element.isDisplayed()) {
-            try {
-                element.click();
-                log.info("User clicks On Element: " + element);
-            } catch (ElementClickInterceptedException e) {
-                clickElementViaJSExecutor(element);
-            }
-        } else {
-            log.info(element + " is not displayed");
+        waitUntilLocatorIsVisible(element, 4);
+        try {
+            element.click();
+            log.info("User clicks On Element: " + element);
+        } catch (ElementClickInterceptedException e) {
+            clickElementViaJSExecutor(element);
         }
     }
 
     @Override
     public void inputTextBox(WebElement element, String value) {
-        waitUntilLocatorIsVisible(element,4);
-        if (element.isDisplayed()) {
-            element.clear();
-            element.sendKeys(value);
-            log.info("User inputs field with element: " + element + " and value " + value);
-        } else {
-            log.info(element + " is not displayed");
-        }
+        waitUntilLocatorIsVisible(element, 4);
+        element.clear();
+        element.sendKeys(value);
+        log.info("User inputs field with element: " + element + " and value " + value);
     }
 
     @Override
