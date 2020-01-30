@@ -3,7 +3,7 @@
 <br>
 
 # PageObjectPageFactoryActions
-Keyword Library for Selenium Page Object &amp; Page Factory
+Keyword Library (keyword-driven method) for Selenium Page Object &amp; Page Factory
 ```
 “If you have WebDriver APIs in your test methods, You're Doing It Wrong.” Simon Stewart
 ```
@@ -16,8 +16,6 @@ Martin Flower :
 
 ### Features :
 1. Initiate WebDriver by WebDriverManager
-
-   private WebDriver driver ;
 
    ```
    WebDriverManager.chromedriver().setup(); 
