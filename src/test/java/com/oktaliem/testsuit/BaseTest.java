@@ -26,7 +26,7 @@ import java.net.URL;
  */
 public class BaseTest {
     private WebDriver driver;
-    public User user;
+    public User userIsOn;
     public static String screenShotPath;
     public static Logger log = Logger.getLogger("Test Preparation");
 
@@ -51,7 +51,7 @@ public class BaseTest {
             ngWebDriver.waitForAngularRequestsToFinish();
         }
         driver.manage().window().maximize();
-        user = new User(driver);
+        userIsOn = new User(driver);
         log.info("I'm on testing test case no: " + method.getName());
     }
 

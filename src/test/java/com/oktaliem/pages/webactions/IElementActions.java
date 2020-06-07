@@ -18,7 +18,7 @@ public interface IElementActions {
     void selectOnDropDownListByValue(By el, String value);
     void selectOnRadioButtonByText(By els, String text);
     void selectOnRadioButtonByValue(By els, String text);
-    void selectCheckBox(By el, String status, int index);
+    void selectCheckBox(By el, boolean status, int index);
     void uploadFile(By el, String fileName);
     WebElement findElementByDoubleChain(By el1, By el2);
 
@@ -31,7 +31,7 @@ public interface IElementActions {
     void selectOnDropDownListByValue(WebElement element, String value);
     void selectOnRadioButtonByText(List<WebElement> elements, String text);
     void selectOnRadioButtonByValue(List<WebElement> elements, String text);
-    void selectCheckBox(WebElement element, String status);
+    void selectCheckBox(WebElement element, boolean status);
     void uploadFile(WebElement element, String fileName);
 
 }

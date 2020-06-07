@@ -20,354 +20,354 @@ public class UnitTest extends BaseTest{
 
     @Test(description ="Page Factory - input and click ")
     public void TC01(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().loginSamplePF();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().loginSamplePF();
     }
 
     @Test(description = "Page Object - input and click ")
     public void TC02(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().loginSamplePO();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().loginSamplePO();
     }
 
     @Test(description = "General - refresh page")
     public void TC03(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().refreshPage();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().refreshPage();
     }
 
     @Test(description = "General - Open and Switch Tab")
     public void TC04(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().openNewTab();
-        user.loginPage().switchToSecondBrowser();
-        user.loginPage().wait(3000);
-        user.loginPage().switchToFirstBrowser();
-        user.loginPage().wait(2000);
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().openNewTab();
+        userIsOn.loginPage().switchToSecondBrowser();
+        userIsOn.loginPage().wait(3000);
+        userIsOn.loginPage().switchToFirstBrowser();
+        userIsOn.loginPage().wait(2000);
     }
 
     @Test(description = "Page Factory - Get and Verify Text")
     public void TC05(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().getTextSamplePF();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().getTextSamplePF();
     }
 
     @Test(description = "Page Object - Get and Verify Text")
     public void TC06(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().getTextSamplePO();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().getTextSamplePO();
     }
 
     @Test(description = "General - Go back and go forward on web page")
     public void TC07(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().wait(3000);
-        user.loginPage().goToPreviousPage();
-        user.loginPage().wait(3000);
-        user.loginPage().goToNextPage();
-        user.loginPage().wait(3000);
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().wait(3000);
+        userIsOn.loginPage().goToPreviousPage();
+        userIsOn.loginPage().wait(3000);
+        userIsOn.loginPage().goToNextPage();
+        userIsOn.loginPage().wait(3000);
     }
 
     @Test(description = "General - Click via Javascript")
     public void TC08(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().login();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().login();
     }
 
     @Test(description = "General - Get HTML source")
     public void TC09() throws IOException {
-        user.loginPage().launchTheApplication();
-        user.loginPage().getHtmlSource("loginPage");
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().getHtmlSource("loginPage");
     }
 
     @Test(description = "Page Factory - Dropdown Test")
     public void TC10() {
-        user.loginPage().launchTheApplication();
-        user.loginPage().login();
-        user.loginPage().openDropDownMenu();
-        user.loginPage().goToSettingPagePF();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().login();
+        userIsOn.loginPage().openDropDownMenu();
+        userIsOn.loginPage().goToSettingPagePF();
     }
 
     @Test(description = "Page Object - Dropdown Test")
     public void TC11() {
-        user.loginPage().launchTheApplication();
-        user.loginPage().login();
-        user.loginPage().openDropDownMenu();
-        user.loginPage().goToSettingPagePO();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().login();
+        userIsOn.loginPage().openDropDownMenu();
+        userIsOn.loginPage().goToSettingPagePO();
     }
 
     @Test(description = "Page Factory - Select CheckBox")
     public void TC12(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().login();
-        user.loginPage().openDropDownMenu();
-        user.loginPage().goToSettingPagePO();
-        user.settingPage().selectAllName();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().login();
+        userIsOn.loginPage().openDropDownMenu();
+        userIsOn.loginPage().goToSettingPagePO();
+        userIsOn.settingPage().selectAllName();
     }
 
     @Test(description = "General - Get Login Page URL")
     public void TC13(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().login();
-        user.loginPage().getLoginPageURL();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().login();
+        userIsOn.loginPage().getLoginPageURL();
     }
 
     @Test(description = "General - Get Value with Regex")
     public void TC14() throws IOException {
-        user.loginPage().launchTheApplication();
-        user.loginPage().getCSRFToken();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().getCSRFToken();
         //This test is intended to fail
     }
 
 
     @Test(description = "General - Scroll Up and Scroll Down ")
     public void TC15(){
-        user.seleniumPage().goToSeleniumOfficialWeb();
-        user.seleniumPage().scrollToBottomPage();
-        user.seleniumPage().wait(3000);
-        user.seleniumPage().scrollToTopPage();
-        user.seleniumPage().wait(3000);
+        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
+        userIsOn.seleniumPage().scrollToBottomPage();
+        userIsOn.seleniumPage().wait(3000);
+        userIsOn.seleniumPage().scrollToTopPage();
+        userIsOn.seleniumPage().wait(3000);
     }
 
     @Test(description = "Page Object - Scroll until view element")
     public void TC16(){
-        user.seleniumPage().goToSeleniumOfficialWeb();
-        user.seleniumPage().gotToMoreNewsButtonPO();
+        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
+        userIsOn.seleniumPage().gotToMoreNewsButtonPO();
     }
 
     @Test(description = "Page Factory - Scroll until view element")
     public void TC17(){
-        user.seleniumPage().goToSeleniumOfficialWeb();
-        user.seleniumPage().gotToMoreNewsButtonPF();
+        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
+        userIsOn.seleniumPage().gotToMoreNewsButtonPF();
     }
 
     @Test(description = "Page Factory - Double Click")
     public void TC18(){
-        user.seleniumPage().goToSeleniumOfficialWeb();
-        user.seleniumPage().gotToMoreNewsButtonPF();
-        user.seleniumPage().doubleClickMoreNewsButtonPF();
+        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
+        userIsOn.seleniumPage().gotToMoreNewsButtonPF();
+        userIsOn.seleniumPage().doubleClickMoreNewsButtonPF();
     }
 
     @Test(description = "Page Object - Double Click")
     public void TC19(){
-        user.seleniumPage().goToSeleniumOfficialWeb();
-        user.seleniumPage().gotToMoreNewsButtonPO();
-        user.seleniumPage().doubleClickMoreNewsButtonPO();
+        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
+        userIsOn.seleniumPage().gotToMoreNewsButtonPO();
+        userIsOn.seleniumPage().doubleClickMoreNewsButtonPO();
     }
 
     @Test(description = "Page Object - Move Mouse Pointer")
     public void TC20(){
-        user.seleniumPage().goToSeleniumOfficialWeb();
-        user.seleniumPage().gotToMoreNewsButtonPO();
-        user.seleniumPage().movePointerToNewsButtonPO();
+        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
+        userIsOn.seleniumPage().gotToMoreNewsButtonPO();
+        userIsOn.seleniumPage().movePointerToNewsButtonPO();
     }
 
     @Test(description = "Page Factory - Move Mouse Pointer")
     public void TC21(){
-        user.seleniumPage().goToSeleniumOfficialWeb();
-        user.seleniumPage().gotToMoreNewsButtonPF();
-        user.seleniumPage().movePointerToNewsButtonPF();
+        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
+        userIsOn.seleniumPage().gotToMoreNewsButtonPF();
+        userIsOn.seleniumPage().movePointerToNewsButtonPF();
     }
 
     @Test(description = "drag and drop action - Page Factory")
     public void TC22(){
-        user.seleniumPage().goToW3SchoolDropAndDropPage();
-        user.seleniumPage().performDragAndDropPF();
+        userIsOn.seleniumPage().goToW3SchoolDropAndDropPage();
+        userIsOn.seleniumPage().performDragAndDropPF();
     }
 
     @Test(description = "drag and drop action - Page Object")
     public void TC23(){
-        user.seleniumPage().goToW3SchoolDropAndDropPage();
-        user.seleniumPage().performDragAndDropPO();
+        userIsOn.seleniumPage().goToW3SchoolDropAndDropPage();
+        userIsOn.seleniumPage().performDragAndDropPO();
     }
 
     @Test(description ="Page Factory - input and tab and enter ")
     public void TC24(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().loginSamplePFWithTabEnter();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().loginSamplePFWithTabEnter();
     }
 
     @Test(description = "Page Object - input and tab and enter ")
     public void TC25(){
-        user.loginPage().launchTheApplication();
-        user.loginPage().loginSamplePOWithTabAndEnter();
+        userIsOn.loginPage().launchTheApplication();
+        userIsOn.loginPage().loginSamplePOWithTabAndEnter();
     }
 
     @Test(description ="Page Factory - input and tab and enter ")
     public void TC26(){
-        user.seleniumPage().launchTheApplicationGuru99();
-        user.seleniumPage().goToTestingAndClickCucumberPF();
+        userIsOn.seleniumPage().launchTheApplicationGuru99();
+        userIsOn.seleniumPage().goToTestingAndClickCucumberPF();
     }
 
     @Test(description = "Page Object - input and tab and enter ")
     public void TC27(){
-        user.seleniumPage().launchTheApplicationGuru99();
-        user.seleniumPage().goToTestingAndClickCucumberPO();
+        userIsOn.seleniumPage().launchTheApplicationGuru99();
+        userIsOn.seleniumPage().goToTestingAndClickCucumberPO();
     }
 
     @Test(description = "Page Object - input and tab and enter ")
     public void TC28(){
-        user.seleniumPage().launchTheApplicationGuru99();
-        user.seleniumPage().waitViaJavaScriptExecutor();
+        userIsOn.seleniumPage().launchTheApplicationGuru99();
+        userIsOn.seleniumPage().waitViaJavaScriptExecutor();
     }
 
     @Test(description = "General - Execute Javascript ")
     public void TC29(){
-        user.seleniumPage().launchTheApplicationGuru99();
-        user.seleniumPage().wait(5000);
-        user.seleniumPage().wait(5000);
-        user.seleniumPage().executeViaJSExecutor("alert(\"Hello World!\")");
-        user.seleniumPage().wait(5000);
-        user.seleniumPage().handleJavascriptPopUp("Hello World!");
-        user.seleniumPage().executeViaJSExecutor("window.confirm(\"sometext\");");
-        user.seleniumPage().wait(5000);
-        user.seleniumPage().handleJavascriptPopUp("cancel");
-        user.seleniumPage().executeViaJSExecutor("window.prompt(\"sometext\",\"defaultText\");");
-        user.seleniumPage().wait(5000);
-        user.seleniumPage().handleJavascriptPopUp("defaultText");
-        user.seleniumPage().refreshPageViaJSExecutor();
-        user.seleniumPage().executeViaJSExecutor("window.open()");
-        user.seleniumPage().executeViaJSExecutor("window.focus()");
-        user.seleniumPage().executeViaJSExecutor("screen.height");
+        userIsOn.seleniumPage().launchTheApplicationGuru99();
+        userIsOn.seleniumPage().wait(5000);
+        userIsOn.seleniumPage().wait(5000);
+        userIsOn.seleniumPage().executeViaJSExecutor("alert(\"Hello World!\")");
+        userIsOn.seleniumPage().wait(5000);
+        userIsOn.seleniumPage().handleJavascriptPopUp("Hello World!");
+        userIsOn.seleniumPage().executeViaJSExecutor("window.confirm(\"sometext\");");
+        userIsOn.seleniumPage().wait(5000);
+        userIsOn.seleniumPage().handleJavascriptPopUp("cancel");
+        userIsOn.seleniumPage().executeViaJSExecutor("window.prompt(\"sometext\",\"defaultText\");");
+        userIsOn.seleniumPage().wait(5000);
+        userIsOn.seleniumPage().handleJavascriptPopUp("defaultText");
+        userIsOn.seleniumPage().refreshPageViaJSExecutor();
+        userIsOn.seleniumPage().executeViaJSExecutor("window.open()");
+        userIsOn.seleniumPage().executeViaJSExecutor("window.focus()");
+        userIsOn.seleniumPage().executeViaJSExecutor("screen.height");
     }
 
     @Test(description = "General - Login with javascript executor (Negative Scenario) ")
     public void TC30(){
-        user.loginPage().executeViaJSExecutor("window.location=\"http://localhost/web/login/\";");
-        user.loginPage().wait(2000);
-        user.loginPage().executeViaJSExecutor("document.getElementById('login').value='bitnami'");
-        user.loginPage().wait(2000);
-        user.loginPage().executeViaJSExecutor("document.getElementById('password').value='test'");
-        user.loginPage().wait(2000);
-        user.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].style.backgroundColor='red'");
-        user.loginPage().wait(2000);
-        user.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].click()");
-        user.loginPage().wait(2000);
-        user.loginPage().executeViaJSExecutor("document.body.style.zoom='50'");
-        user.loginPage().wait(2000);
+        userIsOn.loginPage().executeViaJSExecutor("window.location=\"http://localhost/web/login/\";");
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().executeViaJSExecutor("document.getElementById('login').value='bitnami'");
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().executeViaJSExecutor("document.getElementById('password').value='test'");
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].style.backgroundColor='red'");
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].click()");
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().executeViaJSExecutor("document.body.style.zoom='50'");
+        userIsOn.loginPage().wait(2000);
     }
 
 
     @Test(description = "General - Login with javascript executor (Positive Scenario) ")
     public void TC31(){
-        user.loginPage().executeViaJSExecutor("window.location=\"http://localhost/web/login/\";");
-        user.loginPage().executeViaJSExecutor("document.getElementById('login').value='user@example.com'");
-        user.loginPage().executeViaJSExecutor("document.getElementById('password').value='bitnami'");
-        user.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].click()");
+        userIsOn.loginPage().executeViaJSExecutor("window.location=\"http://localhost/web/login/\";");
+        userIsOn.loginPage().executeViaJSExecutor("document.getElementById('login').value='user@example.com'");
+        userIsOn.loginPage().executeViaJSExecutor("document.getElementById('password').value='bitnami'");
+        userIsOn.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].click()");
     }
 
     @Test(description = "General - Keyboard Action ")
     public void TC32() {
-        user.loginPage().goToWeb(Path.LOGIN_PAGE_URL);
-        user.loginPage().inputUserName("test123");
-        user.loginPage().inputUserName(Keys.chord(Keys.COMMAND, "a")); //still not as expected
-        user.loginPage().wait(2000);
-        user.loginPage().performKeyboardAction(Keys.BACK_SPACE);
-        user.loginPage().performKeyboardAction(Keys.BACK_SPACE);
-        user.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "C")); //still not as expected
-        user.loginPage().wait(5000);
-        user.loginPage().performKeyboardAction(Keys.TAB);
-        user.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "V")); //strill not as expected
-        user.loginPage().wait(2000);
-        user.loginPage().performKeyboardAction(Keys.TAB);
-        user.loginPage().wait(2000);
-        user.loginPage().performKeyboardAction(Keys.ENTER);
-        user.loginPage().wait(2000);
-        user.loginPage().performKeyboardInputAction("test");
-        user.loginPage().wait(2000);
-        user.loginPage().performKeyboardAction(Keys.TAB);
-        user.loginPage().wait(2000);
-        user.loginPage().performKeyboardInputAction("test");
-        user.loginPage().wait(2000);
-        user.loginPage().performKeyboardAction(Keys.ENTER);
-        user.loginPage().wait(2000);
+        userIsOn.loginPage().goToWeb(Path.LOGIN_PAGE_URL);
+        userIsOn.loginPage().inputUserName("test123");
+        userIsOn.loginPage().inputUserName(Keys.chord(Keys.COMMAND, "a")); //still not as expected
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().performKeyboardAction(Keys.BACK_SPACE);
+        userIsOn.loginPage().performKeyboardAction(Keys.BACK_SPACE);
+        userIsOn.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "C")); //still not as expected
+        userIsOn.loginPage().wait(5000);
+        userIsOn.loginPage().performKeyboardAction(Keys.TAB);
+        userIsOn.loginPage().performKeyboardAction(Keys.chord(Keys.COMMAND, "V")); //strill not as expected
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().performKeyboardAction(Keys.TAB);
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ENTER);
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().performKeyboardInputAction("test");
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().performKeyboardAction(Keys.TAB);
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().performKeyboardInputAction("test");
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ENTER);
+        userIsOn.loginPage().wait(2000);
 
-        user.loginPage().goToWeb(Path.SELENIUM_WEB);
-        user.loginPage().wait(2000);
-        user.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
-        user.loginPage().wait(1000);
-        user.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
-        user.loginPage().wait(1000);
-        user.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
-        user.loginPage().wait(1000);
-        user.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
-        user.loginPage().wait(1000);
-        user.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
-        user.loginPage().wait(1000);
-        user.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
-        user.loginPage().wait(1000);
-        user.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
-        user.loginPage().wait(1000);
-        user.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
-        user.loginPage().wait(7000);
+        userIsOn.loginPage().goToWeb(Path.SELENIUM_WEB);
+        userIsOn.loginPage().wait(2000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
+        userIsOn.loginPage().wait(1000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
+        userIsOn.loginPage().wait(1000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
+        userIsOn.loginPage().wait(1000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
+        userIsOn.loginPage().wait(1000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
+        userIsOn.loginPage().wait(1000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
+        userIsOn.loginPage().wait(1000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
+        userIsOn.loginPage().wait(1000);
+        userIsOn.loginPage().performKeyboardAction(Keys.ARROW_DOWN);
+        userIsOn.loginPage().wait(7000);
     }
 
     @Test(description = "Page Object - Page Factory Drop Down list")
     public void TC33(){
-        user.seleniumPage().goToWeb("https://www.w3schools.com/css/tryit.asp?filename=trycss_forms");
-        user.seleniumPage().selectCountryDropDownList();
+        userIsOn.seleniumPage().goToWeb("https://www.w3schools.com/css/tryit.asp?filename=trycss_forms");
+        userIsOn.seleniumPage().selectCountryDropDownList();
     }
 
     @Test(description = "Page Object - Page Factory Radio button by Text")
     public void TC34(){
-        user.seleniumPage().goToWeb("https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_form_radio_inline&stacked=h");
-        user.seleniumPage().selectRadioW3SchoolText();
+        userIsOn.seleniumPage().goToWeb("https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_form_radio_inline&stacked=h");
+        userIsOn.seleniumPage().selectRadioW3SchoolText();
     }
 
     @Test(description = "Page Object- Page Factory Radio Button by Value")
     public void TC35(){
-        user.seleniumPage().goToWeb("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_radio_value3");
-        user.seleniumPage().selectRadioW3SchoolValue();
+        userIsOn.seleniumPage().goToWeb("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_radio_value3");
+        userIsOn.seleniumPage().selectRadioW3SchoolValue();
     }
 
     @Test(description = "Page Object - Page Factory Upload File")
     public void TC36(){
-        user.seleniumPage().goToWeb("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
-        user.seleniumPage().uploadFilePOPF();
+        userIsOn.seleniumPage().goToWeb("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
+        userIsOn.seleniumPage().uploadFilePOPF();
     }
 
     @Test(description = "General - Some javascript find element")
     public void TC37(){
-        user.loginPage().goToWeb("http://localhost/web/login");
-        user.loginPage().performSomeJSFindElement();
+        userIsOn.loginPage().goToWeb("http://localhost/web/login");
+        userIsOn.loginPage().performSomeJSFindElement();
     }
 
     @Test(description = "Page Object Page Factory - Check text contains")
     public void TC38(){
-        user.loginPage().goToWeb("http://localhost/web/login");
-        user.loginPage().checkIfElementContainsExpectedResult();
+        userIsOn.loginPage().goToWeb("http://localhost/web/login");
+        userIsOn.loginPage().checkIfElementContainsExpectedResult();
     }
 
 
     @Test(description = "General - Highlight Element and save")
     public void TC39() throws IOException {
-        user.loginPage().goToWeb("http://localhost/web/login");
-        user.loginPage().highlightPasswordFieldAndSave();
+        userIsOn.loginPage().goToWeb("http://localhost/web/login");
+        userIsOn.loginPage().highlightPasswordFieldAndSave();
     }
 
     @Test(description = "Page Object Page Factory - Double chain alements")
     public void TC40(){
-        user.loginPage().goToWeb("http://localhost/web/login");
-        user.loginPage().inputUserNameByChainElements();
+        userIsOn.loginPage().goToWeb("http://localhost/web/login");
+        userIsOn.loginPage().inputUserNameByChainElements();
     }
 
     @Test(description = "Sikuli - perform Sikuli action")
     public void TC41() throws FindFailed {
-        user.loginPage().goToWeb("http://localhost/web/login");
-        user.loginPage().loginWithSikuli(); // return false positive , unable to click but test succeed,
+        userIsOn.loginPage().goToWeb("http://localhost/web/login");
+        userIsOn.loginPage().loginWithSikuli(); // return false positive , unable to click but test succeed,
         // Sikuli works well for non-web UI
         }
 
     @Test(description = "General - Several waiting Methods")
     public void TC42() throws AWTException {
-        user.loginPage().goToWeb("http://localhost/web/login");
-        user.loginPage().waitingGame();
+        userIsOn.loginPage().goToWeb("http://localhost/web/login");
+        userIsOn.loginPage().waitingGame();
     }
 
     @Test(description = "General - Autocomplete element")
     public void TC43(){
-        user.seleniumPage().goToWeb("https://codepen.io/matt-west/full/jKnzG");
-        user.seleniumPage().selectTags("HTML");
+        userIsOn.seleniumPage().goToWeb("https://codepen.io/matt-west/full/jKnzG");
+        userIsOn.seleniumPage().selectTags("HTML");
     }
 
 

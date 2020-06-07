@@ -1,4 +1,17 @@
 package com.oktaliem.testsuit.angularweb;
 
-public class angularTest {
+import com.oktaliem.testsuit.BaseTest;
+import org.testng.annotations.Test;
+
+/**
+ * Author : Okta Liem
+ */
+public class angularTest extends BaseTest {
+
+
+    @Test(description = "initial test")
+    public void AG_01(){
+        userIsOn.agDashboardPage().goToDashboardPage();
+    }
+
 }

@@ -10,6 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class SettingPage extends BasePage {
 
     public SettingPage(WebDriver driver) {
@@ -25,7 +28,7 @@ public class SettingPage extends BasePage {
     @Step("Select Checkbox Name")
     public void selectAllName() {
         wait(3000);
-        selectCheckBox(firstCheckBoxName.get(0),"y");
+        selectCheckBox(firstCheckBoxName.get(0),TRUE);
         wait(3000);
         //This below action returns false positive. This checkbox object is not applicable for this library action
         //because when element is validated by .isSelected then the result return false
@@ -34,12 +37,12 @@ public class SettingPage extends BasePage {
         //This action library is not applicable for certain condition like this
         //Odoo is using Djago Framework
         //but another framework .isSelected probably works
-        selectCheckBox(firstCheckBoxName.get(0),"n");
+        selectCheckBox(firstCheckBoxName.get(0),FALSE);
         wait(3000);
         //to un-select without validation by disregard the checkbox is selected or not.
-        selectCheckBox(firstCheckBoxName.get(0),"y");
+        selectCheckBox(firstCheckBoxName.get(0),TRUE);
         wait(3000);
-        selectCheckBox(firstCheckBoxNamePO,"y",0);
+        selectCheckBox(firstCheckBoxNamePO,TRUE,0);
         wait(3000);
     }
 

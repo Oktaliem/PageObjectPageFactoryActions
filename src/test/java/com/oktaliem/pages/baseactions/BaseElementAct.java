@@ -55,7 +55,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     public void selectOnDropDownListByText(By el, String text) {
         try {
             WebElement element = driver.findElement(el);
-            waitUntilLocatorIsVisible(element,4);
+            waitUntilLocatorIsVisible(element, 4);
             Select select = new Select(element);
             select.selectByVisibleText(text);
             log.info("Select Drop down List Element by visible text : " + element);
@@ -74,7 +74,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public void selectOnDropDownListByValue(By el, String value) {
         WebElement element = driver.findElement(el);
-        waitUntilLocatorIsVisible(element,4);
+        waitUntilLocatorIsVisible(element, 4);
         Select select = new Select(element);
         select.selectByValue(value);
         log.info("Select Drop down List Element by visible text : " + element);
@@ -103,17 +103,17 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     }
 
     @Override
-    public void selectCheckBox(By el, String status, int index) {
+    public void selectCheckBox(By el, boolean status, int index) {
         WebElement element = driver.findElements(el).get(index);
-        waitUntilLocatorIsVisible(element,4);
-        if (status.equals("n")) {
+        waitUntilLocatorIsVisible(element, 4);
+        if (status) {
             if (element.isSelected()) {
                 clickOn(element);
             } else {
                 log.info("check box is disabled by default");
             }
         }
-        if (status.equals("y")) {
+        if (!status) {
             if (element.isSelected()) {
                 log.info("check box is already enabled");
             } else {
@@ -125,7 +125,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public void uploadFile(By el, String fileName) {
         WebElement element = driver.findElement(el);
-        waitUntilLocatorIsVisible(element,4);
+        waitUntilLocatorIsVisible(element, 4);
         element.sendKeys(System.getProperty("user.dir") + "/src/main/resources/" + fileName);
         log.info("Choose file name: " + fileName);
     }
@@ -155,7 +155,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public String getTextFromElement(WebElement element) {
-        waitUntilLocatorIsVisible(element,4);
+        waitUntilLocatorIsVisible(element, 4);
         String text = element.getText();
         log.info("Get Text with value: " + text);
         return text;
@@ -164,7 +164,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void selectOnDropDownListByText(WebElement element, String text) {
-        waitUntilLocatorIsVisible(element,4);
+        waitUntilLocatorIsVisible(element, 4);
         Select select = new Select(element);
         select.selectByVisibleText(text);
         log.info("Select Drop down List Element by visible text : " + element);
@@ -183,7 +183,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void selectOnDropDownListByValue(WebElement element, String value) {
-        waitUntilLocatorIsVisible(element,4);
+        waitUntilLocatorIsVisible(element, 4);
         Select select = new Select(element);
         select.selectByValue(value);
         log.info("Select Drop down List Element by visible text : " + element);
@@ -192,7 +192,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public void selectOnRadioButtonByText(List<WebElement> elements, String text) {
         for (WebElement element : elements) {
-            System.out.println("Text: "+ element.getText());
+            System.out.println("Text: " + element.getText());
             if (element.getText().trim().equals(text.trim())) {
                 clickOn(element);
                 log.info("Select radio button by text: " + text);
@@ -213,16 +213,16 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     }
 
     @Override
-    public void selectCheckBox(WebElement element, String status) {
-        waitUntilLocatorIsVisible(element,4);
-        if (status.equals("n")) {
+    public void selectCheckBox(WebElement element, boolean status) {
+        waitUntilLocatorIsVisible(element, 4);
+        if (status) {
             if (element.isSelected()) {
                 clickOn(element);
             } else {
                 log.info("check box is disabled by default");
             }
         }
-        if (status.equals("y")) {
+        if (!status) {
             if (element.isSelected()) {
                 log.info("check box is already enabled");
             } else {
@@ -233,12 +233,13 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void uploadFile(WebElement element, String fileName) {
-        waitUntilLocatorIsVisible(element,4);
+        waitUntilLocatorIsVisible(element, 4);
         try {
             if (driver instanceof RemoteWebDriver) {
                 ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
             }
-        } catch (WebDriverException e) {}
+        } catch (WebDriverException e) {
+        }
         element.sendKeys(System.getProperty("user.dir") + "/src/main/resources/" + fileName);
         log.info("Choose file name: " + fileName);
     }
@@ -246,7 +247,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     @Override
     public WebElement findElementByDoubleChain(By el1, By el2) {
         WebElement els = driver.findElement(el1).findElement(el2);
-        log.info("Find element by: "+el1 +" and "+el2);
+        log.info("Find element by: " + el1 + " and " + el2);
         return els;
     }
 

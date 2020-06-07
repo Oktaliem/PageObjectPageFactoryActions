@@ -23,14 +23,14 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    private By userNameLogin = By.id("login");
-    private By passwordLogin = By.id("password");
-    private By loginButton = By.className("btn-primary");
-    private By DBManage = By.className("border-right");
-    private By fieldLogin = By.className("field-login");
-    private By tagNameInput = By.tagName("input");
-    private By dialogBox = By.xpath("/html[1]/body[1]/ul[1]/li[6]/div[1]/button[1]");
-    private By dialog = By.xpath("/html[1]/body[1]/ul[1]/li[5]/div[1]/button[1]");
+    private final By userNameLogin = By.id("login");
+    private final By passwordLogin = By.id("password");
+    private final By loginButton = By.className("btn-primary");
+    private final By DBManage = By.className("border-right");
+    private final By fieldLogin = By.className("field-login");
+    private final By tagNameInput = By.tagName("input");
+    private final By dialogBox = By.xpath("/html[1]/body[1]/ul[1]/li[6]/div[1]/button[1]");
+    private final By dialog = By.xpath("/html[1]/body[1]/ul[1]/li[5]/div[1]/button[1]");
 
     private String userNameJS = "login";
     private String passwordJS = "password";
@@ -70,7 +70,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step
-    public void inputUserName(String name){
+    public void inputUserName(String name) {
         inputTextBox(userName, name);
     }
 
@@ -114,8 +114,8 @@ public class LoginPage extends BasePage {
 
     @Step("value or Regex")
     public void getCSRFToken() throws IOException {
-        String text = readFile(System.getProperty("user.dir")+
-                    "/src/main/resources/actualhtmltext/loginPage.txt");
+        String text = readFile(System.getProperty("user.dir") +
+                "/src/main/resources/actualhtmltext/loginPage.txt");
         String pattern = "csrf_token: \"\\w{41}\"";
         String values = getValueWithRegex(pattern, text);
         String value = values.substring(values.length() - 42, values.length() - 1);
@@ -128,30 +128,30 @@ public class LoginPage extends BasePage {
 
     @Step("Login with Tab And Enter")
     public void loginSamplePFWithTabEnter() {
-        inputTextAndTab(userName,"user@example.com");
-        inputTextAndEnter(password,"bitnami");
+        inputTextAndTab(userName, "user@example.com");
+        inputTextAndEnter(password, "bitnami");
         wait(5000);
     }
 
     @Step
     public void loginSamplePOWithTabAndEnter() {
-        inputTextAndTab(userNameLogin,"user@example.com");
-        inputTextAndEnter(passwordLogin,"bitnami");
+        inputTextAndTab(userNameLogin, "user@example.com");
+        inputTextAndEnter(passwordLogin, "bitnami");
         wait(5000);
     }
 
     @Step
     public void performSomeJSFindElement() {
-        findElementByJSExecutor("id",userNameJS,0).sendKeys("abc");
-        findElementByJSExecutor("id",passwordJS,0).sendKeys("abc");
-        findElementByJSExecutor("class",loginBtnJS,0).click();
-        String csrf_value = findElementByJSExecutor("tagName",tag,0).getAttribute("value");
-        System.out.println("Get CSRF value by TagName: "+csrf_value);
-        String csrf_value_2 = findElementByJSExecutor("name",csrfToken,0).getAttribute("value");
-        System.out.println("Get CSRF value by name: "+ csrf_value_2);
-        getTextElementViaJSExecutor("class",msg,0);
-        getAttributeViaJSExecutor("class","border-right",0,"href");
-        inputTextByJSExecutor(userName,"kucing garong");
+        findElementByJSExecutor("id", userNameJS, 0).sendKeys("abc");
+        findElementByJSExecutor("id", passwordJS, 0).sendKeys("abc");
+        findElementByJSExecutor("class", loginBtnJS, 0).click();
+        String csrf_value = findElementByJSExecutor("tagName", tag, 0).getAttribute("value");
+        System.out.println("Get CSRF value by TagName: " + csrf_value);
+        String csrf_value_2 = findElementByJSExecutor("name", csrfToken, 0).getAttribute("value");
+        System.out.println("Get CSRF value by name: " + csrf_value_2);
+        getTextElementViaJSExecutor("class", msg, 0);
+        getAttributeViaJSExecutor("class", "border-right", 0, "href");
+        inputTextByJSExecutor(userName, "kucing garong");
         getURLByJSExecutor();
         navigateViaJSExecutor("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
         navigateViaJSExecutor("http://localhost/web/login");
@@ -159,9 +159,9 @@ public class LoginPage extends BasePage {
         String a = executeViaJSExecutor("return document.documentElement.innerText;").toString();
         System.out.println("return document.documentElement.innerText; " + a);
         String b = executeViaJSExecutor("return document.title; ").toString();
-        System.out.println("return document.title; "+ b);
+        System.out.println("return document.title; " + b);
         String c = executeViaJSExecutor("return document.domain;").toString();
-        System.out.println("return document.domain; "+c);
+        System.out.println("return document.domain; " + c);
 
         navigateViaJSExecutor("https://www.detik.com/");
         executeViaJSExecutor("window.scrollBy(0,1500)");
@@ -189,9 +189,9 @@ public class LoginPage extends BasePage {
 
     @Step
     public void checkIfElementContainsExpectedResult() {
-        checkIfTextIsContains(manageDB,"Databas");
+        checkIfTextIsContains(manageDB, "Databas");
         wait(2000);
-        checkIfTextIsContains(DBManage,"Data");
+        checkIfTextIsContains(DBManage, "Data");
         wait(2000);
     }
 
@@ -200,7 +200,7 @@ public class LoginPage extends BasePage {
         Actions builder = new Actions(driver);
         builder.sendKeys(key).build().perform();
         builder.release().perform();
-        log.info("Keyboard Action: "+ key);
+        log.info("Keyboard Action: " + key);
     }
 
     @Step
@@ -211,11 +211,11 @@ public class LoginPage extends BasePage {
 
     @Step
     public void inputUserNameByChainElements() {
-        findElementByDoubleChain(By.className("field-login"),By.tagName("input")).sendKeys("Akto");
+        findElementByDoubleChain(By.className("field-login"), By.tagName("input")).sendKeys("Akto");
         wait(2000);
-        findElementByDoubleChain(fieldLogin,tagNameInput).sendKeys("qwerty");
+        findElementByDoubleChain(fieldLogin, tagNameInput).sendKeys("qwerty");
         wait(2000);
-        inputTextBox(userNameChains,"akulah");
+        inputTextBox(userNameChains, "akulah");
         wait(2000);
     }
 
@@ -225,34 +225,34 @@ public class LoginPage extends BasePage {
         inputTextBox(passwordLogin, "bitnami");
         clickOn(password);
         wait(2000);
-        clickViaSikuli(sikuliPath,"login_button.png"); //test sukses tapi tapi berhasil, false positive
+        clickViaSikuli(sikuliPath, "login_button.png"); //test sukses tapi tapi berhasil, false positive
         wait(5000);
     }
 
     @Step
     public void waitingGame() throws AWTException {
-        Assert.assertTrue(checkIfElementIsVisible(userName,3));
-        Assert.assertTrue(checkIfElementIsPresent(passwordLogin,3));
-        Assert.assertTrue(checkIfElementIsClickAble(loginBtn,2));
+        Assert.assertTrue(checkIfElementIsVisible(userName, 3));
+        Assert.assertTrue(checkIfElementIsPresent(passwordLogin, 3));
+        Assert.assertTrue(checkIfElementIsClickAble(loginBtn, 2));
         robotWaitFor(2000);
-        fluentWait(DBManage,2000,250);
-        waitUntilTextIsPresentInLocator(manageDB,"Manage Databases");
-        waitForElementActionable(loginBtn,2);
+        fluentWait(DBManage, 2000, 250);
+        waitUntilTextIsPresentInLocator(manageDB, "Manage Databases");
+        waitForElementActionable(loginBtn, 2);
         goToWeb("https://sweetalert2.github.io/");
         scrollUntilViewElement(dialog);
         wait(2000);
         clickOn(dialogBox);
-        try{
-            waitUntilLocatorIsInvisible(popUpTitle,5);
-        }catch (TimeoutException e){
-            log.info("This step is intended to time out with element :"+popUpTitle);
+        try {
+            waitUntilLocatorIsInvisible(popUpTitle, 5);
+        } catch (TimeoutException e) {
+            log.info("This step is intended to time out with element :" + popUpTitle);
         }
-        try{
-            Assert.assertTrue(checkIfElementIsInvisible(popUpTitle,5));
-        }catch (TimeoutException e){
-            log.info("This step is intended to ignore time out error with element :"+popUpTitle);
-        }catch (AssertionError e){
-            log.info("This step is intended to ignore assertion error with element :"+popUpTitle);
+        try {
+            Assert.assertTrue(checkIfElementIsInvisible(popUpTitle, 5));
+        } catch (TimeoutException e) {
+            log.info("This step is intended to ignore time out error with element :" + popUpTitle);
+        } catch (AssertionError e) {
+            log.info("This step is intended to ignore assertion error with element :" + popUpTitle);
         }
     }
 }

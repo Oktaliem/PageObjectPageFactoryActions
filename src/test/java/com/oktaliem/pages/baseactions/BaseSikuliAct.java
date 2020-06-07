@@ -21,46 +21,46 @@ public class BaseSikuliAct extends BaseScreenshot implements ISikuli {
 
     @Override
     public void clickViaSikuli(String filePath, String fileName) throws FindFailed {
-        pattern = new Pattern(filePath+fileName);
-        log.info("Pattern: "+filePath+fileName);
+        pattern = new Pattern(filePath + fileName);
+        log.info("Pattern: " + filePath + fileName);
         sikuli.find(pattern);
-        sikuli.wait(pattern,20);
-        sikuli.click(filePath+fileName);
+        sikuli.wait(pattern, 20);
+        sikuli.click(filePath + fileName);
         log.info("click with sikuli");
     }
 
     @Override
-    public void doubleClickViaSikuli(String filePath, String fileName) throws FindFailed{
-        pattern = new Pattern(filePath+fileName);
-        log.info("Pattern: "+filePath+fileName);
-        sikuli.wait(pattern,20);
+    public void doubleClickViaSikuli(String filePath, String fileName) throws FindFailed {
+        pattern = new Pattern(filePath + fileName);
+        log.info("Pattern: " + filePath + fileName);
+        sikuli.wait(pattern, 20);
         sikuli.doubleClick(pattern);
         log.info("double click with sikuli");
     }
 
     @Override
-    public void typeViaSikuli(String filePath, String fileName, String text) throws FindFailed{
-        pattern = new Pattern(filePath+fileName);
-        log.info("Pattern: "+filePath+fileName);
-        sikuli.wait(pattern,20);
-        sikuli.type(pattern,text);
+    public void typeViaSikuli(String filePath, String fileName, String text) throws FindFailed {
+        pattern = new Pattern(filePath + fileName);
+        log.info("Pattern: " + filePath + fileName);
+        sikuli.wait(pattern, 20);
+        sikuli.type(pattern, text);
         log.info("type with sikuli");
     }
 
     @Override
-    public void hoverViaSikuli(String filePath, String fileName) throws FindFailed{
-        pattern = new Pattern(filePath+fileName);
-        log.info("Pattern: "+filePath+fileName);
-        sikuli.wait(pattern,20);
+    public void hoverViaSikuli(String filePath, String fileName) throws FindFailed {
+        pattern = new Pattern(filePath + fileName);
+        log.info("Pattern: " + filePath + fileName);
+        sikuli.wait(pattern, 20);
         sikuli.hover(pattern);
         log.info("hover with sikuli");
     }
 
     @Override
-    public void findViaSikuli(String filePath, String fileName)throws FindFailed {
-        pattern = new Pattern(filePath+fileName);
-        log.info("Pattern: "+filePath+fileName);
-        sikuli.wait(pattern,20);
+    public void findViaSikuli(String filePath, String fileName) throws FindFailed {
+        pattern = new Pattern(filePath + fileName);
+        log.info("Pattern: " + filePath + fileName);
+        sikuli.wait(pattern, 20);
         sikuli.find(pattern);
         log.info("find with sikuli");
     }

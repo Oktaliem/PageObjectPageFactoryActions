@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.awt.*;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
  * Author : Okta Liem
@@ -114,7 +113,7 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
     public void robotWaitFor(int miliseconds) throws AWTException {
         Robot robot = new Robot();
         robot.delay(miliseconds);
-        log.info("Wait with Robot class for "+miliseconds+" miliseconds");
+        log.info("Wait with Robot class for " + miliseconds + " miliseconds");
     }
 
     @Override
@@ -124,29 +123,29 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
                 .pollingEvery(polling, TimeUnit.MILLISECONDS)
                 .ignoring(NoSuchElementException.class);
         WebElement element = wait.until(driver -> driver.findElement(by));
-        log.info("fluent wait is success waiting for "+element);
-        return  element;
+        log.info("fluent wait is success waiting for " + element);
+        return element;
     }
 
     @Override
     public void waitUntilLocatorIsVisible(WebElement element, int insSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, insSeconds);
         wait.until(ExpectedConditions.visibilityOf(element));
-        log.info("wait until element: " + element + "is visible");
+        log.info("wait until element: " + element + " is visible");
     }
 
     @Override
     public void waitUntilTextIsPresentInLocator(WebElement element, String text) {
         WebDriverWait wait = new WebDriverWait(driver, 4);
         wait.until(ExpectedConditions.textToBePresentInElement(element, text));
-        log.info("wait until text in element: " + element + "is present");
+        log.info("wait until text in element: " + element + " is present");
     }
 
     @Override
     public void waitUntilLocatorIsInvisible(WebElement element, int inSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, inSeconds);
         wait.until(ExpectedConditions.invisibilityOf(element));
-        log.info("wait until element: " + element + "is invisible");
+        log.info("wait until element: " + element + " is invisible");
     }
 
 }
