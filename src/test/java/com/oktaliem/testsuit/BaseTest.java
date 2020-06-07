@@ -1,8 +1,10 @@
 package com.oktaliem.testsuit;
 
+import com.paulhammant.ngwebdriver.NgWebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -37,14 +39,16 @@ public class BaseTest {
                 capability.setCapability("name", method.getName());
                 driver = new RemoteWebDriver(new URL(System.getProperty("grid_url")), capability);
             }
-            if (System.getProperty("browser").equals("bonigarcia")) {
-                WebDriverManager.chromedriver().setup();
+            if (System.getProperty("browser").equals("chromePath")) {
+                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver-mac");
+                log.info("I'm using Webdriver: "+System.getProperty("user.dir") + "/drivers/chromedriver-mac");
                 driver = new ChromeDriver();
             }
         } catch (Exception e) {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver-mac");
-            log.info("I'm using Webdriver: "+System.getProperty("user.dir") + "/drivers/chromedriver-mac");
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
+            NgWebDriver ngWebDriver = new NgWebDriver((JavascriptExecutor) driver);
+            ngWebDriver.waitForAngularRequestsToFinish();
         }
         driver.manage().window().maximize();
         user = new User(driver);
