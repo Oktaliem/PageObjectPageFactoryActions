@@ -8,7 +8,7 @@ Keyword Library (keyword-driven method) for Selenium Page Object &amp; Page Fact
 “If you have WebDriver APIs in your test methods, You're Doing It Wrong.” Simon Stewart
 ```
 ```
-Martin Flower :
+Martin Fowler :
 1. A page object wraps an HTML page, or fragment, with an application-specific API, allowing you to manipulate page elements without digging around in the HTML."
 2. A page object should also provide an interface that's easy to program to and hides the underlying widgetry in the window  page."
 3. The page object should encapsulate the mechanics required to find and manipulate the data in the page itself. A good rule of thumb is to imagine changing the concrete page -in which case the page object interface shouldn't change."
