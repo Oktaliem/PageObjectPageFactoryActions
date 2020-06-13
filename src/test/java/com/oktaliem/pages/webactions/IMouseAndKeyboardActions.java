@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
  * Author : Okta Liem
  */
 public interface IMouseAndKeyboardActions {
+    void performTab();
+    void performEnter();
 
     /** Keyboard & Mouse Action - Page Object */
     void doubleClick(By el);

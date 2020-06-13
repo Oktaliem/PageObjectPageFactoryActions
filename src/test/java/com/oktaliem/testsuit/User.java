@@ -4,9 +4,10 @@ package com.oktaliem.testsuit;
 import com.oktaliem.pages.LoginPage;
 import com.oktaliem.pages.SeleniumPage;
 import com.oktaliem.pages.SettingPage;
-import com.oktaliem.pages.angularpage.AngularDashboardPage;
+import com.oktaliem.pages.angularpage.coreui.AngularDashboardPage;
 import com.oktaliem.pages.angularpage.formio.FormBuilderPage;
 import com.oktaliem.pages.angularpage.formio.FormRendererPage;
+import com.oktaliem.pages.flutterPage.RallyLoginPage;
 import com.oktaliem.pages.reactpage.ReactDashboardPage;
 import com.oktaliem.pages.vuepage.VueDashboardPage;
 import org.openqa.selenium.WebDriver;
@@ -29,4 +30,6 @@ public class User {
 
     public FormRendererPage formRendererPage(){return new FormRendererPage(driver);}
     public FormBuilderPage formBuilderPage(){return new FormBuilderPage(driver);}
+
+    public RallyLoginPage rallyLoginPage(){return new RallyLoginPage(driver);}
 }

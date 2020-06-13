@@ -1,4 +1,4 @@
-package com.oktaliem.pages.angularpage;
+package com.oktaliem.pages.angularpage.coreui;
 
 import com.oktaliem.pages.BasePage;
 import com.oktaliem.pages.ipages.IDashboard;
