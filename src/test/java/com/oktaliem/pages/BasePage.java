@@ -1,11 +1,10 @@
 package com.oktaliem.pages;
 
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import com.oktaliem.pages.baseactions.BaseElementAct;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -35,6 +34,11 @@ public class BasePage extends BaseElementAct {
     @Step("Open Setting Page - Page Object")
     public void goToSettingPagePO() {
         selectOnDropDownListByText(setting,"Settings");
+    }
+
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public static byte[] saveScreenshotPNG(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
 }
