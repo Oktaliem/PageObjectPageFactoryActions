@@ -44,12 +44,11 @@ public class AngularDashboardPage extends BasePage implements IDashboard {
     public void goToComponent(String component) {
         for (WebElement element : components) {
             if (element.getText().equals(component)) {
-                element.click();
-                System.out.println("go to Component:" + component);
+                clickOn(element);
                 break;
             }
         }
-        saveScreenshotPNG(driver);
+        performPageScreenshot(driver);
     }
 
     @Step

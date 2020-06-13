@@ -88,10 +88,10 @@ Martin Fowler :
    ### Run The Test
    ```
    via WebDriver binary :
-   $ mvn clean test -Dsurfire.suiteXmlFiles=TestNG.xml
+   $ mvn clean test -Dbrowser="chromePath" -Dsurfire.suiteXmlFiles=TestNG.xml
 
    via WebDriverManager :
-   $ mvn clean test -Dbrowser="bonagarcia" -Dsurfire.suiteXmlFiles=TestNG.xml
+   $ mvn clean test -Dsurfire.suiteXmlFiles=TestNG.xml
 
    via Zalenium :
    $ docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start
@@ -106,7 +106,6 @@ Martin Fowler :
    $ mvn clean test -Dtest=UnitTest,{another_class}
    $ mvn clean test -Dtest=com.oktaliem.testsuit.**"
    ```
-   
    
    ### References 
    https://github.com/bonigarcia/webdrivermanager

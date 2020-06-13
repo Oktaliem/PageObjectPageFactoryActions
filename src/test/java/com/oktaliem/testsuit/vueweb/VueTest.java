@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 /**
  * Author : Okta Liem
  */
-public class vueTest extends BaseTest {
+public class VueTest extends BaseTest {
 
     @BeforeMethod
     public void setUp() {

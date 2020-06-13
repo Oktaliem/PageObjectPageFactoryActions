@@ -37,7 +37,7 @@ public class BasePage extends BaseElementAct {
     }
 
     @Attachment(value = "Page screenshot", type = "image/png")
-    public static byte[] saveScreenshotPNG(WebDriver driver) {
+    public static byte[] performPageScreenshot(WebDriver driver) {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 

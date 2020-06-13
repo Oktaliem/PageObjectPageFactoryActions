@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 /**
  * Author : Okta Liem
  */
-public class angularTest extends BaseTest {
+public class AngularTest extends BaseTest {
 
     @BeforeMethod
     public void setUp(){

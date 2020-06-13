@@ -44,12 +44,11 @@ public class ReactDashboardPage extends BasePage implements IDashboard {
     public void goToComponent(String component) {
         for (WebElement element : components) {
             if (element.getText().equals(component)) {
-                element.click();
-                System.out.println("go to Component:" + component);
+                clickOn(element);
                 break;
             }
         }
-        saveScreenshotPNG(driver);
+        performPageScreenshot(driver);
     }
 
     @Step
@@ -58,13 +57,12 @@ public class ReactDashboardPage extends BasePage implements IDashboard {
         for (WebElement element : subComponents) {
             System.out.println(element.getText());
             if (element.getText().equals(sub)) {
-                element.click();
-                System.out.println("go to sub Component:" + sub);
+                clickOn(element);
                 break;
             }
         }
         fluentWait(By.xpath("//li[contains(text(),'Home')]"),4000,500);
         wait(1000);
-        saveScreenshotPNG(driver);
+        performPageScreenshot(driver);
     }
 }

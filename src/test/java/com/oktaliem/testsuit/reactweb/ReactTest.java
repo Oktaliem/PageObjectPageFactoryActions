@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 /**
  * Author : Okta Liem
  */
-public class reactTest extends BaseTest {
+public class ReactTest extends BaseTest {
 
     @BeforeMethod
     public void setUp() {

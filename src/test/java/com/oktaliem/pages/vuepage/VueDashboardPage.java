@@ -48,12 +48,11 @@ public class VueDashboardPage extends BasePage implements IDashboard {
     public void goToComponent(String component) {
         for (WebElement element : components) {
             if (element.getText().equals(component)) {
-                element.click();
-                System.out.println("go to Component:" + component);
+                clickOn(element);
                 break;
             }
         }
-        saveScreenshotPNG(driver);
+        performPageScreenshot(driver);
     }
 
     @Step
@@ -61,13 +60,12 @@ public class VueDashboardPage extends BasePage implements IDashboard {
     public void openSubComponent(String sub) {
         for (WebElement element : subComponents) {
             if (element.findElement(By.tagName("a")).getText().equals(sub)) {
-                element.click();
-                System.out.println("go to sub Component:" + sub);
+                clickOn(element);
                 break;
             }
         }
         waitUntilLocatorIsVisible(goToWidgets, 4);
         wait(1000);
-        saveScreenshotPNG(driver);
+        performPageScreenshot(driver);
     }
 }
