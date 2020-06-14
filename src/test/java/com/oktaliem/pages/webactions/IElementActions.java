@@ -21,6 +21,7 @@ public interface IElementActions {
     void selectCheckBox(By el, boolean status, int index);
     void uploadFile(By el, String fileName);
     WebElement findElementByDoubleChain(By el1, By el2);
+    void clickBySortingTextElement(By els, String text);
 
     /** Web Action - Page Factory **/
     void clickOn(WebElement element);
@@ -33,5 +34,5 @@ public interface IElementActions {
     void selectOnRadioButtonByValue(List<WebElement> elements, String text);
     void selectCheckBox(WebElement element, boolean status);
     void uploadFile(WebElement element, String fileName);
-
+    void clickBySortingTextElement(List<WebElement> elements, String text);
 }

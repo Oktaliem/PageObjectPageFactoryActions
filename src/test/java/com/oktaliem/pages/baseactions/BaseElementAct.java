@@ -28,7 +28,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         waitUntilLocatorIsVisible(element, 4);
         try {
             element.click();
-            log.info("User clicks On Element: " + element);
+            log.info("User clicks On Element: " + element + " succeed");
         } catch (ElementClickInterceptedException e) {
             clickElementViaJSExecutor(element);
         }
@@ -40,13 +40,13 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         waitUntilLocatorIsVisible(element, 4);
         element.clear();
         element.sendKeys(value);
-        log.info("User inputs field with element: " + el + " and value " + value);
+        log.info("User inputs field with element: " + el + " and value " + value + " succeed");
     }
 
     @Override
     public String getTextFromElement(By el) {
         String text = driver.findElement(el).getText();
-        log.info("Get Text with value: " + text);
+        log.info("Get Text with value: " + text + " succeed");
         return text;
     }
 
@@ -58,13 +58,13 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
             waitUntilLocatorIsVisible(element, 4);
             Select select = new Select(element);
             select.selectByVisibleText(text);
-            log.info("Select Drop down List Element by visible text : " + element);
+            log.info("Select Drop down List Element by visible text : " + element + " succeed");
         } catch (UnexpectedTagNameException e) {
             List<WebElement> elements = driver.findElements(el);
             for (WebElement element : elements) {
                 if (element.getText().trim().equals(text.trim())) {
                     clickOn(element);
-                    log.info("Select Drop down List Element by visible text : " + text);
+                    log.info("Select Drop down List Element by visible text : " + text + " succeed");
                     break;
                 }
             }
@@ -77,7 +77,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         waitUntilLocatorIsVisible(element, 4);
         Select select = new Select(element);
         select.selectByValue(value);
-        log.info("Select Drop down List Element by visible text : " + element);
+        log.info("Select Drop down List Element by visible text : " + element + " succeed");
     }
 
     @Override
@@ -85,7 +85,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         for (WebElement element : driver.findElements(els)) {
             if (element.getText().equals(text)) {
                 clickOn(element);
-                log.info("Select radio button by text: " + text);
+                log.info("Select radio button by text: " + text + " succeed");
                 break;
             }
         }
@@ -96,7 +96,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         for (WebElement element : driver.findElements(els)) {
             if (element.getAttribute("value").trim().equals(text.trim())) {
                 clickOn(element);
-                log.info("Select radio button by value: " + text);
+                log.info("Select radio button by value: " + text + " succeed");
                 break;
             }
         }
@@ -127,7 +127,18 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         WebElement element = driver.findElement(el);
         waitUntilLocatorIsVisible(element, 4);
         element.sendKeys(System.getProperty("user.dir") + "/src/main/resources/" + fileName);
-        log.info("Choose file name: " + fileName);
+        log.info("Choose file name: " + fileName + " succeed");
+    }
+
+    @Override
+    public void clickBySortingTextElement(By els, String text) {
+        for (WebElement element : driver.findElements(els)) {
+            if (element.getText().equals(text)) {
+                clickOn(element);
+                log.info("Click Element by sorting text: " + text + " succeed");
+                break;
+            }
+        }
     }
 
 
@@ -139,7 +150,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         waitUntilLocatorIsVisible(element, 4);
         try {
             element.click();
-            log.info("User clicks On Element: " + element);
+            log.info("User clicks On Element: " + element + " succeed");
         } catch (ElementClickInterceptedException e) {
             clickElementViaJSExecutor(element);
         }
@@ -150,14 +161,14 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         waitUntilLocatorIsVisible(element, 4);
         element.clear();
         element.sendKeys(value);
-        log.info("User inputs field with element: " + element + " and value " + value);
+        log.info("User inputs field with element: " + element + " and value " + value + " succeed");
     }
 
     @Override
     public String getTextFromElement(WebElement element) {
         waitUntilLocatorIsVisible(element, 4);
         String text = element.getText();
-        log.info("Get Text with value: " + text);
+        log.info("Get Text with value: " + text + " succeed");
         return text;
 
     }
@@ -167,7 +178,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         waitUntilLocatorIsVisible(element, 4);
         Select select = new Select(element);
         select.selectByVisibleText(text);
-        log.info("Select Drop down List Element by visible text : " + element);
+        log.info("Select Drop down List Element by visible text : " + element + " succeed");
     }
 
     @Override
@@ -175,7 +186,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         for (WebElement element : elements) {
             if (element.getText().trim().equals(text.trim())) {
                 clickOn(element);
-                log.info("Select Drop down List Element by visible text : " + text);
+                log.info("Select Drop down List Element by visible text : " + text + " succeed");
                 break;
             }
         }
@@ -186,7 +197,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         waitUntilLocatorIsVisible(element, 4);
         Select select = new Select(element);
         select.selectByValue(value);
-        log.info("Select Drop down List Element by visible text : " + element);
+        log.info("Select Drop down List Element by visible text : " + element + " succeed");
     }
 
     @Override
@@ -195,7 +206,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
             System.out.println("Text: " + element.getText());
             if (element.getText().trim().equals(text.trim())) {
                 clickOn(element);
-                log.info("Select radio button by text: " + text);
+                log.info("Select radio button by text: " + text + " succeed");
                 break;
             }
         }
@@ -206,7 +217,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         for (WebElement element : elements) {
             if (element.getAttribute("value").trim().equals(text.trim())) {
                 clickOn(element);
-                log.info("Select radio button by value: " + text);
+                log.info("Select radio button by value: " + text + " succeed");
                 break;
             }
         }
@@ -241,14 +252,25 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         } catch (WebDriverException e) {
         }
         element.sendKeys(System.getProperty("user.dir") + "/src/main/resources/" + fileName);
-        log.info("Choose file name: " + fileName);
+        log.info("Choose file name: " + fileName + " succeed");
     }
 
     @Override
     public WebElement findElementByDoubleChain(By el1, By el2) {
         WebElement els = driver.findElement(el1).findElement(el2);
-        log.info("Find element by: " + el1 + " and " + el2);
+        log.info("Find element by: " + el1 + " and " + el2 + "succeed");
         return els;
+    }
+
+    @Override
+    public void clickBySortingTextElement(List<WebElement> elements, String text) {
+        for (WebElement element : elements) {
+            if (element.getText().equals(text)) {
+                clickOn(element);
+                log.info("Click Element by sorting text: " + text + " succeed");
+                break;
+            }
+        }
     }
 
 

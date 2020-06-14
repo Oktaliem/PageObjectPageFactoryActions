@@ -42,12 +42,7 @@ public class AngularDashboardPage extends BasePage implements IDashboard {
     @Step
     @Override
     public void goToComponent(String component) {
-        for (WebElement element : components) {
-            if (element.getText().equals(component)) {
-                clickOn(element);
-                break;
-            }
-        }
+        clickBySortingTextElement(components,component);
         performPageScreenshot(driver);
     }
 

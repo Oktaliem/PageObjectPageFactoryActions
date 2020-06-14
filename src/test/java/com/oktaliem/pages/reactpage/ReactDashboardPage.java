@@ -42,25 +42,15 @@ public class ReactDashboardPage extends BasePage implements IDashboard {
     @Step
     @Override
     public void goToComponent(String component) {
-        for (WebElement element : components) {
-            if (element.getText().equals(component)) {
-                clickOn(element);
-                break;
-            }
-        }
+        clickBySortingTextElement(components,component);
         performPageScreenshot(driver);
     }
 
     @Step
     @Override
     public void openSubComponent(String sub) {
-        for (WebElement element : subComponents) {
-            if (element.getText().equals(sub)) {
-                clickOn(element);
-                break;
-            }
-        }
-        fluentWait(By.xpath("//li[contains(text(),'Home')]"),4000,500);
+        clickBySortingTextElement(subComponents,sub);
+        fluentWait(By.xpath("//li[contains(text(),'Home')]"),10000,500);
         wait(1000);
         performPageScreenshot(driver);
     }

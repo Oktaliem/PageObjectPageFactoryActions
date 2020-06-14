@@ -35,22 +35,15 @@ public class PrimengComponentPage extends BasePage {
     @FindBy(className = "ui-datepicker-year")
     WebElement year;
 
-    @FindBy(className = "ui-state-default")
-    List<WebElement> days;
-
     By backDateBtn = By.className("ui-datepicker-prev-icon");
     By nextDateBtn = By.className("ui-datepicker-next-icon");
+    By days = By.className("ui-state-default");
 
     @Step
     public PrimengComponentPage navigateToComponent(String component) {
         goToWeb("https://primefaces.org/primeng/showcase/#/theming");
         waitUntilTextIsPresentInLocator(featureTitle, "Theming");
-        for (WebElement element : components) {
-            if (element.getText().equals(component)) {
-                clickOn(element);
-                break;
-            }
-        }
+        clickBySortingTextElement(components,component);
         wait(1000);
         performPageScreenshot(driver);
         return this;
@@ -64,12 +57,7 @@ public class PrimengComponentPage extends BasePage {
 
     @Step
     public PrimengComponentPage selectCarBrand(String brand) {
-        for (WebElement element : carBrands) {
-            if (element.getText().equals(brand)) {
-                clickOn(element);
-                break;
-            }
-        }
+        clickBySortingTextElement(carBrands,brand);
         checkIfElementIsPresent(By.xpath("//span[.='Brand: " + brand + "']"), 5);
         performPageScreenshot(driver);
         return this;
@@ -84,12 +72,7 @@ public class PrimengComponentPage extends BasePage {
 
     @Step
     public PrimengComponentPage selectDay(String day) {
-        for (WebElement element : days) {
-            if (element.getText().equals(day)) {
-                clickOn(element);
-                break;
-            }
-        }
+        clickBySortingTextElement(days,day);
         performPageScreenshot(driver);
         return this;
     }
