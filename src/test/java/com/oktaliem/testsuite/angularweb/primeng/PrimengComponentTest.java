@@ -44,4 +44,22 @@ public class PrimengComponentTest extends BaseTest {
             userIsOn.primengComponentPage().removeChipByValue(chip);
         }
     }
+
+    @Test
+    public void colorPicker() {
+        userIsOn.primengComponentPage()
+                .navigateToComponent("ColorPicker")
+                .setColourByCoordinate("49")
+                .selectColourDegradationByCoordinate("144", "51");
+        userIsOn.primengComponentPage().getSelectedColourEqualTo("#0c07a8");
+    }
+
+    @Test
+    public void dropDown(){
+        userIsOn.primengComponentPage().navigateToComponent("Dropdown")
+                .selectSingleDropDownList("Istanbul")
+                .selectEditableDropDownList("Mercedes")
+                .selectGroupDropDownList("Mazda")
+                .selectVirtualSrollDropDownList("Item 5");
+    }
 }

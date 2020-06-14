@@ -74,7 +74,7 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
 
 
     @Override
-    public void refreshPageViaJSExecutor() {
+    public void refreshPageViaJsExecutor() {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("history.go(0)");
         //or
@@ -83,7 +83,7 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
     }
 
     @Override
-    public Object executeViaJSExecutor(String javascript) {
+    public Object executeViaJsExecutor(String javascript) {
         log.info("execute javascript: " + javascript);
         return ((JavascriptExecutor) driver).executeScript(javascript);
     }
@@ -127,7 +127,7 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
     }
 
     @Override
-    public String getAttributeViaJSExecutor(String by, String element, int index, String attribute) {
+    public String getAttributeViaJsExecutor(String by, String element, int index, String attribute) {
         WebElement el = findElementByJSExecutor(by, element, index);
         String text = el.getAttribute(attribute);
         log.info("get attribute " + attribute + " By: " + by + " element: " + element + " with value " + text);
@@ -135,7 +135,7 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
     }
 
     @Override
-    public String getURLByJSExecutor() {
+    public String getURLByJsExecutor() {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         String text = jsExecutor.executeScript("return document.URL;").toString();
         log.info("get url " + text);
@@ -143,7 +143,7 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
     }
 
     @Override
-    public void navigateViaJSExecutor(String url) {
+    public void navigateViaJsExecutor(String url) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("window.location = '" + url + "'");
         log.info("navigate via JSExecutor to " + url);
@@ -155,20 +155,45 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
         jsExecutor.executeScript("arguments[0].style.border='3px solid red'", element);
     }
 
+
     @Override
-    public void inputTextByJSExecutor(WebElement element, String text) {
+    public void inputTextByJsExecutor(WebElement element, String text) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].value='" + text + "'", element);
         log.info("input text in " + element + " with value " + text);
     }
 
     @Override
-    public void clickElementViaJSExecutor(WebElement element) {
+    public void clickElementViaJsExecutor(WebElement element) {
         log.warn("Element is not clickable, try to click with JSExecutor");
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].click();", element);
         log.info("click on " + element + " via JSExecutor succeed");
     }
 
+    @Override
+    public void setAttributeByJsExecutor(String locatorId, String elementName, String attribute, String value) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        switch (locatorId) {
+            case "id":
+                js.executeScript("document.getElementById('" + elementName + "').setAttribute('" + attribute + "', '" + value + "')");
+                log.info("document.getElementById('" + elementName + "').setAttribute('" + attribute + "', '" + value + "')");
+                break;
+            case "tagName":
+                js.executeScript("document.getElementsByTagName('" + elementName + "')[0].setAttribute('" + attribute + "', '" + value + "')");
+                log.info("document.getElementsByTagName('" + elementName + "')[0].setAttribute('" + attribute + "', '" + value + "')");
+                break;
+            case "class":
+                js.executeScript("document.getElementsByClassName('" + elementName + "')[0].setAttribute('" + attribute + "', '" + value + "')");
+                log.info("document.getElementsByClassName('" + elementName + "')[0].setAttribute('" + attribute + "', '" + value + "')");
+                break;
+            case "name":
+                js.executeScript("document.getElementsByName('" + elementName + "')[0].setAttribute('" + attribute + "', '" + value + "')");
+                log.info("document.getElementsByName('" + elementName + "')[0].setAttribute('" + attribute + "', '" + value + "')");
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + elementName);
+        }
+    }
 
 }

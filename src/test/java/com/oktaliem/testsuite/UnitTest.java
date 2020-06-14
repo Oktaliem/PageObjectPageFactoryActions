@@ -216,44 +216,44 @@ public class UnitTest extends BaseTest{
         userIsOn.seleniumPage().launchTheApplicationGuru99();
         userIsOn.seleniumPage().wait(5000);
         userIsOn.seleniumPage().wait(5000);
-        userIsOn.seleniumPage().executeViaJSExecutor("alert(\"Hello World!\")");
+        userIsOn.seleniumPage().executeViaJsExecutor("alert(\"Hello World!\")");
         userIsOn.seleniumPage().wait(5000);
         userIsOn.seleniumPage().handleJavascriptPopUp("Hello World!");
-        userIsOn.seleniumPage().executeViaJSExecutor("window.confirm(\"sometext\");");
+        userIsOn.seleniumPage().executeViaJsExecutor("window.confirm(\"sometext\");");
         userIsOn.seleniumPage().wait(5000);
         userIsOn.seleniumPage().handleJavascriptPopUp("cancel");
-        userIsOn.seleniumPage().executeViaJSExecutor("window.prompt(\"sometext\",\"defaultText\");");
+        userIsOn.seleniumPage().executeViaJsExecutor("window.prompt(\"sometext\",\"defaultText\");");
         userIsOn.seleniumPage().wait(5000);
         userIsOn.seleniumPage().handleJavascriptPopUp("defaultText");
-        userIsOn.seleniumPage().refreshPageViaJSExecutor();
-        userIsOn.seleniumPage().executeViaJSExecutor("window.open()");
-        userIsOn.seleniumPage().executeViaJSExecutor("window.focus()");
-        userIsOn.seleniumPage().executeViaJSExecutor("screen.height");
+        userIsOn.seleniumPage().refreshPageViaJsExecutor();
+        userIsOn.seleniumPage().executeViaJsExecutor("window.open()");
+        userIsOn.seleniumPage().executeViaJsExecutor("window.focus()");
+        userIsOn.seleniumPage().executeViaJsExecutor("screen.height");
     }
 
     @Test(description = "General - Login with javascript executor (Negative Scenario) ")
     public void TC30(){
-        userIsOn.loginPage().executeViaJSExecutor("window.location=\"http://localhost/web/login/\";");
+        userIsOn.loginPage().executeViaJsExecutor("window.location=\"http://localhost/web/login/\";");
         userIsOn.loginPage().wait(2000);
-        userIsOn.loginPage().executeViaJSExecutor("document.getElementById('login').value='bitnami'");
+        userIsOn.loginPage().executeViaJsExecutor("document.getElementById('login').value='bitnami'");
         userIsOn.loginPage().wait(2000);
-        userIsOn.loginPage().executeViaJSExecutor("document.getElementById('password').value='test'");
+        userIsOn.loginPage().executeViaJsExecutor("document.getElementById('password').value='test'");
         userIsOn.loginPage().wait(2000);
-        userIsOn.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].style.backgroundColor='red'");
+        userIsOn.loginPage().executeViaJsExecutor("document.getElementsByClassName('btn-primary')[0].style.backgroundColor='red'");
         userIsOn.loginPage().wait(2000);
-        userIsOn.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].click()");
+        userIsOn.loginPage().executeViaJsExecutor("document.getElementsByClassName('btn-primary')[0].click()");
         userIsOn.loginPage().wait(2000);
-        userIsOn.loginPage().executeViaJSExecutor("document.body.style.zoom='50'");
+        userIsOn.loginPage().executeViaJsExecutor("document.body.style.zoom='50'");
         userIsOn.loginPage().wait(2000);
     }
 
 
     @Test(description = "General - Login with javascript executor (Positive Scenario) ")
     public void TC31(){
-        userIsOn.loginPage().executeViaJSExecutor("window.location=\"http://localhost/web/login/\";");
-        userIsOn.loginPage().executeViaJSExecutor("document.getElementById('login').value='user@example.com'");
-        userIsOn.loginPage().executeViaJSExecutor("document.getElementById('password').value='bitnami'");
-        userIsOn.loginPage().executeViaJSExecutor("document.getElementsByClassName('btn-primary')[0].click()");
+        userIsOn.loginPage().executeViaJsExecutor("window.location=\"http://localhost/web/login/\";");
+        userIsOn.loginPage().executeViaJsExecutor("document.getElementById('login').value='user@example.com'");
+        userIsOn.loginPage().executeViaJsExecutor("document.getElementById('password').value='bitnami'");
+        userIsOn.loginPage().executeViaJsExecutor("document.getElementsByClassName('btn-primary')[0].click()");
     }
 
     @Test(description = "General - Keyboard Action ")

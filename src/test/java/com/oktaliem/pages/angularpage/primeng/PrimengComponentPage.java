@@ -50,6 +50,9 @@ public class PrimengComponentPage extends BasePage {
     @FindBy(className = "ui-chips-token-icon")
     List<WebElement> chipIcon;
 
+    @FindBy(className = "ui-dropdown-item")
+    List<WebElement> dropDownValues;
+
     By backDateBtn = By.className("ui-datepicker-prev-icon");
     By nextDateBtn = By.className("ui-datepicker-next-icon");
     By days = By.className("ui-state-default");
@@ -143,4 +146,65 @@ public class PrimengComponentPage extends BasePage {
         }
         performPageScreenshot(driver);
     }
+
+    @Step
+    public PrimengComponentPage selectColourDegradationByCoordinate(String left, String right) {
+        String value = "left: " + left + "px; top: " + right + "px;";
+        setAttributeByJsExecutor("class", "ui-colorpicker-color-handle", "style", value);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public PrimengComponentPage setColourByCoordinate(String coordinate) {
+        String value = "top: " + coordinate + "px;";
+        setAttributeByJsExecutor("class", "ui-colorpicker-hue-handle", "style", value);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public void getSelectedColourEqualTo(String hexColourCode) {
+        checkIfTextIsContains(By.cssSelector("div.implementation > p:nth-of-type(1)"), hexColourCode);
+        performPageScreenshot(driver);
+    }
+
+    @Step
+    public PrimengComponentPage selectSingleDropDownList(String country) {
+        clickOn(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/div[3]/div[1]/ng-component[1]/div[2]/" +
+                "p-dropdown[1]/div[1]/div[2]/span[1]"));
+        selectOnDropDownListByText(dropDownValues, country);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public PrimengComponentPage selectEditableDropDownList(String car) {
+        clickOn(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/div[3]/div[1]/ng-component[1]/div[2]/" +
+                "p-dropdown[2]/div[1]/div[3]/span[1]"));
+        selectOnDropDownListByText(dropDownValues, car);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public PrimengComponentPage selectGroupDropDownList(String car) {
+        clickOn(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/div[3]/div[1]/ng-component[1]/div[2]/" +
+                "p-dropdown[4]/div[1]/div[3]/span[1]"));
+        selectOnDropDownListByText(dropDownValues, car);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public PrimengComponentPage selectVirtualSrollDropDownList(String car) {
+        clickOn(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/div[3]/div[1]/ng-component[1]/div[2]/" +
+                "p-dropdown[5]/div[1]/div[3]/span[1]"));
+        selectOnDropDownListByText(dropDownValues, car);
+        wait(1000);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+
 }

@@ -8,20 +8,21 @@ import org.openqa.selenium.WebElement;
  */
 public interface IJSExecutorActions {
 
-    void clickElementViaJSExecutor(WebElement element);
-    void inputTextByJSExecutor(WebElement element, String text);
+    void clickElementViaJsExecutor(WebElement element);
+    void inputTextByJsExecutor(WebElement element, String text);
     void scrollToBottomPage();
     void scrollToTopPage();
     void scrollUntilViewElement(By el);
     void scrollUntilViewElement(WebElement element);
-    void refreshPageViaJSExecutor();
+    void refreshPageViaJsExecutor();
     void handleJavascriptPopUp(String info);
     void openNewTab();
-    Object executeViaJSExecutor(String javascript);
+    Object executeViaJsExecutor(String javascript);
     WebElement findElementByJSExecutor(String by,String element, int index);
     String getTextElementViaJSExecutor(String by,String element, int index);
-    String getAttributeViaJSExecutor(String by,String element, int index, String attribute);
-    String getURLByJSExecutor();
-    void navigateViaJSExecutor(String url);
+    String getAttributeViaJsExecutor(String by, String element, int index, String attribute);
+    String getURLByJsExecutor();
+    void navigateViaJsExecutor(String url);
     void highlightElement (WebElement element);
+    void setAttributeByJsExecutor(String locatorId, String elementName, String attribute, String value);
 }

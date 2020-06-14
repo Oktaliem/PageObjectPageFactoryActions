@@ -104,7 +104,7 @@ public class LoginPage extends BasePage {
     public void login() {
         inputTextBox(userNameLogin, "user@example.com");
         inputTextBox(passwordLogin, "bitnami");
-        clickElementViaJSExecutor(loginBtn);
+        clickElementViaJsExecutor(loginBtn);
     }
 
     @Step("Login URL")
@@ -150,39 +150,39 @@ public class LoginPage extends BasePage {
         String csrf_value_2 = findElementByJSExecutor("name", csrfToken, 0).getAttribute("value");
         System.out.println("Get CSRF value by name: " + csrf_value_2);
         getTextElementViaJSExecutor("class", msg, 0);
-        getAttributeViaJSExecutor("class", "border-right", 0, "href");
-        inputTextByJSExecutor(userName, "kucing garong");
-        getURLByJSExecutor();
-        navigateViaJSExecutor("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
-        navigateViaJSExecutor("http://localhost/web/login");
+        getAttributeViaJsExecutor("class", "border-right", 0, "href");
+        inputTextByJsExecutor(userName, "kucing garong");
+        getURLByJsExecutor();
+        navigateViaJsExecutor("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
+        navigateViaJsExecutor("http://localhost/web/login");
 
-        String a = executeViaJSExecutor("return document.documentElement.innerText;").toString();
+        String a = executeViaJsExecutor("return document.documentElement.innerText;").toString();
         System.out.println("return document.documentElement.innerText; " + a);
-        String b = executeViaJSExecutor("return document.title; ").toString();
+        String b = executeViaJsExecutor("return document.title; ").toString();
         System.out.println("return document.title; " + b);
-        String c = executeViaJSExecutor("return document.domain;").toString();
+        String c = executeViaJsExecutor("return document.domain;").toString();
         System.out.println("return document.domain; " + c);
 
-        navigateViaJSExecutor("https://www.detik.com/");
-        executeViaJSExecutor("window.scrollBy(0,1500)");
+        navigateViaJsExecutor("https://www.detik.com/");
+        executeViaJsExecutor("window.scrollBy(0,1500)");
         wait(1000);
-        executeViaJSExecutor("window.history.back()");
+        executeViaJsExecutor("window.history.back()");
         wait(2000);
-        executeViaJSExecutor("window.history.forward()");
+        executeViaJsExecutor("window.history.forward()");
         wait(2000);
-        navigateViaJSExecutor("http://localhost/web/login");
+        navigateViaJsExecutor("http://localhost/web/login");
 
-        executeViaJSExecutor("document.querySelector('.btn-primary').click()"); //To call an element with class name, use ".classname"
-        executeViaJSExecutor("document.querySelector('#login').value='okta'"); //To call element by id, use "#id"
-        String csrf_aja = executeViaJSExecutor("return document.querySelector('input').getAttribute('value')").toString(); //To call element by tagname, use "tagname"
+        executeViaJsExecutor("document.querySelector('.btn-primary').click()"); //To call an element with class name, use ".classname"
+        executeViaJsExecutor("document.querySelector('#login').value='okta'"); //To call element by id, use "#id"
+        String csrf_aja = executeViaJsExecutor("return document.querySelector('input').getAttribute('value')").toString(); //To call element by tagname, use "tagname"
         System.out.println("get csrf token: " + csrf_aja);
-        executeViaJSExecutor("document.body.style.zoom = '300%';");
+        executeViaJsExecutor("document.body.style.zoom = '300%';");
         wait(2000);
-        executeViaJSExecutor("window.open(arguments[0])");
-        String docTitle = executeViaJSExecutor("return document.title").toString();
+        executeViaJsExecutor("window.open(arguments[0])");
+        String docTitle = executeViaJsExecutor("return document.title").toString();
         System.out.println("Document Title: " + docTitle);
 
-        executeViaJSExecutor("window.scrollByPages(3)");
+        executeViaJsExecutor("window.scrollByPages(3)");
 
         wait(5000);
     }

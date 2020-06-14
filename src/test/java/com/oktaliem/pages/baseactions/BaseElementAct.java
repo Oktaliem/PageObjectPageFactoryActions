@@ -30,7 +30,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
             element.click();
             log.info("User clicks On Element: " + element + " succeed");
         } catch (ElementClickInterceptedException e) {
-            clickElementViaJSExecutor(element);
+            clickElementViaJsExecutor(element);
         }
     }
 
@@ -152,7 +152,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
             element.click();
             log.info("User clicks On Element: " + element + " succeed");
         } catch (ElementClickInterceptedException e) {
-            clickElementViaJSExecutor(element);
+            clickElementViaJsExecutor(element);
         }
     }
 
