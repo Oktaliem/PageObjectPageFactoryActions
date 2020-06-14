@@ -1,6 +1,6 @@
-package com.oktaliem.testsuit.angularweb.formio;
+package com.oktaliem.testsuite.angularweb.formio;
 
-import com.oktaliem.testsuit.BaseTest;
+import com.oktaliem.testsuite.BaseTest;
 import org.testng.annotations.Test;
 
 public class FormBuilderComponentTest extends BaseTest {

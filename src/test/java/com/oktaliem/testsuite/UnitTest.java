@@ -1,4 +1,4 @@
-package com.oktaliem.testsuit;
+package com.oktaliem.testsuite;
 
 import com.oktaliem.pages.Path;
 import org.openqa.selenium.Keys;

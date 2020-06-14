@@ -104,7 +104,7 @@ Martin Fowler :
    run one class (testsuit) or many classes (testsuites)
    $ mvn clean test -Dtest=UnitTest
    $ mvn clean test -Dtest=UnitTest,{another_class}
-   $ mvn clean test -Dtest=com.oktaliem.testsuit.**"
+   $ mvn clean test -Dtest=com.oktaliem.testsuite.**"
    ```
    
    ### References 

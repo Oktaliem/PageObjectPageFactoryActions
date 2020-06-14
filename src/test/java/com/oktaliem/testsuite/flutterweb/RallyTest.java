@@ -1,6 +1,6 @@
-package com.oktaliem.testsuit.flutterweb;
+package com.oktaliem.testsuite.flutterweb;
 
-import com.oktaliem.testsuit.BaseTest;
+import com.oktaliem.testsuite.BaseTest;
 import org.testng.annotations.Test;
 
 public class RallyTest extends BaseTest {

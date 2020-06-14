@@ -1,4 +1,4 @@
-package com.oktaliem.testsuit;
+package com.oktaliem.testsuite;
 
 import com.paulhammant.ngwebdriver.NgWebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;

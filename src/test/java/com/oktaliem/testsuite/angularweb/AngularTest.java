@@ -1,6 +1,6 @@
-package com.oktaliem.testsuit.angularweb;
+package com.oktaliem.testsuite.angularweb;
 
-import com.oktaliem.testsuit.BaseTest;
+import com.oktaliem.testsuite.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

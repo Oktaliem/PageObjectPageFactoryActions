@@ -1,4 +1,4 @@
-package com.oktaliem.testsuit;
+package com.oktaliem.testsuite;
 
 
 import com.oktaliem.pages.LoginPage;
@@ -7,6 +7,7 @@ import com.oktaliem.pages.SettingPage;
 import com.oktaliem.pages.angularpage.coreui.AngularDashboardPage;
 import com.oktaliem.pages.angularpage.formio.FormBuilderPage;
 import com.oktaliem.pages.angularpage.formio.FormRendererPage;
+import com.oktaliem.pages.angularpage.primeng.PrimengComponentPage;
 import com.oktaliem.pages.flutterPage.RallyLoginPage;
 import com.oktaliem.pages.reactpage.ReactDashboardPage;
 import com.oktaliem.pages.vuepage.VueDashboardPage;
@@ -32,4 +33,9 @@ public class User {
     public FormBuilderPage formBuilderPage(){return new FormBuilderPage(driver);}
 
     public RallyLoginPage rallyLoginPage(){return new RallyLoginPage(driver);}
+
+
+    //PRIMENG
+    public PrimengComponentPage primengComponentPage(){return new PrimengComponentPage(driver);}
+
 }

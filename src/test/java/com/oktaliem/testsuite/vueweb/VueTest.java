@@ -1,6 +1,6 @@
-package com.oktaliem.testsuit.vueweb;
+package com.oktaliem.testsuite.vueweb;
 
-import com.oktaliem.testsuit.BaseTest;
+import com.oktaliem.testsuite.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

@@ -55,7 +55,6 @@ public class ReactDashboardPage extends BasePage implements IDashboard {
     @Override
     public void openSubComponent(String sub) {
         for (WebElement element : subComponents) {
-            System.out.println(element.getText());
             if (element.getText().equals(sub)) {
                 clickOn(element);
                 break;
