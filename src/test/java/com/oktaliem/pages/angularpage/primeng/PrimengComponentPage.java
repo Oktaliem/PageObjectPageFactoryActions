@@ -57,6 +57,30 @@ public class PrimengComponentPage extends BasePage {
     By nextDateBtn = By.className("ui-datepicker-next-icon");
     By days = By.className("ui-state-default");
 
+    @FindBy(xpath = "//div[@class='ql-editor']")
+    WebElement editor;
+
+    @FindBy(className = "ql-picker-label")
+    List<WebElement> qlPicker;
+
+    @FindBys({
+            @FindBy(id = "ql-picker-options-0"),
+            @FindBy(tagName = "span")})
+    List<WebElement> qlPickerItem;
+
+    @FindBys({
+            @FindBy(id = "ql-picker-options-1"),
+            @FindBy(tagName = "span")})
+    List<WebElement> qlPickerType;
+
+    @FindBys({
+            @FindBy(id = "ql-picker-options-2"),
+            @FindBy(tagName = "span")})
+    List<WebElement> qlPickerColour;
+
+    @FindBy(className = "ql-color-label")
+    List<WebElement> qlColorLabel;
+
     @Step
     public PrimengComponentPage navigateToComponent(String component) {
         goToWeb("https://primefaces.org/primeng/showcase/#/theming");
@@ -206,5 +230,54 @@ public class PrimengComponentPage extends BasePage {
         return this;
     }
 
+    @Step
+    public PrimengComponentPage inputTextOnEditor(String info) {
+        clickOn(editor);
+        controlPlus(editor, "a");
+        performDelete();
+        wait(1000);
+        inputTextBox(By.xpath("//p-editor[@class='ng-valid ng-touched ng-dirty']//div[@class='ql-editor ql-blank']"), info);
+        wait(1000);
+        performPageScreenshot(driver);
+        return this;
+    }
 
+    @Step
+    public PrimengComponentPage changeFontSize(String size) {
+        clickOn(qlPicker.get(0));
+        for (WebElement element : qlPickerItem) {
+            if (element.getAttribute("data-label").equals(size)) {
+                clickOn(element);
+                break;
+            }
+        }
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public PrimengComponentPage changeFontType(String type) {
+        clickOn(qlPicker.get(1));
+        for (WebElement element : qlPickerType) {
+            if (element.getAttribute("data-label").equals(type)) {
+                clickOn(element);
+                break;
+            }
+        }
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public void changeFontColour(String colour) {
+        clickOn(qlPicker.get(2));
+        controlPlus(editor, "a");
+        for (WebElement element : qlPickerColour) {
+            if (element.getAttribute("style").contains(colour)) {
+                clickOn(element);
+                break;
+            }
+        }
+        performPageScreenshot(driver);
+    }
 }

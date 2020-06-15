@@ -62,4 +62,13 @@ public class PrimengComponentTest extends BaseTest {
                 .selectGroupDropDownList("Mazda")
                 .selectVirtualSrollDropDownList("Item 5");
     }
+
+    @Test
+    public void editor(){
+       userIsOn.primengComponentPage().navigateToComponent("Editor")
+               .inputTextOnEditor("This is just for testing only")
+               .changeFontSize("Subheading")
+               .changeFontType("Serif")
+               .changeFontColour("rgb(230, 0, 0)");
+    }
 }

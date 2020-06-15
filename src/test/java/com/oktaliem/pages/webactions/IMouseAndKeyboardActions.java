@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 public interface IMouseAndKeyboardActions {
     void performTab();
     void performEnter();
+    void performDelete();
+    void controlPlus( WebElement element, String keyboard);
 
     /** Keyboard & Mouse Action - Page Object */
     void doubleClick(By el);

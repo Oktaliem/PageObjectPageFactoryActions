@@ -122,7 +122,7 @@ public class BaseMouseKeyboardAct extends BaseRobotAct implements IMouseAndKeybo
     @Override
     public void selectAutoCompleteDropDownList(WebElement element, String text, int xOffset, int yOffset) {
         log.info("Try to Move to element: " + element.getLocation() + " and Click then input with value: " + text);
-        log.info("And move to xOffset: "+ xOffset+" and yOffset: "+ yOffset+" then click");
+        log.info("And move to xOffset: " + xOffset + " and yOffset: " + yOffset + " then click");
         Actions action = new Actions(driver);
         action.moveToElement(element)
                 .click()
@@ -135,20 +135,34 @@ public class BaseMouseKeyboardAct extends BaseRobotAct implements IMouseAndKeybo
     }
 
     @Override
-    public void performTab(){
+    public void performTab() {
         Actions builder = new Actions(driver);
-        Action enter= builder
+        Action enter = builder
                 .sendKeys(Keys.TAB)
                 .build();
         enter.perform();
     }
 
     @Override
-    public void performEnter(){
+    public void performEnter() {
         Actions builder = new Actions(driver);
-        Action enter= builder
+        Action enter = builder
                 .sendKeys(Keys.ENTER)
                 .build();
         enter.perform();
+    }
+
+    @Override
+    public void performDelete() {
+        Actions builder = new Actions(driver);
+        Action enter = builder
+                .sendKeys(Keys.DELETE)
+                .build();
+        enter.perform();
+    }
+
+    @Override
+    public void controlPlus(WebElement element, String keyboard) {
+        element.sendKeys(Keys.CONTROL, keyboard);
     }
 }
