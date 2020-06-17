@@ -71,4 +71,13 @@ public class PrimengComponentTest extends BaseTest {
                .changeFontType("Serif")
                .changeFontColour("rgb(230, 0, 0)");
     }
+
+    @Test
+    public void formLayout(){
+        userIsOn.primengComponentPage().navigateToComponent("FormLayout")
+                .inputVerticalFirstName("Jon").inputVerticalLastName("Doe")
+                .selectVerticalCheckBox("Los Angeles");
+    }
+
+
 }

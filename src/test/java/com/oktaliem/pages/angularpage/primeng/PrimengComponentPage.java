@@ -75,11 +75,18 @@ public class PrimengComponentPage extends BasePage {
 
     @FindBys({
             @FindBy(id = "ql-picker-options-2"),
-            @FindBy(tagName = "span")})
+            @FindBy(tagName = "label")})
     List<WebElement> qlPickerColour;
 
-    @FindBy(className = "ql-color-label")
-    List<WebElement> qlColorLabel;
+
+    @FindBy(tagName = "p-checkbox")
+    List<WebElement> squareCheckBox;
+
+    @FindBys({
+            @FindBy(className = "p-field-checkbox"),
+            @FindBy(tagName = "label")})
+    List<WebElement> squareCheckLabel;
+
 
     @Step
     public PrimengComponentPage navigateToComponent(String component) {
@@ -275,6 +282,33 @@ public class PrimengComponentPage extends BasePage {
         for (WebElement element : qlPickerColour) {
             if (element.getAttribute("style").contains(colour)) {
                 clickOn(element);
+                break;
+            }
+        }
+        performPageScreenshot(driver);
+    }
+
+    @Step
+    public PrimengComponentPage inputVerticalFirstName(String firstName) {
+        inputTextBox(By.id("firstname1"), firstName);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public PrimengComponentPage inputVerticalLastName(String lastName) {
+        inputTextBox(By.id("lastname1"), lastName);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public void selectVerticalCheckBox(String label) {
+        scrollUntilViewElement(squareCheckBox.get(0));
+        int count = squareCheckBox.size();
+        for (int i = 0; i < count; i++) {
+            if (squareCheckLabel.get(i).getText().equals(label)) {
+                clickOn(squareCheckBox.get(i));
                 break;
             }
         }
