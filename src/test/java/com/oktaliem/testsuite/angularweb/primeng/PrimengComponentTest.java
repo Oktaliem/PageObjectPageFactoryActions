@@ -55,7 +55,7 @@ public class PrimengComponentTest extends BaseTest {
     }
 
     @Test
-    public void dropDown(){
+    public void dropDown() {
         userIsOn.primengComponentPage().navigateToComponent("Dropdown")
                 .selectSingleDropDownList("Istanbul")
                 .selectEditableDropDownList("Mercedes")
@@ -64,20 +64,53 @@ public class PrimengComponentTest extends BaseTest {
     }
 
     @Test
-    public void editor(){
-       userIsOn.primengComponentPage().navigateToComponent("Editor")
-               .inputTextOnEditor("This is just for testing only")
-               .changeFontSize("Subheading")
-               .changeFontType("Serif")
-               .changeFontColour("rgb(230, 0, 0)");
+    public void editor() {
+        userIsOn.primengComponentPage().navigateToComponent("Editor")
+                .inputTextOnEditor("This is just for testing only")
+                .changeFontSize("Subheading")
+                .changeFontType("Serif")
+                .changeFontColour("rgb(230, 0, 0)");
     }
 
     @Test
-    public void formLayout(){
+    public void formLayout() {
         userIsOn.primengComponentPage().navigateToComponent("FormLayout")
                 .inputVerticalFirstName("Jon").inputVerticalLastName("Doe")
                 .selectVerticalCheckBox("Los Angeles");
     }
 
+    @Test
+    public void radioButton() {
+        userIsOn.primengComponentPage().navigateToComponent("RadioButton");
+        userIsOn.primengComponentPage().selectBasicRadioButton("Option 3");
+    }
+
+    @Test
+    public void rating() {
+        userIsOn.primengComponentPage().navigateToComponent("Rating")
+                .giveNoCancelRating("4 stars")
+                .giveNoCancelRating("1 star")
+                .giveNoCancelRating("5 stars")
+                .giveNoCancelRating("3 stars")
+                .giveNoCancelRating("2 stars");
+    }
+
+    @Test
+    public void slider() {
+        userIsOn.primengComponentPage().navigateToComponent("Slider")
+                .moveSliderToPercentage("79");
+    }
+
+    @Test
+    public void spinner() {
+        userIsOn.primengComponentPage().navigateToComponent("Spinner");
+        //IN-PROGRESS
+    }
+
+    @Test
+    public void carousel() {
+        userIsOn.primengComponentPage().navigateToComponent("Carousel");
+        //IN-PROGRESS
+    }
 
 }

@@ -3,8 +3,10 @@ package com.oktaliem.pages.angularpage.primeng;
 import com.oktaliem.pages.BasePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
@@ -88,7 +90,14 @@ public class PrimengComponentPage extends BasePage {
     List<WebElement> squareCheckLabel;
 
 
+    @FindBy(className = "ui-radiobutton-label")
+    List<WebElement> radioButtons;
+
+    @FindBy(tagName = "p-rating")
+    List<WebElement> rating;
+
     @Step
+
     public PrimengComponentPage navigateToComponent(String component) {
         goToWeb("https://primefaces.org/primeng/showcase/#/theming");
         waitUntilTextIsPresentInLocator(featureTitle, "Theming");
@@ -312,6 +321,63 @@ public class PrimengComponentPage extends BasePage {
                 break;
             }
         }
+        performPageScreenshot(driver);
+    }
+
+    @Step
+    public void selectBasicRadioButton(String option) {
+        selectOnRadioButtonByText(radioButtons, option);
+        wait(2000);
+        performPageScreenshot(driver);
+    }
+
+    @Step
+    public PrimengComponentPage giveNoCancelRating(String rating) {
+        List<WebElement> stars = this.rating.get(2)
+                .findElement(By.className("ui-rating"))
+                .findElements(By.className("ng-star-inserted"));
+        switch (rating) {
+            case "1 star":
+                clickOn(stars.get(0));
+                break;
+            case "2 stars":
+                clickOn(stars.get(1));
+                break;
+            case "3 stars":
+                clickOn(stars.get(2));
+                break;
+            case "4 stars":
+                clickOn(stars.get(3));
+                break;
+            case "5 stars":
+                clickOn(stars.get(4));
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + rating);
+        }
+        wait(1000);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public void moveSliderToPercentage(String percentage) {
+        WebElement counter = driver.findElement(By.className("first"));
+        int i = 0;
+        do {
+            WebElement el = driver
+                    .findElement(By.xpath("//p-slider[1]//div[1]//span[2]"));
+            Actions builder = new Actions(driver);
+            builder.moveToElement(el)
+                    .click()
+                    .dragAndDropBy(el, i / 3, 0)
+                    .build()
+                    .perform();
+            System.out.println("counter " + i);
+            System.out.println("x coordinate " + el.getLocation().getX());
+            i++;
+        }
+        while (!counter.getText().contains(percentage));
         performPageScreenshot(driver);
     }
 }

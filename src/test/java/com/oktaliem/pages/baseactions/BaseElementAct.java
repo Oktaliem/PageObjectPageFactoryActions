@@ -266,6 +266,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
     public void clickBySortingTextElement(List<WebElement> elements, String text) {
         for (WebElement element : elements) {
             if (element.getText().equals(text)) {
+                scrollUntilViewElement(element);
                 clickOn(element);
                 log.info("Click Element by sorting text: " + text + " succeed");
                 break;
