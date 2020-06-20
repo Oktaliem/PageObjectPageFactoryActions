@@ -110,9 +110,18 @@ public class PrimengComponentTest extends BaseTest {
     }
 
     @Test
+    public void splitButton() {
+        userIsOn.primengComponentPage().navigateToComponent("SplitButton")
+                .clickOnSaveButton()
+                .clickOnSplitBtn("Update")
+                .clickOnSplitBtn("Delete")
+                .clickOnSplitBtn("Setup");
+    }
+
+    @Test
     public void carousel() {
-        userIsOn.primengComponentPage().navigateToComponent("Carousel");
-        //IN-PROGRESS
+        userIsOn.primengComponentPage().navigateToComponent("Carousel")
+                .selectCarFromTheList("Fiat");
     }
 
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -88,7 +89,6 @@ public class PrimengComponentPage extends BasePage {
             @FindBy(tagName = "label")})
     List<WebElement> squareCheckLabel;
 
-
     @FindBy(className = "ui-radiobutton-label")
     List<WebElement> radioButtons;
 
@@ -116,8 +116,19 @@ public class PrimengComponentPage extends BasePage {
     @FindBy(xpath = "//p-spinner[1]//span[1]//input[1]")
     WebElement spinnerResult;
 
-    @Step
+    @FindBy(className = "ui-button-text")
+    List<WebElement> splitButton;
 
+    @FindBy(className = "pi-chevron-down")
+    List<WebElement> splitButtonRight;
+
+    @FindBy(className = "ui-menuitem-text")
+    List<WebElement> splitBtnList;
+
+    @FindBy(className = "car-title")
+    List<WebElement> carsTitle;
+
+    @Step
     public PrimengComponentPage navigateToComponent(String component) {
         goToWeb("https://primefaces.org/primeng/showcase/#/theming");
         waitUntilTextIsPresentInLocator(featureTitle, "Theming");
@@ -130,6 +141,7 @@ public class PrimengComponentPage extends BasePage {
     @Step
     public PrimengComponentPage openAdvanceAutoComplete() {
         clickOn(By.className("ui-autocomplete-dropdown"));
+        performPageScreenshot(driver);
         return this;
     }
 
@@ -175,6 +187,7 @@ public class PrimengComponentPage extends BasePage {
             i++;
         }
         while (!yearAndMonth.equals(this.year.getText() + this.month.getText()));
+        performPageScreenshot(driver);
     }
 
     @Step
@@ -417,14 +430,58 @@ public class PrimengComponentPage extends BasePage {
 
     @Step
     public PrimengComponentPage selectBasicSpinnerUp(String value) {
-        do { clickOn(spinnerUp.get(0)); }
+        do {
+            clickOn(spinnerUp.get(0));
+        }
         while (!spinnerResult.getAttribute("aria-valuenow").equals(value));
+        performPageScreenshot(driver);
         return this;
     }
 
     @Step
     public void selectBasicSpinnerDown(String value) {
-        do { clickOn(spinnerDown.get(0)); }
+        do {
+            clickOn(spinnerDown.get(0));
+        }
         while (!spinnerResult.getAttribute("aria-valuenow").equals(value));
+        performPageScreenshot(driver);
+    }
+
+    @Step
+    public PrimengComponentPage clickOnSaveButton() {
+        clickOn(splitButton.get(0));
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public PrimengComponentPage clickOnSplitBtn(String button) {
+        clickOn(splitButtonRight.get(0));
+        wait(1000);
+        clickBySortingTextElement(splitBtnList, button);
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public void selectCarFromTheList(String car) {
+        for (int i = 0; i <= 13; i++) {
+            if (i == 13) {
+                Assert.fail("List exceed the limit");
+            }
+            if (carsTitle.get(i).isDisplayed()) {
+                if (carsTitle.get(i).getText().equals(car)) {
+                    clickOn(carsTitle.get(i));
+                    break;
+                }
+                if (i == 3 || i == 6) {
+                    clickOn(By.cssSelector("div.implementation > p-carousel:nth-of-type(1) .ui-carousel-next-icon"));
+                    wait(1000);
+                }
+            } else {
+                Assert.fail("Car is not displayed");
+            }
+        }
+        performPageScreenshot(driver);
     }
 }
