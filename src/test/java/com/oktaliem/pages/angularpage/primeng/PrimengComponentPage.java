@@ -3,7 +3,6 @@ package com.oktaliem.pages.angularpage.primeng;
 import com.oktaliem.pages.BasePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -95,6 +94,27 @@ public class PrimengComponentPage extends BasePage {
 
     @FindBy(tagName = "p-rating")
     List<WebElement> rating;
+
+    @FindBy(className = "first")
+    WebElement horizontalCounter;
+
+    @FindBy(xpath = "//h3[contains(text(),'Vertical:')]")
+    WebElement verticalCounter;
+
+    @FindBy(xpath = "//p-slider[1]//div[1]//span[2]")
+    WebElement horizontalSlider;
+
+    @FindBy(xpath = "//p-slider[6]//div[1]//span[2]")
+    WebElement verticalSlider;
+
+    @FindBy(className = "ui-spinner-up")
+    List<WebElement> spinnerUp;
+
+    @FindBy(className = "ui-spinner-down")
+    List<WebElement> spinnerDown;
+
+    @FindBy(xpath = "//p-spinner[1]//span[1]//input[1]")
+    WebElement spinnerResult;
 
     @Step
 
@@ -361,23 +381,50 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public void moveSliderToPercentage(String percentage) {
-        WebElement counter = driver.findElement(By.className("first"));
+    public PrimengComponentPage moveHorizontalSliderToPercentage(String percentage) {
         int i = 0;
         do {
-            WebElement el = driver
-                    .findElement(By.xpath("//p-slider[1]//div[1]//span[2]"));
             Actions builder = new Actions(driver);
-            builder.moveToElement(el)
-                    .click()
-                    .dragAndDropBy(el, i / 3, 0)
+            builder.moveToElement(horizontalSlider)
+                    .clickAndHold()
+                    .dragAndDropBy(horizontalSlider, i / 3, 0)
                     .build()
                     .perform();
-            System.out.println("counter " + i);
-            System.out.println("x coordinate " + el.getLocation().getX());
+            log.info("move to x coordinate: " + horizontalSlider.getLocation().getX());
             i++;
         }
-        while (!counter.getText().contains(percentage));
+        while (!horizontalCounter.getText().contains(percentage));
         performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public void moveToVerticalSliderToPercentage(String percentage) {
+        int i = 0;
+        do {
+            Actions builder = new Actions(driver);
+            builder.moveToElement(verticalSlider)
+                    .clickAndHold()
+                    .dragAndDropBy(verticalSlider, 0, -i / 3)
+                    .build()
+                    .perform();
+            log.info("move to y coordinate: " + verticalSlider.getLocation().getY());
+            i++;
+        }
+        while (!verticalCounter.getText().contains(percentage));
+        performPageScreenshot(driver);
+    }
+
+    @Step
+    public PrimengComponentPage selectBasicSpinnerUp(String value) {
+        do { clickOn(spinnerUp.get(0)); }
+        while (!spinnerResult.getAttribute("aria-valuenow").equals(value));
+        return this;
+    }
+
+    @Step
+    public void selectBasicSpinnerDown(String value) {
+        do { clickOn(spinnerDown.get(0)); }
+        while (!spinnerResult.getAttribute("aria-valuenow").equals(value));
     }
 }

@@ -98,13 +98,15 @@ public class PrimengComponentTest extends BaseTest {
     @Test
     public void slider() {
         userIsOn.primengComponentPage().navigateToComponent("Slider")
-                .moveSliderToPercentage("79");
+                .moveHorizontalSliderToPercentage("79")
+                .moveToVerticalSliderToPercentage("79");
     }
 
     @Test
     public void spinner() {
-        userIsOn.primengComponentPage().navigateToComponent("Spinner");
-        //IN-PROGRESS
+        userIsOn.primengComponentPage().navigateToComponent("Spinner")
+                .selectBasicSpinnerUp("50")
+                .selectBasicSpinnerDown("-50");
     }
 
     @Test
