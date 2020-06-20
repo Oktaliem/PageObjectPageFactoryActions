@@ -128,6 +128,23 @@ public class PrimengComponentPage extends BasePage {
     @FindBy(className = "car-title")
     List<WebElement> carsTitle;
 
+    @FindBy(className = "ui-paginator-page")
+    List<WebElement> pageNumbers;
+
+    @FindBys({
+            @FindBy(className = "ui-helper-clearfix"),
+            @FindBy(tagName = "div")})
+    List<WebElement> pickList;
+
+    @FindBy(className = "ui-widget-header")
+    List<WebElement> videoList;
+
+    @FindBy(className = "ui-menuitem-link")
+    List<WebElement> menuLink;
+
+    @FindBy(className = "ui-panelmenu-header-link")
+    List<WebElement> panelMenuLink;
+
     @Step
     public PrimengComponentPage navigateToComponent(String component) {
         goToWeb("https://primefaces.org/primeng/showcase/#/theming");
@@ -484,4 +501,71 @@ public class PrimengComponentPage extends BasePage {
         }
         performPageScreenshot(driver);
     }
+
+    @Step
+    public PrimengComponentPage goToPageNumber(String page) {
+        clickBySortingTextElement(pageNumbers, page);
+        scrollUntilViewElement(By.className("feature-title"));
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public PrimengComponentPage pickCarBrandToBasket(String carBrand) {
+        for (WebElement element : pickList) {
+            System.out.println(element.getText());
+            if (element.getText().equals(carBrand)) {
+                clickOn(element);
+                wait(1000);
+                clickOn(By.xpath("//span[@class='ui-button-icon-left ui-clickable pi pi-angle-right']"));
+                break;
+            }
+        }
+        performPageScreenshot(driver);
+        return this;
+    }
+
+    @Step
+    public void openToolTip(String tooltip) {
+        moveMousePointerTo(By.cssSelector(".ui-fluid.p-grid [placeholder='Right']"));
+        checkIfTextIsExpected(By.className("ui-tooltip"), tooltip);
+        performPageScreenshot(driver);
+    }
+
+    @Step
+    public void openVideoMenu(String video) {
+        moveMousePointerTo(By.xpath("//div[@class='ui-megamenu ui-widget ui-widget-content ui-corner-all" +
+                " ui-megamenu-horizontal']//a[.='Videos']"));
+        wait(1000);
+        clickBySortingTextElement(videoList, video);
+    }
+
+    @Step
+    public void createNewProject() {
+        clickOn(menuLink.get(0));
+        moveMousePointerTo(menuLink.get(1));
+        wait(1000);
+        performPageScreenshot(driver);
+        moveMouseAndClick(menuLink.get(1), menuLink.get(2));
+    }
+
+    @Step
+    public void openNewUserFile() {
+        clickOn(panelMenuLink.get(0));
+        clickOn(menuLink.get(0));
+        performPageScreenshot(driver);
+        clickOn(menuLink.get(1));
+    }
+
+    @Step
+    public PrimengComponentPage opensSlideOption(String option) {
+        for (WebElement menu : menuLink) {
+            if (menu.findElement(By.className("ui-menuitem-text")).getText().equals(option)) {
+                clickOn(menu);
+            }
+        }
+        performPageScreenshot(driver);
+        return this;
+    }
+
 }

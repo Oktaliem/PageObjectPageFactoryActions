@@ -124,4 +124,50 @@ public class PrimengComponentTest extends BaseTest {
                 .selectCarFromTheList("Fiat");
     }
 
+    @Test
+    public void pagination() {
+        userIsOn.primengComponentPage().navigateToComponent("Paginator")
+                .goToPageNumber("5")
+                .goToPageNumber("3");
+    }
+
+    @Test
+    public void pickList() {
+        userIsOn.primengComponentPage().navigateToComponent("PickList")
+                .pickCarBrandToBasket("VW - 2012 - Orange")
+                .pickCarBrandToBasket("BMW - 2003 - Blue");
+    }
+
+    @Test
+    public void tooltip() {
+        userIsOn.primengComponentPage().navigateToComponent("Tooltip")
+                .openToolTip("Enter your username");
+    }
+
+    @Test
+    public void megaMenu() {
+        userIsOn.primengComponentPage().navigateToComponent("MegaMenu")
+                .openVideoMenu("Video 4");
+    }
+
+    @Test
+    public void menuBar() {
+        userIsOn.primengComponentPage().navigateToComponent("Menubar")
+                .createNewProject();
+    }
+
+    @Test
+    public void panelMenu() {
+        userIsOn.primengComponentPage().navigateToComponent("PanelMenu")
+                .openNewUserFile();
+    }
+
+    @Test
+    public void slideMenu() {
+        userIsOn.primengComponentPage().navigateToComponent("SlideMenu")
+                .opensSlideOption("Help")
+                .opensSlideOption("Search")
+                .opensSlideOption("file");
+    }
+
 }
