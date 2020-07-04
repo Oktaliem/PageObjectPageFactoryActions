@@ -11,7 +11,10 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PrimengComponentPage extends BasePage {
 
@@ -30,6 +33,11 @@ public class PrimengComponentPage extends BasePage {
             @FindBy(className = "ng-star-inserted"),
             @FindBy(tagName = "div")})
     List<WebElement> carBrands;
+
+    @FindBys({
+            @FindBy(className = "ui-helper-clearfix"),
+            @FindBy(tagName = "div")})
+    List<WebElement> listCarBrands;
 
     @FindBy(className = "ui-datepicker-month")
     WebElement month;
@@ -168,6 +176,27 @@ public class PrimengComponentPage extends BasePage {
         checkIfElementIsPresent(By.xpath("//span[.='Brand: " + brand + "']"), 5);
         performPageScreenshot(driver);
         return this;
+    }
+
+    @Step
+    public List<String> getAllDropDownListText() {
+        List<String> carList = listCarBrands.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+        log.info("Store element text as a list " + carList);
+        for (WebElement listCarBrand : listCarBrands) {
+            log.info("print each car brand: " + listCarBrand.getText());
+        }
+        return carList;
+    }
+
+    @Step
+    public void sortCarListDescending(List<String> carList) {
+        Collections.reverse(carList);
+        List<String> expectedCarList = Collections
+                .singletonList("VW, Volvo, Renault, Mercedes, Jaguar, Honda, Ford, Fiat, BMW, Audi");
+        log.info("Actual car list after sorting: " + carList);
+        log.info("Expected car list: " + expectedCarList);
     }
 
     @Step

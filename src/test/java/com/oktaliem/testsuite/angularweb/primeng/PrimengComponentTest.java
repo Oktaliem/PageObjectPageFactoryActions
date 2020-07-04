@@ -3,6 +3,8 @@ package com.oktaliem.testsuite.angularweb.primeng;
 import com.oktaliem.testsuite.BaseTest;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class PrimengComponentTest extends BaseTest {
 
     @Test
@@ -12,6 +14,14 @@ public class PrimengComponentTest extends BaseTest {
                 .selectCarBrand("Ford")
                 .openAdvanceAutoComplete()
                 .selectCarBrand("VW");
+    }
+
+    @Test
+    public void getAllAutocompleteValueAndSortDescending(){
+        userIsOn.primengComponentPage().navigateToComponent("AutoComplete")
+                .openAdvanceAutoComplete();
+        List<String> carList = userIsOn.primengComponentPage().getAllDropDownListText();
+        userIsOn.primengComponentPage().sortCarListDescending(carList);
     }
 
     @Test
