@@ -11,14 +11,13 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PrimengComponentPage extends BasePage {
+public class PrimengV913ComponentPage extends BasePage {
 
-    public PrimengComponentPage(WebDriver driver) {
+    public PrimengV913ComponentPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
@@ -154,8 +153,8 @@ public class PrimengComponentPage extends BasePage {
     List<WebElement> panelMenuLink;
 
     @Step
-    public PrimengComponentPage navigateToComponent(String component) {
-        goToWeb("https://primefaces.org/primeng/showcase/#/theming");
+    public PrimengV913ComponentPage navigateToComponent(String component) {
+        goToWeb("https://www.primefaces.org/primeng/v9.1.3/#/theming");
         waitUntilTextIsPresentInLocator(featureTitle, "Theming");
         clickBySortingTextElement(components, component);
         wait(1000);
@@ -164,14 +163,14 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage openAdvanceAutoComplete() {
+    public PrimengV913ComponentPage openAdvanceAutoComplete() {
         clickOn(By.className("ui-autocomplete-dropdown"));
         performPageScreenshot(driver);
         return this;
     }
 
     @Step
-    public PrimengComponentPage selectCarBrand(String brand) {
+    public PrimengV913ComponentPage selectCarBrand(String brand) {
         clickBySortingTextElement(carBrands, brand);
         checkIfElementIsPresent(By.xpath("//span[.='Brand: " + brand + "']"), 5);
         performPageScreenshot(driver);
@@ -200,21 +199,21 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage searchPastYearAndMonth(String month, String year) {
+    public PrimengV913ComponentPage searchPastYearAndMonth(String month, String year) {
         searchYearAndMonth(backDateBtn, month, year);
         performPageScreenshot(driver);
         return this;
     }
 
     @Step
-    public PrimengComponentPage selectDay(String day) {
+    public PrimengV913ComponentPage selectDay(String day) {
         clickBySortingTextElement(days, day);
         performPageScreenshot(driver);
         return this;
     }
 
     @Step
-    public PrimengComponentPage searchFutureYearAndMonth(String month, String year) {
+    public PrimengV913ComponentPage searchFutureYearAndMonth(String month, String year) {
         searchYearAndMonth(nextDateBtn, month, year);
         performPageScreenshot(driver);
         return this;
@@ -267,7 +266,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage selectColourDegradationByCoordinate(String left, String right) {
+    public PrimengV913ComponentPage selectColourDegradationByCoordinate(String left, String right) {
         String value = "left: " + left + "px; top: " + right + "px;";
         setAttributeByJsExecutor("class", "ui-colorpicker-color-handle", "style", value);
         performPageScreenshot(driver);
@@ -275,7 +274,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage setColourByCoordinate(String coordinate) {
+    public PrimengV913ComponentPage setColourByCoordinate(String coordinate) {
         String value = "top: " + coordinate + "px;";
         setAttributeByJsExecutor("class", "ui-colorpicker-hue-handle", "style", value);
         performPageScreenshot(driver);
@@ -289,7 +288,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage selectSingleDropDownList(String country) {
+    public PrimengV913ComponentPage selectSingleDropDownList(String country) {
         clickOn(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/div[3]/div[1]/ng-component[1]/div[2]/" +
                 "p-dropdown[1]/div[1]/div[2]/span[1]"));
         selectOnDropDownListByText(dropDownValues, country);
@@ -298,7 +297,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage selectEditableDropDownList(String car) {
+    public PrimengV913ComponentPage selectEditableDropDownList(String car) {
         clickOn(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/div[3]/div[1]/ng-component[1]/div[2]/" +
                 "p-dropdown[2]/div[1]/div[3]/span[1]"));
         selectOnDropDownListByText(dropDownValues, car);
@@ -307,7 +306,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage selectGroupDropDownList(String car) {
+    public PrimengV913ComponentPage selectGroupDropDownList(String car) {
         clickOn(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/div[3]/div[1]/ng-component[1]/div[2]/" +
                 "p-dropdown[4]/div[1]/div[3]/span[1]"));
         selectOnDropDownListByText(dropDownValues, car);
@@ -316,7 +315,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage selectVirtualSrollDropDownList(String car) {
+    public PrimengV913ComponentPage selectVirtualSrollDropDownList(String car) {
         clickOn(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/div[3]/div[1]/ng-component[1]/div[2]/" +
                 "p-dropdown[5]/div[1]/div[3]/span[1]"));
         selectOnDropDownListByText(dropDownValues, car);
@@ -326,7 +325,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage inputTextOnEditor(String info) {
+    public PrimengV913ComponentPage inputTextOnEditor(String info) {
         clickOn(editor);
         controlPlus(editor, "a");
         performDelete();
@@ -338,7 +337,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage changeFontSize(String size) {
+    public PrimengV913ComponentPage changeFontSize(String size) {
         clickOn(qlPicker.get(0));
         for (WebElement element : qlPickerItem) {
             if (element.getAttribute("data-label").equals(size)) {
@@ -351,7 +350,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage changeFontType(String type) {
+    public PrimengV913ComponentPage changeFontType(String type) {
         clickOn(qlPicker.get(1));
         for (WebElement element : qlPickerType) {
             if (element.getAttribute("data-label").equals(type)) {
@@ -377,14 +376,14 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage inputVerticalFirstName(String firstName) {
+    public PrimengV913ComponentPage inputVerticalFirstName(String firstName) {
         inputTextBox(By.id("firstname1"), firstName);
         performPageScreenshot(driver);
         return this;
     }
 
     @Step
-    public PrimengComponentPage inputVerticalLastName(String lastName) {
+    public PrimengV913ComponentPage inputVerticalLastName(String lastName) {
         inputTextBox(By.id("lastname1"), lastName);
         performPageScreenshot(driver);
         return this;
@@ -411,7 +410,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage giveNoCancelRating(String rating) {
+    public PrimengV913ComponentPage giveNoCancelRating(String rating) {
         List<WebElement> stars = this.rating.get(2)
                 .findElement(By.className("ui-rating"))
                 .findElements(By.className("ng-star-inserted"));
@@ -440,7 +439,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage moveHorizontalSliderToPercentage(String percentage) {
+    public PrimengV913ComponentPage moveHorizontalSliderToPercentage(String percentage) {
         int i = 0;
         do {
             Actions builder = new Actions(driver);
@@ -475,7 +474,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage selectBasicSpinnerUp(String value) {
+    public PrimengV913ComponentPage selectBasicSpinnerUp(String value) {
         do {
             clickOn(spinnerUp.get(0));
         }
@@ -494,14 +493,14 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage clickOnSaveButton() {
+    public PrimengV913ComponentPage clickOnSaveButton() {
         clickOn(splitButton.get(0));
         performPageScreenshot(driver);
         return this;
     }
 
     @Step
-    public PrimengComponentPage clickOnSplitBtn(String button) {
+    public PrimengV913ComponentPage clickOnSplitBtn(String button) {
         clickOn(splitButtonRight.get(0));
         wait(1000);
         clickBySortingTextElement(splitBtnList, button);
@@ -532,7 +531,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage goToPageNumber(String page) {
+    public PrimengV913ComponentPage goToPageNumber(String page) {
         clickBySortingTextElement(pageNumbers, page);
         scrollUntilViewElement(By.className("feature-title"));
         performPageScreenshot(driver);
@@ -540,7 +539,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage pickCarBrandToBasket(String carBrand) {
+    public PrimengV913ComponentPage pickCarBrandToBasket(String carBrand) {
         for (WebElement element : pickList) {
             System.out.println(element.getText());
             if (element.getText().equals(carBrand)) {
@@ -587,7 +586,7 @@ public class PrimengComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengComponentPage opensSlideOption(String option) {
+    public PrimengV913ComponentPage opensSlideOption(String option) {
         for (WebElement menu : menuLink) {
             if (menu.findElement(By.className("ui-menuitem-text")).getText().equals(option)) {
                 clickOn(menu);

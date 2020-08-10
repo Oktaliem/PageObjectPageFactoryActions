@@ -5,11 +5,11 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class PrimengComponentTest extends BaseTest {
+public class PrimengV913ComponentTest extends BaseTest {
 
     @Test
     public void autoComplete() {
-        userIsOn.primengComponentPage().navigateToComponent("AutoComplete")
+        userIsOn.primengV913ComponentPage().navigateToComponent("AutoComplete")
                 .openAdvanceAutoComplete()
                 .selectCarBrand("Ford")
                 .openAdvanceAutoComplete()
@@ -18,15 +18,15 @@ public class PrimengComponentTest extends BaseTest {
 
     @Test
     public void getAllAutocompleteValueAndSortDescending(){
-        userIsOn.primengComponentPage().navigateToComponent("AutoComplete")
+        userIsOn.primengV913ComponentPage().navigateToComponent("AutoComplete")
                 .openAdvanceAutoComplete();
-        List<String> carList = userIsOn.primengComponentPage().getAllDropDownListText();
-        userIsOn.primengComponentPage().sortCarListDescending(carList);
+        List<String> carList = userIsOn.primengV913ComponentPage().getAllDropDownListText();
+        userIsOn.primengV913ComponentPage().sortCarListDescending(carList);
     }
 
     @Test
     public void calendar() {
-        userIsOn.primengComponentPage().navigateToComponent("Calendar")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Calendar")
                 .searchPastYearAndMonth("August", "2017")
                 .selectDay("15")
                 .searchFutureYearAndMonth("August", "2023")
@@ -35,38 +35,38 @@ public class PrimengComponentTest extends BaseTest {
 
     @Test
     public void checkBox() {
-        userIsOn.primengComponentPage().navigateToComponent("Checkbox");
+        userIsOn.primengV913ComponentPage().navigateToComponent("Checkbox");
         String[] cities = {"Los Angeles", "San Francisco", "New York"};
         for (String city : cities) {
-            userIsOn.primengComponentPage().selectBasicCheckBox(city);
+            userIsOn.primengV913ComponentPage().selectBasicCheckBox(city);
         }
     }
 
     @Test
     public void chips() {
-        userIsOn.primengComponentPage().navigateToComponent("Chips");
+        userIsOn.primengV913ComponentPage().navigateToComponent("Chips");
         String[] socialMedia = {"Facebook", "Twitter", "Instagram"};
         for (String chip : socialMedia) {
-            userIsOn.primengComponentPage().inputValueToChipsField(chip);
+            userIsOn.primengV913ComponentPage().inputValueToChipsField(chip);
         }
         String[] removeSocialMedia = {"Facebook", "Instagram"};
         for (String chip : removeSocialMedia) {
-            userIsOn.primengComponentPage().removeChipByValue(chip);
+            userIsOn.primengV913ComponentPage().removeChipByValue(chip);
         }
     }
 
     @Test
     public void colorPicker() {
-        userIsOn.primengComponentPage()
+        userIsOn.primengV913ComponentPage()
                 .navigateToComponent("ColorPicker")
                 .setColourByCoordinate("49")
                 .selectColourDegradationByCoordinate("144", "51");
-        userIsOn.primengComponentPage().getSelectedColourEqualTo("#0c07a8");
+        userIsOn.primengV913ComponentPage().getSelectedColourEqualTo("#0c07a8");
     }
 
     @Test
     public void dropDown() {
-        userIsOn.primengComponentPage().navigateToComponent("Dropdown")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Dropdown")
                 .selectSingleDropDownList("Istanbul")
                 .selectEditableDropDownList("Mercedes")
                 .selectGroupDropDownList("Mazda")
@@ -75,7 +75,7 @@ public class PrimengComponentTest extends BaseTest {
 
     @Test
     public void editor() {
-        userIsOn.primengComponentPage().navigateToComponent("Editor")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Editor")
                 .inputTextOnEditor("This is just for testing only")
                 .changeFontSize("Subheading")
                 .changeFontType("Serif")
@@ -84,20 +84,20 @@ public class PrimengComponentTest extends BaseTest {
 
     @Test
     public void formLayout() {
-        userIsOn.primengComponentPage().navigateToComponent("FormLayout")
+        userIsOn.primengV913ComponentPage().navigateToComponent("FormLayout")
                 .inputVerticalFirstName("Jon").inputVerticalLastName("Doe")
                 .selectVerticalCheckBox("Los Angeles");
     }
 
     @Test
     public void radioButton() {
-        userIsOn.primengComponentPage().navigateToComponent("RadioButton");
-        userIsOn.primengComponentPage().selectBasicRadioButton("Option 3");
+        userIsOn.primengV913ComponentPage().navigateToComponent("RadioButton");
+        userIsOn.primengV913ComponentPage().selectBasicRadioButton("Option 3");
     }
 
     @Test
     public void rating() {
-        userIsOn.primengComponentPage().navigateToComponent("Rating")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Rating")
                 .giveNoCancelRating("4 stars")
                 .giveNoCancelRating("1 star")
                 .giveNoCancelRating("5 stars")
@@ -107,21 +107,21 @@ public class PrimengComponentTest extends BaseTest {
 
     @Test
     public void slider() {
-        userIsOn.primengComponentPage().navigateToComponent("Slider")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Slider")
                 .moveHorizontalSliderToPercentage("79")
                 .moveToVerticalSliderToPercentage("79");
     }
 
     @Test
     public void spinner() {
-        userIsOn.primengComponentPage().navigateToComponent("Spinner")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Spinner")
                 .selectBasicSpinnerUp("50")
                 .selectBasicSpinnerDown("-50");
     }
 
     @Test
     public void splitButton() {
-        userIsOn.primengComponentPage().navigateToComponent("SplitButton")
+        userIsOn.primengV913ComponentPage().navigateToComponent("SplitButton")
                 .clickOnSaveButton()
                 .clickOnSplitBtn("Update")
                 .clickOnSplitBtn("Delete")
@@ -130,51 +130,51 @@ public class PrimengComponentTest extends BaseTest {
 
     @Test
     public void carousel() {
-        userIsOn.primengComponentPage().navigateToComponent("Carousel")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Carousel")
                 .selectCarFromTheList("Fiat");
     }
 
     @Test
     public void pagination() {
-        userIsOn.primengComponentPage().navigateToComponent("Paginator")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Paginator")
                 .goToPageNumber("5")
                 .goToPageNumber("3");
     }
 
     @Test
     public void pickList() {
-        userIsOn.primengComponentPage().navigateToComponent("PickList")
+        userIsOn.primengV913ComponentPage().navigateToComponent("PickList")
                 .pickCarBrandToBasket("VW - 2012 - Orange")
                 .pickCarBrandToBasket("BMW - 2003 - Blue");
     }
 
     @Test
     public void tooltip() {
-        userIsOn.primengComponentPage().navigateToComponent("Tooltip")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Tooltip")
                 .openToolTip("Enter your username");
     }
 
     @Test
     public void megaMenu() {
-        userIsOn.primengComponentPage().navigateToComponent("MegaMenu")
+        userIsOn.primengV913ComponentPage().navigateToComponent("MegaMenu")
                 .openVideoMenu("Video 4");
     }
 
     @Test
     public void menuBar() {
-        userIsOn.primengComponentPage().navigateToComponent("Menubar")
+        userIsOn.primengV913ComponentPage().navigateToComponent("Menubar")
                 .createNewProject();
     }
 
     @Test
     public void panelMenu() {
-        userIsOn.primengComponentPage().navigateToComponent("PanelMenu")
+        userIsOn.primengV913ComponentPage().navigateToComponent("PanelMenu")
                 .openNewUserFile();
     }
 
     @Test
     public void slideMenu() {
-        userIsOn.primengComponentPage().navigateToComponent("SlideMenu")
+        userIsOn.primengV913ComponentPage().navigateToComponent("SlideMenu")
                 .opensSlideOption("Help")
                 .opensSlideOption("Search")
                 .opensSlideOption("file");
