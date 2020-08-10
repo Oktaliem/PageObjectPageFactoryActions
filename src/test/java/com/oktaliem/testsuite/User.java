@@ -7,7 +7,7 @@ import com.oktaliem.pages.SettingPage;
 import com.oktaliem.pages.angularpage.coreui.AngularDashboardPage;
 import com.oktaliem.pages.angularpage.formio.FormBuilderPage;
 import com.oktaliem.pages.angularpage.formio.FormRendererPage;
-import com.oktaliem.pages.angularpage.primeng.PrimengComponentPage;
+import com.oktaliem.pages.angularpage.primeng.PrimengV913ComponentPage;
 import com.oktaliem.pages.flutterPage.RallyLoginPage;
 import com.oktaliem.pages.reactpage.ReactDashboardPage;
 import com.oktaliem.pages.vuepage.VueDashboardPage;
@@ -36,6 +36,6 @@ public class User {
 
 
     //PRIMENG
-    public PrimengComponentPage primengComponentPage(){return new PrimengComponentPage(driver);}
+    public PrimengV913ComponentPage primengV913ComponentPage(){return new PrimengV913ComponentPage(driver);}
 
 }
