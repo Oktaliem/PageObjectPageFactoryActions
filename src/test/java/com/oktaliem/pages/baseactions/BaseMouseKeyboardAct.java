@@ -134,6 +134,7 @@ public class BaseMouseKeyboardAct extends BaseRobotAct implements IMouseAndKeybo
         log.info("Autocomplete succeed");
     }
 
+
     @Override
     public void performTab() {
         Actions builder = new Actions(driver);
@@ -164,5 +165,13 @@ public class BaseMouseKeyboardAct extends BaseRobotAct implements IMouseAndKeybo
     @Override
     public void controlPlus(WebElement element, String keyboard) {
         element.sendKeys(Keys.CONTROL, keyboard);
+    }
+
+
+    @Override
+    public void clickViaAction(WebElement element) {
+        Actions action = new Actions(driver);
+        action.moveToElement(element).click().perform();
+        log.info("Click element via Action: " + element );
     }
 }

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 import static com.oktaliem.pages.Path.SELENIUM_WEB;
-import static com.oktaliem.pages.Path.W3SCHOOLDRAGANDDROP;
+import static com.oktaliem.pages.Path.W3SCHOOL_DRAG_AND_DROP;
 
 public class SeleniumPage extends BasePage {
     /**
@@ -25,15 +25,15 @@ public class SeleniumPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    private By moreNews = By.xpath("//div[@class='button green']");
-    private By originPO = By.id("drag1");
-    private By targetPO = By.id("div2");
-    private By guruDrPO = By.xpath("//span[@class='g-separator g-menu-item-content']//span[@class='g-menu-item-title'][contains(text(),'Testing')]");
-    private By cucumberPO = By.xpath("//span[contains(text(),'Cucumber')]");
-    private By countryPO = By.id("country");
-    private By optionPO = By.tagName("label");
-    private By inputPO = By.tagName("input");
-    private By uploadFilePO = By.cssSelector("body:nth-child(2) form:nth-child(3) > input:nth-child(1)");
+    private final By moreNews = By.xpath("//div[@class='button green']");
+    private final By originPO = By.id("drag1");
+    private final By targetPO = By.id("div2");
+    private final By guruDrPO = By.xpath("//span[@class='g-separator g-menu-item-content']//span[@class='g-menu-item-title'][contains(text(),'Testing')]");
+    private final By cucumberPO = By.xpath("//span[contains(text(),'Cucumber')]");
+    private final By countryPO = By.id("country");
+    private final By optionPO = By.tagName("label");
+    private final By inputPO = By.tagName("input");
+    private final By uploadFilePO = By.cssSelector("body:nth-child(2) form:nth-child(3) > input:nth-child(1)");
 
     @FindBy(className = "green")
     private List<WebElement> moreNewsBtn;
@@ -67,6 +67,12 @@ public class SeleniumPage extends BasePage {
 
     @FindBy(css = "input#default")
     private WebElement tags;
+
+    @FindBy(xpath = "//input[@id='cond1']")
+    private WebElement lettuce;
+
+    @FindBy(xpath = "//input[@id='cond2']")
+    private WebElement tomato;
 
 
     @Step
@@ -109,7 +115,7 @@ public class SeleniumPage extends BasePage {
 
     @Step
     public void goToW3SchoolDropAndDropPage() {
-        goToWeb(W3SCHOOLDRAGANDDROP);
+        goToWeb(W3SCHOOL_DRAG_AND_DROP);
     }
 
     @Step
@@ -199,4 +205,30 @@ public class SeleniumPage extends BasePage {
         switchToFrameByIndex(0);
         selectAutoCompleteDropDownList(tags,text,0,50);
     }
+
+    @Step
+    public void deselectLettuce() {
+        selectCheckBox(this.lettuce, false);
+        wait(4000);
+        performPageScreenshot(driver);
+    }
+
+    public void selectLettuce() {
+        selectCheckBox(this.lettuce, true);
+        wait(4000);
+        performPageScreenshot(driver);
+    }
+
+    public void selectTomato() {
+        selectCheckBox(tomato, true);
+        wait(4000);
+        performPageScreenshot(driver);
+    }
+
+    public void deselectTomato() {
+        selectCheckBox(lettuce, false);
+        wait(4000);
+        performPageScreenshot(driver);
+    }
+
 }

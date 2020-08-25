@@ -225,19 +225,21 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
 
     @Override
     public void selectCheckBox(WebElement element, boolean status) {
+        //only can be used if DOM contains type="checkbox"
         waitUntilLocatorIsVisible(element, 4);
         if (status) {
-            if (element.isSelected()) {
+            if (!element.isSelected()) {
                 clickOn(element);
+                log.info("check box was unchecked, now is checked");
             } else {
-                log.info("check box is disabled by default");
+                log.info("check box is already checked");
             }
         }
         if (!status) {
             if (element.isSelected()) {
-                log.info("check box is already enabled");
-            } else {
                 clickOn(element);
+            } else {
+                log.info("check box is already disable");
             }
         }
     }

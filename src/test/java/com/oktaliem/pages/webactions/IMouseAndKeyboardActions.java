@@ -28,4 +28,5 @@ public interface IMouseAndKeyboardActions {
     void inputTextAndTab(WebElement element, String value);
     void moveMouseAndClick(WebElement move, WebElement target);
     void selectAutoCompleteDropDownList(WebElement element, String text, int xOffset, int yOffset);
+    void clickViaAction(WebElement element);
 }

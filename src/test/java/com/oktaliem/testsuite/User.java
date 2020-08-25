@@ -3,7 +3,6 @@ package com.oktaliem.testsuite;
 
 import com.oktaliem.pages.LoginPage;
 import com.oktaliem.pages.SeleniumPage;
-import com.oktaliem.pages.SettingPage;
 import com.oktaliem.pages.angularpage.coreui.AngularDashboardPage;
 import com.oktaliem.pages.angularpage.formio.FormBuilderPage;
 import com.oktaliem.pages.angularpage.formio.FormRendererPage;
@@ -11,6 +10,7 @@ import com.oktaliem.pages.angularpage.primeng.PrimengV913ComponentPage;
 import com.oktaliem.pages.flutterPage.RallyLoginPage;
 import com.oktaliem.pages.reactpage.ReactDashboardPage;
 import com.oktaliem.pages.vuepage.VueDashboardPage;
+import com.oktaliem.pages.w3c.W3CPage;
 import org.openqa.selenium.WebDriver;
 
 public class User {
@@ -21,7 +21,6 @@ public class User {
     }
 
     public LoginPage loginPage(){return new LoginPage(driver);}
-    public SettingPage settingPage(){return new SettingPage(driver);}
     public SeleniumPage seleniumPage(){return new SeleniumPage(driver);}
 
 
@@ -37,5 +36,8 @@ public class User {
 
     //PRIMENG
     public PrimengV913ComponentPage primengV913ComponentPage(){return new PrimengV913ComponentPage(driver);}
+
+    //W3C WAI-ARIA
+    public W3CPage w3CPage(){return new W3CPage(driver);}
 
 }

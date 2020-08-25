@@ -98,11 +98,12 @@ public class UnitTest extends BaseTest{
 
     @Test(description = "Page Factory - Select CheckBox")
     public void TC12(){
-        userIsOn.loginPage().launchTheApplication();
-        userIsOn.loginPage().login();
-        userIsOn.loginPage().openDropDownMenu();
-        userIsOn.loginPage().goToSettingPagePO();
-        userIsOn.settingPage().selectAllName();
+          userIsOn.seleniumPage().goToWeb("https://www.w3.org/TR/wai-aria-practices-1.1/examples/checkbox/checkbox-2/checkbox-2.html");
+          userIsOn.seleniumPage().deselectLettuce();
+          userIsOn.seleniumPage().selectLettuce();
+          userIsOn.seleniumPage().selectTomato();
+          userIsOn.seleniumPage().deselectTomato();
+
     }
 
     @Test(description = "General - Get Login Page URL")
