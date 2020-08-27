@@ -34,6 +34,7 @@ public class W3CPage extends BasePage {
         } else {
             fail("Test Failed");
         }
+        performPageScreenshot(driver);
         boolean result = checkIfTextIsContains(By.cssSelector("[for='m-city']"), "City");
         Assert.assertTrue(result);
     }
@@ -41,19 +42,31 @@ public class W3CPage extends BasePage {
     @Step
     public void clickOnAlert() {
         clickOn(By.id("alert-trigger"));
-        checkIfTextIsExpected(By.xpath("//div[@id='ex1']//span[3]"),"こんにちは");
+        checkIfTextIsExpected(By.xpath("//div[@id='ex1']//span[3]"), "こんにちは");
+        performPageScreenshot(driver);
     }
+
     @Step
     public void clickOnSaveAlert() {
         clickOn(By.id("notes_save"));
-        checkIfTextIsExpected(By.id("alert_toast"),"Saved");
+        checkIfTextIsExpected(By.id("alert_toast"), "Saved");
+        performPageScreenshot(driver);
     }
 
     @Step
     public void clickOnDiscardAlert() {
         clickOn(By.id("notes_discard"));
-        checkIfTextIsExpected(dialogLabel,"Confirmation");
+        checkIfTextIsExpected(dialogLabel, "Confirmation");
+        performPageScreenshot(driver);
         clickOn(By.id("notes_confirm"));
-        checkIfElementIsInvisible(dialogLabel,2);
+        checkIfElementIsInvisible(dialogLabel, 2);
+        performPageScreenshot(driver);
+    }
+
+    @Step
+    public void clickOnBreadCrumb(String value) {
+        clickOn(By.xpath("//a[.='" + value + "']"));
+        performPageScreenshot(driver);
+        Assert.assertTrue(checkIfElementIsPresent(By.xpath("//a[.='Breadcrumb design pattern example']"),4));
     }
 }

@@ -154,7 +154,7 @@ public class PrimengV913ComponentPage extends BasePage {
 
     @Step
     public PrimengV913ComponentPage navigateToComponent(String component) {
-        goToWeb("https://www.primefaces.org/primeng/v9.1.3/#/theming");
+        goToWeb("https://www.primefaces.org/primeng/v9.1.4-lts/#/theming");
         waitUntilTextIsPresentInLocator(featureTitle, "Theming");
         clickBySortingTextElement(components, component);
         wait(1000);

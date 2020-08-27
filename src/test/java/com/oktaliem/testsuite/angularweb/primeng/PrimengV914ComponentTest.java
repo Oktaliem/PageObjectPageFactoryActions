@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class PrimengV913ComponentTest extends BaseTest {
+public class PrimengV914ComponentTest extends BaseTest {
 
     @Test
     public void autoComplete() {
