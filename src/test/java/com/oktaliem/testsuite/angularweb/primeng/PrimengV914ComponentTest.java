@@ -70,7 +70,7 @@ public class PrimengV914ComponentTest extends BaseTest {
                 .selectSingleDropDownList("Istanbul")
                 .selectEditableDropDownList("Mercedes")
                 .selectGroupDropDownList("Mazda")
-                .selectVirtualSrollDropDownList("Item 5");
+                .selectVirtualScrollDropDownList("Item 5");
     }
 
     @Test

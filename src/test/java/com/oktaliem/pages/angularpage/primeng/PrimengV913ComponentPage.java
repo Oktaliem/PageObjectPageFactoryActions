@@ -315,7 +315,7 @@ public class PrimengV913ComponentPage extends BasePage {
     }
 
     @Step
-    public PrimengV913ComponentPage selectVirtualSrollDropDownList(String car) {
+    public PrimengV913ComponentPage selectVirtualScrollDropDownList(String car) {
         clickOn(By.xpath("/html[1]/body[1]/app-root[1]/div[1]/div[3]/div[1]/ng-component[1]/div[2]/" +
                 "p-dropdown[5]/div[1]/div[3]/span[1]"));
         selectOnDropDownListByText(dropDownValues, car);
