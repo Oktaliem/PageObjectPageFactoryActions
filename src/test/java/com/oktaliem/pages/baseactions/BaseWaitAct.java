@@ -97,20 +97,20 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
 
 
     @Override
-    public void waitWithJSExecutor(int miliseconds) {
+    public void waitWithJSExecutor(int milliseconds) {
         long start = System.currentTimeMillis();
         ((JavascriptExecutor) driver).executeAsyncScript(
-                "window.setTimeout(arguments[arguments.length - 1]," + miliseconds + ");");
+                "window.setTimeout(arguments[arguments.length - 1]," + milliseconds + ");");
         String time = String.valueOf(System.currentTimeMillis() - start);
         log.info("Elapsed time: " + time);
     }
 
 
     @Override
-    public void robotWaitFor(int miliseconds) throws AWTException {
+    public void robotWaitFor(int milliseconds) throws AWTException {
         Robot robot = new Robot();
-        robot.delay(miliseconds);
-        log.info("Wait with Robot class for " + miliseconds + " miliseconds");
+        robot.delay(milliseconds);
+        log.info("Wait with Robot class for " + milliseconds + " milliseconds");
     }
 
     @Override

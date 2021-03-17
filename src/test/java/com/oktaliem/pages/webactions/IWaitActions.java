@@ -11,8 +11,8 @@ import java.awt.*;
 public interface IWaitActions {
 
     void wait(int miliseconds);
-    void waitWithJSExecutor(int miliseconds);
-    void robotWaitFor(int miliseconds) throws AWTException;
+    void waitWithJSExecutor(int milliseconds);
+    void robotWaitFor(int milliseconds) throws AWTException;
     boolean checkIfElementIsVisible(WebElement element, int inSeconds);
     boolean checkIfElementIsPresent(By by, int inSeconds);
     boolean checkIfElementIsInvisible(WebElement element, int inSeconds);
