@@ -5,10 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
 import java.awt.*;
 import java.util.NoSuchElementException;
@@ -146,6 +143,14 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
         WebDriverWait wait = new WebDriverWait(driver, inSeconds);
         wait.until(ExpectedConditions.invisibilityOf(element));
         log.info("wait until element: " + element + " is invisible");
+    }
+
+    @Override
+    public void waitUntilPageLoaded(int inSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+        wait.until((ExpectedCondition<Boolean>) driver -> ((JavascriptExecutor) driver)
+                .executeScript("return document.readyState").equals("complete"));
+        log.info("wait until page is loaded");
     }
 
 }

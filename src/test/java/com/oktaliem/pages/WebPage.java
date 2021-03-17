@@ -12,7 +12,7 @@ import java.util.List;
 import static com.oktaliem.pages.Path.SELENIUM_WEB;
 import static com.oktaliem.pages.Path.W3SCHOOL_DRAG_AND_DROP;
 
-public class SeleniumPage extends BasePage {
+public class WebPage extends BasePage {
     /**
      * Martin Flower :
      * "1. A page object wraps an HTML page, or fragment, with an application-specific API, allowing you to manipulate page elements without digging around in the HTML."
@@ -20,7 +20,7 @@ public class SeleniumPage extends BasePage {
      * "3. The page object should encapsulate the mechanics required to find and manipulate the data in the page itself. A good rule of thumb is to imagine changing the concrete page -in which case the page object interface shouldn't change."
      */
 
-    public SeleniumPage(WebDriver driver) {
+    public WebPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }

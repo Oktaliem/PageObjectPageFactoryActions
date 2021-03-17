@@ -98,11 +98,11 @@ public class UnitTest extends BaseTest{
 
     @Test(description = "Page Factory - Select CheckBox")
     public void TC12(){
-          userIsOn.seleniumPage().goToWeb("https://www.w3.org/TR/wai-aria-practices-1.1/examples/checkbox/checkbox-2/checkbox-2.html");
-          userIsOn.seleniumPage().deselectLettuce();
-          userIsOn.seleniumPage().selectLettuce();
-          userIsOn.seleniumPage().selectTomato();
-          userIsOn.seleniumPage().deselectTomato();
+          userIsOn.webPage().goToWeb("https://www.w3.org/TR/wai-aria-practices-1.1/examples/checkbox/checkbox-2/checkbox-2.html");
+          userIsOn.webPage().deselectLettuce();
+          userIsOn.webPage().selectLettuce();
+          userIsOn.webPage().selectTomato();
+          userIsOn.webPage().deselectTomato();
 
     }
 
@@ -123,63 +123,63 @@ public class UnitTest extends BaseTest{
 
     @Test(description = "General - Scroll Up and Scroll Down ")
     public void TC15(){
-        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
-        userIsOn.seleniumPage().scrollToBottomPage();
-        userIsOn.seleniumPage().wait(3000);
-        userIsOn.seleniumPage().scrollToTopPage();
-        userIsOn.seleniumPage().wait(3000);
+        userIsOn.webPage().goToSeleniumOfficialWeb();
+        userIsOn.webPage().scrollToBottomPage();
+        userIsOn.webPage().wait(3000);
+        userIsOn.webPage().scrollToTopPage();
+        userIsOn.webPage().wait(3000);
     }
 
     @Test(description = "Page Object - Scroll until view element")
     public void TC16(){
-        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
-        userIsOn.seleniumPage().gotToMoreNewsButtonPO();
+        userIsOn.webPage().goToSeleniumOfficialWeb();
+        userIsOn.webPage().gotToMoreNewsButtonPO();
     }
 
     @Test(description = "Page Factory - Scroll until view element")
     public void TC17(){
-        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
-        userIsOn.seleniumPage().gotToMoreNewsButtonPF();
+        userIsOn.webPage().goToSeleniumOfficialWeb();
+        userIsOn.webPage().gotToMoreNewsButtonPF();
     }
 
     @Test(description = "Page Factory - Double Click")
     public void TC18(){
-        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
-        userIsOn.seleniumPage().gotToMoreNewsButtonPF();
-        userIsOn.seleniumPage().doubleClickMoreNewsButtonPF();
+        userIsOn.webPage().goToSeleniumOfficialWeb();
+        userIsOn.webPage().gotToMoreNewsButtonPF();
+        userIsOn.webPage().doubleClickMoreNewsButtonPF();
     }
 
     @Test(description = "Page Object - Double Click")
     public void TC19(){
-        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
-        userIsOn.seleniumPage().gotToMoreNewsButtonPO();
-        userIsOn.seleniumPage().doubleClickMoreNewsButtonPO();
+        userIsOn.webPage().goToSeleniumOfficialWeb();
+        userIsOn.webPage().gotToMoreNewsButtonPO();
+        userIsOn.webPage().doubleClickMoreNewsButtonPO();
     }
 
     @Test(description = "Page Object - Move Mouse Pointer")
     public void TC20(){
-        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
-        userIsOn.seleniumPage().gotToMoreNewsButtonPO();
-        userIsOn.seleniumPage().movePointerToNewsButtonPO();
+        userIsOn.webPage().goToSeleniumOfficialWeb();
+        userIsOn.webPage().gotToMoreNewsButtonPO();
+        userIsOn.webPage().movePointerToNewsButtonPO();
     }
 
     @Test(description = "Page Factory - Move Mouse Pointer")
     public void TC21(){
-        userIsOn.seleniumPage().goToSeleniumOfficialWeb();
-        userIsOn.seleniumPage().gotToMoreNewsButtonPF();
-        userIsOn.seleniumPage().movePointerToNewsButtonPF();
+        userIsOn.webPage().goToSeleniumOfficialWeb();
+        userIsOn.webPage().gotToMoreNewsButtonPF();
+        userIsOn.webPage().movePointerToNewsButtonPF();
     }
 
     @Test(description = "drag and drop action - Page Factory")
     public void TC22(){
-        userIsOn.seleniumPage().goToW3SchoolDropAndDropPage();
-        userIsOn.seleniumPage().performDragAndDropPF();
+        userIsOn.webPage().goToW3SchoolDropAndDropPage();
+        userIsOn.webPage().performDragAndDropPF();
     }
 
     @Test(description = "drag and drop action - Page Object")
     public void TC23(){
-        userIsOn.seleniumPage().goToW3SchoolDropAndDropPage();
-        userIsOn.seleniumPage().performDragAndDropPO();
+        userIsOn.webPage().goToW3SchoolDropAndDropPage();
+        userIsOn.webPage().performDragAndDropPO();
     }
 
     @Test(description ="Page Factory - input and tab and enter ")
@@ -196,40 +196,40 @@ public class UnitTest extends BaseTest{
 
     @Test(description ="Page Factory - input and tab and enter ")
     public void TC26(){
-        userIsOn.seleniumPage().launchTheApplicationGuru99();
-        userIsOn.seleniumPage().goToTestingAndClickCucumberPF();
+        userIsOn.webPage().launchTheApplicationGuru99();
+        userIsOn.webPage().goToTestingAndClickCucumberPF();
     }
 
     @Test(description = "Page Object - input and tab and enter ")
     public void TC27(){
-        userIsOn.seleniumPage().launchTheApplicationGuru99();
-        userIsOn.seleniumPage().goToTestingAndClickCucumberPO();
+        userIsOn.webPage().launchTheApplicationGuru99();
+        userIsOn.webPage().goToTestingAndClickCucumberPO();
     }
 
     @Test(description = "Page Object - input and tab and enter ")
     public void TC28(){
-        userIsOn.seleniumPage().launchTheApplicationGuru99();
-        userIsOn.seleniumPage().waitViaJavaScriptExecutor();
+        userIsOn.webPage().launchTheApplicationGuru99();
+        userIsOn.webPage().waitViaJavaScriptExecutor();
     }
 
     @Test(description = "General - Execute Javascript ")
     public void TC29(){
-        userIsOn.seleniumPage().launchTheApplicationGuru99();
-        userIsOn.seleniumPage().wait(5000);
-        userIsOn.seleniumPage().wait(5000);
-        userIsOn.seleniumPage().executeViaJsExecutor("alert(\"Hello World!\")");
-        userIsOn.seleniumPage().wait(5000);
-        userIsOn.seleniumPage().handleJavascriptPopUp("Hello World!");
-        userIsOn.seleniumPage().executeViaJsExecutor("window.confirm(\"sometext\");");
-        userIsOn.seleniumPage().wait(5000);
-        userIsOn.seleniumPage().handleJavascriptPopUp("cancel");
-        userIsOn.seleniumPage().executeViaJsExecutor("window.prompt(\"sometext\",\"defaultText\");");
-        userIsOn.seleniumPage().wait(5000);
-        userIsOn.seleniumPage().handleJavascriptPopUp("defaultText");
-        userIsOn.seleniumPage().refreshPageViaJsExecutor();
-        userIsOn.seleniumPage().executeViaJsExecutor("window.open()");
-        userIsOn.seleniumPage().executeViaJsExecutor("window.focus()");
-        userIsOn.seleniumPage().executeViaJsExecutor("screen.height");
+        userIsOn.webPage().launchTheApplicationGuru99();
+        userIsOn.webPage().wait(5000);
+        userIsOn.webPage().wait(5000);
+        userIsOn.webPage().executeViaJsExecutor("alert(\"Hello World!\")");
+        userIsOn.webPage().wait(5000);
+        userIsOn.webPage().handleJavascriptPopUp("Hello World!");
+        userIsOn.webPage().executeViaJsExecutor("window.confirm(\"sometext\");");
+        userIsOn.webPage().wait(5000);
+        userIsOn.webPage().handleJavascriptPopUp("cancel");
+        userIsOn.webPage().executeViaJsExecutor("window.prompt(\"sometext\",\"defaultText\");");
+        userIsOn.webPage().wait(5000);
+        userIsOn.webPage().handleJavascriptPopUp("defaultText");
+        userIsOn.webPage().refreshPageViaJsExecutor();
+        userIsOn.webPage().executeViaJsExecutor("window.open()");
+        userIsOn.webPage().executeViaJsExecutor("window.focus()");
+        userIsOn.webPage().executeViaJsExecutor("screen.height");
     }
 
     @Test(description = "General - Login with javascript executor (Negative Scenario) ")
@@ -305,26 +305,26 @@ public class UnitTest extends BaseTest{
 
     @Test(description = "Page Object - Page Factory Drop Down list")
     public void TC33(){
-        userIsOn.seleniumPage().goToWeb("https://www.w3schools.com/css/tryit.asp?filename=trycss_forms");
-        userIsOn.seleniumPage().selectCountryDropDownList();
+        userIsOn.webPage().goToWeb("https://www.w3schools.com/css/tryit.asp?filename=trycss_forms");
+        userIsOn.webPage().selectCountryDropDownList();
     }
 
     @Test(description = "Page Object - Page Factory Radio button by Text")
     public void TC34(){
-        userIsOn.seleniumPage().goToWeb("https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_form_radio_inline&stacked=h");
-        userIsOn.seleniumPage().selectRadioW3SchoolText();
+        userIsOn.webPage().goToWeb("https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_form_radio_inline&stacked=h");
+        userIsOn.webPage().selectRadioW3SchoolText();
     }
 
     @Test(description = "Page Object- Page Factory Radio Button by Value")
     public void TC35(){
-        userIsOn.seleniumPage().goToWeb("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_radio_value3");
-        userIsOn.seleniumPage().selectRadioW3SchoolValue();
+        userIsOn.webPage().goToWeb("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_radio_value3");
+        userIsOn.webPage().selectRadioW3SchoolValue();
     }
 
     @Test(description = "Page Object - Page Factory Upload File")
     public void TC36(){
-        userIsOn.seleniumPage().goToWeb("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
-        userIsOn.seleniumPage().uploadFilePOPF();
+        userIsOn.webPage().goToWeb("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
+        userIsOn.webPage().uploadFilePOPF();
     }
 
     @Test(description = "General - Some javascript find element")
@@ -367,9 +367,14 @@ public class UnitTest extends BaseTest{
 
     @Test(description = "General - Autocomplete element")
     public void TC43(){
-        userIsOn.seleniumPage().goToWeb("https://codepen.io/matt-west/full/jKnzG");
-        userIsOn.seleniumPage().selectTags("HTML");
+        userIsOn.webPage().goToWeb("https://codepen.io/matt-west/full/jKnzG");
+        userIsOn.webPage().selectTags("HTML");
     }
 
+    @Test(description = "General - Wait until page is loaded")
+    public void TC44(){
+        userIsOn.webPage().goToWeb("https://emberjs.com/");
+        userIsOn.webPage().waitUntilPageLoaded(60);
+    }
 
 }

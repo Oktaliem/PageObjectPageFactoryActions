@@ -2,7 +2,7 @@ package com.oktaliem.testsuite;
 
 
 import com.oktaliem.pages.LoginPage;
-import com.oktaliem.pages.SeleniumPage;
+import com.oktaliem.pages.WebPage;
 import com.oktaliem.pages.angularpage.coreui.AngularDashboardPage;
 import com.oktaliem.pages.angularpage.formio.FormBuilderPage;
 import com.oktaliem.pages.angularpage.formio.FormRendererPage;
@@ -21,7 +21,7 @@ public class User {
     }
 
     public LoginPage loginPage(){return new LoginPage(driver);}
-    public SeleniumPage seleniumPage(){return new SeleniumPage(driver);}
+    public WebPage webPage(){return new WebPage(driver);}
 
 
     public AngularDashboardPage agDashboardPage(){return new AngularDashboardPage(driver);}

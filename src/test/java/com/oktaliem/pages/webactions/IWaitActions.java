@@ -22,4 +22,5 @@ public interface IWaitActions {
     void waitUntilLocatorIsVisible(WebElement element, int insSeconds);
     void waitUntilTextIsPresentInLocator(WebElement element, String text);
     void waitUntilLocatorIsInvisible(WebElement element, int inSeconds);
+    void waitUntilPageLoaded(int inSeconds);
 }
