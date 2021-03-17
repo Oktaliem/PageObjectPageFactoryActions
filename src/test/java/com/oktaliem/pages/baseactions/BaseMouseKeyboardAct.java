@@ -142,6 +142,7 @@ public class BaseMouseKeyboardAct extends BaseRobotAct implements IMouseAndKeybo
                 .sendKeys(Keys.TAB)
                 .build();
         enter.perform();
+        log.info("Click on Keyboard button: Tab");
     }
 
     @Override
@@ -151,6 +152,7 @@ public class BaseMouseKeyboardAct extends BaseRobotAct implements IMouseAndKeybo
                 .sendKeys(Keys.ENTER)
                 .build();
         enter.perform();
+        log.info("Click on Keyboard button: Enter");
     }
 
     @Override
@@ -160,6 +162,7 @@ public class BaseMouseKeyboardAct extends BaseRobotAct implements IMouseAndKeybo
                 .sendKeys(Keys.DELETE)
                 .build();
         enter.perform();
+        log.info("Click on Keyboard button: Delete");
     }
 
     @Override
