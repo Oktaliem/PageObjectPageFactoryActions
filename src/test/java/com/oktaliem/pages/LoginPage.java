@@ -32,13 +32,6 @@ public class LoginPage extends BasePage {
     private final By dialogBox = By.xpath("/html[1]/body[1]/ul[1]/li[6]/div[1]/button[1]");
     private final By dialog = By.xpath("/html[1]/body[1]/ul[1]/li[5]/div[1]/button[1]");
 
-    private String userNameJS = "login";
-    private String passwordJS = "password";
-    private String loginBtnJS = "btn-primary";
-    private String csrfToken = "csrf_token";
-    private String msg = "alert-danger";
-    private String tag = "input";
-
     @FindBy(id = "login")
     private WebElement userName;
 
@@ -60,6 +53,8 @@ public class LoginPage extends BasePage {
     private WebElement userNameChains;
 
     String sikuliPath = System.getProperty("user.dir") + "/src/main/resources/sikuli/";
+//    private static final Pattern sikuliPath = new Pattern(Main.class.getResource("login_button.png"));
+
 
     @FindBy(id = "swal2-title")
     WebElement popUpTitle;
@@ -142,13 +137,19 @@ public class LoginPage extends BasePage {
 
     @Step
     public void performSomeJSFindElement() {
+        String userNameJS = "login";
         findElementByJSExecutor("id", userNameJS, 0).sendKeys("abc");
+        String passwordJS = "password";
         findElementByJSExecutor("id", passwordJS, 0).sendKeys("abc");
+        String loginBtnJS = "btn-primary";
         findElementByJSExecutor("class", loginBtnJS, 0).click();
+        String tag = "input";
         String csrf_value = findElementByJSExecutor("tagName", tag, 0).getAttribute("value");
         System.out.println("Get CSRF value by TagName: " + csrf_value);
+        String csrfToken = "csrf_token";
         String csrf_value_2 = findElementByJSExecutor("name", csrfToken, 0).getAttribute("value");
         System.out.println("Get CSRF value by name: " + csrf_value_2);
+        String msg = "alert-danger";
         getTextElementViaJSExecutor("class", msg, 0);
         getAttributeViaJsExecutor("class", "border-right", 0, "href");
         inputTextByJsExecutor(userName, "kucing garong");
