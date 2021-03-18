@@ -27,4 +27,5 @@ public interface IJSExecutorActions {
     void navigateViaJsExecutor(String url);
     void highlightElement (WebElement element);
     void setAttributeByJsExecutor(String locatorId, String elementName, String attribute, String value);
+    void deleteElementWithXpath(String xpath);
 }

@@ -205,7 +205,7 @@ public class WebPage extends BasePage {
     public void selectTags(String text) {
         wait(7000);
         switchToFrameByIndex(0);
-        selectAutoCompleteDropDownList(tags,text,0,50);
+        selectAutoCompleteDropDownList(tags, text, 0, 50);
     }
 
     @Step
@@ -239,13 +239,18 @@ public class WebPage extends BasePage {
     }
 
     public void buttonIsNotEqualToThisText(String text) {
-        checkIfTextIsNotExpected(By.xpath("//a[.='Read the Tutorial']"),text);
-        checkIfTextIsNotExpected(tutorialBtn,text);
+        checkIfTextIsNotExpected(By.xpath("//a[.='Read the Tutorial']"), text);
+        checkIfTextIsNotExpected(tutorialBtn, text);
     }
 
     public void verifyDropDownListDoesNotContain(String text) {
         clickOn(By.xpath("//button[contains(.,'Releases')]"));
         List<WebElement> dropDown = driver.findElements(By.className("navbar-dropdown-list-item-link"));
-        checkIfTextIsNotInTheListOfElements(dropDown,text);
+        checkIfTextIsNotInTheListOfElements(dropDown, text);
+    }
+
+    public void deleteButton(String buttonName) {
+        deleteElementWithXpath("//a[.='" + buttonName + "']");
+        wait(3000);
     }
 }

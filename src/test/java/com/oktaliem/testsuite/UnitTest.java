@@ -390,10 +390,17 @@ public class UnitTest extends BaseTest{
         userIsOn.webPage().goToWeb("https://emberjs.com/");
         userIsOn.webPage().buttonIsNotEqualToThisText("Read the tutorials");
     }
+
     @Test(description = "Assertion - Check if Text is not in the list")
     public void TC47(){
         userIsOn.webPage().goToWeb("https://emberjs.com/");
         userIsOn.webPage().verifyDropDownListDoesNotContain("Editionz");
+    }
+
+    @Test(description = "Action - Delete element with xpath")
+    public void TC48(){
+        userIsOn.webPage().goToWeb("https://emberjs.com/");
+        userIsOn.webPage().deleteButton("Read the Tutorial");
     }
 
 }
