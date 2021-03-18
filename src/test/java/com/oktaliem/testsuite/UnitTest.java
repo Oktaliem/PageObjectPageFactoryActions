@@ -384,6 +384,10 @@ public class UnitTest extends BaseTest{
         userIsOn.webPage().clickOnReadTheTutorial();
     }
 
-
+    @Test(description = "Assertion - Check if Text is not expected")
+    public void TC46(){
+        userIsOn.webPage().goToWeb("https://emberjs.com/");
+        userIsOn.webPage().buttonIsNotEqualToThisText("Read the tutorials");
+    }
 
 }

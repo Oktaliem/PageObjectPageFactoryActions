@@ -151,9 +151,11 @@ public class LoginPage extends BasePage {
         System.out.println("Get CSRF value by name: " + csrf_value_2);
         String msg = "alert-danger";
         getTextElementViaJSExecutor("class", msg, 0);
-        getAttributeViaJsExecutor("class", "border-right", 0, "href");
+        String attribute = getAttributeViaJsExecutor("class", "border-right", 0, "href");
+        System.out.println(attribute);
         inputTextByJsExecutor(userName, "kucing garong");
-        getURLByJsExecutor();
+        String url = getURLByJsExecutor();
+        System.out.println(url);
         navigateViaJsExecutor("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_file");
         navigateViaJsExecutor("http://localhost/web/login");
 

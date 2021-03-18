@@ -51,4 +51,18 @@ public class BaseAssertionAct extends BaseGeneralAct implements IAssertionAction
         }
     }
 
+    @Override
+    public void checkIfTextIsNotExpected(By el, String expected) {
+        String element = driver.findElement(el).getText();
+        Assert.assertNotEquals(element, expected);
+        log.info("PASSED - Text is not expected, " + "expected: " + expected + " and actual: " + element);
+    }
+
+    @Override
+    public void checkIfTextIsNotExpected(WebElement element, String expected) {
+        String el = element.getText();
+        Assert.assertNotEquals(el, expected);
+        log.info("PASSED - Text is not expected, " + "expected: " + expected + " and actual: " + el);
+    }
+
 }

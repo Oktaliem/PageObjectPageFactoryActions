@@ -74,6 +74,8 @@ public class WebPage extends BasePage {
     @FindBy(xpath = "//input[@id='cond2']")
     private WebElement tomato;
 
+    @FindBy(xpath = "//a[.='Read the Tutorial']")
+    private WebElement tutorialBtn;
 
     @Step
     public void goToSeleniumOfficialWeb() {
@@ -234,5 +236,10 @@ public class WebPage extends BasePage {
     public void clickOnReadTheTutorial() {
         clickViaJsForXpath("//a[.='Read the Tutorial']");
         wait(2000);
+    }
+
+    public void buttonIsNotEqualToThisText(String text) {
+        checkIfTextIsNotExpected(By.xpath("//a[.='Read the Tutorial']"),text);
+        checkIfTextIsNotExpected(tutorialBtn,text);
     }
 }
