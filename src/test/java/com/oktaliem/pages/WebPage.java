@@ -242,4 +242,10 @@ public class WebPage extends BasePage {
         checkIfTextIsNotExpected(By.xpath("//a[.='Read the Tutorial']"),text);
         checkIfTextIsNotExpected(tutorialBtn,text);
     }
+
+    public void verifyDropDownListDoesNotContain(String text) {
+        clickOn(By.xpath("//button[contains(.,'Releases')]"));
+        List<WebElement> dropDown = driver.findElements(By.className("navbar-dropdown-list-item-link"));
+        checkIfTextIsNotInTheListOfElements(dropDown,text);
+    }
 }

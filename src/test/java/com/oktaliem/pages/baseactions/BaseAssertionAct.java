@@ -4,7 +4,11 @@ import com.oktaliem.pages.webactions.IAssertionActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.util.List;
 
 /**
  * Author : Okta Liem
@@ -63,6 +67,69 @@ public class BaseAssertionAct extends BaseGeneralAct implements IAssertionAction
         String el = element.getText();
         Assert.assertNotEquals(el, expected);
         log.info("PASSED - Text is not expected, " + "expected: " + expected + " and actual: " + el);
+    }
+
+    @Override
+    public boolean checkIfElementIsVisible(WebElement element, int inSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+            wait.until(ExpectedConditions.visibilityOf(element));
+            log.info(element + " is visible");
+            return true;
+        } catch (Exception e) {
+            log.info(element + " is not visible");
+            return false;
+        }
+    }
+
+    @Override
+    public boolean checkIfElementIsPresent(By by, int inSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+            wait.until(ExpectedConditions.presenceOfElementLocated(by));
+            log.info(by + " is present");
+            return true;
+        } catch (Exception e) {
+            log.info(by + " is not present");
+            return false;
+        }
+    }
+
+    @Override
+    public boolean checkIfElementIsInvisible(WebElement element, int inSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+            wait.until(ExpectedConditions.invisibilityOf(element));
+            log.info(element + " is invisible");
+            return true;
+        } catch (Exception e) {
+            log.info(element + " is not invisible");
+            return false;
+        }
+    }
+
+    @Override
+    public boolean checkIfElementIsClickAble(WebElement element, int inSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            log.info(element + " is clickable");
+            return true;
+        } catch (Exception e) {
+            log.info(element + " is not clickable");
+            return false;
+        }
+    }
+
+    @Override
+    public void checkIfTextIsNotInTheListOfElements(List<WebElement> elements, String text) {
+        for (WebElement btn : elements) {
+            System.out.println(btn.getText());
+            if (text.trim().equals(btn.getText().trim())) {
+                Assert.fail("dashboard page: " + text + " should not be in the dashboard page list/button");
+                break;
+            }
+        }
     }
 
 }

@@ -10,13 +10,9 @@ import java.awt.*;
  */
 public interface IWaitActions {
 
-    void wait(int miliseconds);
+    void wait(int milliseconds);
     void waitWithJSExecutor(int milliseconds);
     void robotWaitFor(int milliseconds) throws AWTException;
-    boolean checkIfElementIsVisible(WebElement element, int inSeconds);
-    boolean checkIfElementIsPresent(By by, int inSeconds);
-    boolean checkIfElementIsInvisible(WebElement element, int inSeconds);
-    boolean checkIfElementIsClickAble(WebElement element, int inSeconds);
     void waitForElementActionable(WebElement element, int inSeconds);
     WebElement fluentWait(By by, int timeOut, int polling);
     void waitUntilLocatorIsVisible(WebElement element, int insSeconds);
