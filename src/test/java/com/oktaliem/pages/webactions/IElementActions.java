@@ -22,6 +22,7 @@ public interface IElementActions {
     void uploadFile(By el, String fileName);
     WebElement findElementByDoubleChain(By el1, By el2);
     void clickBySortingTextElement(By els, String text);
+    String getDropDownListValueDisplayed(By el);
 
     /** Web Action - Page Factory **/
     void clickOn(WebElement element);
@@ -35,4 +36,5 @@ public interface IElementActions {
     void selectCheckBox(WebElement element, boolean status);
     void uploadFile(WebElement element, String fileName);
     void clickBySortingTextElement(List<WebElement> elements, String text);
+    String getDropDownListValueDisplayed(WebElement element);
 }

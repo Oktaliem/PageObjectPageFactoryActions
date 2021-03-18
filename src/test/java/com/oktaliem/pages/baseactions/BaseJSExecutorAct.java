@@ -196,4 +196,15 @@ public class BaseJSExecutorAct extends BaseMouseKeyboardAct implements IJSExecut
         }
     }
 
+    @Override
+    public void clickViaJsForXpath(String xpath) {
+        String js = "var elements = document.evaluate(\"" + xpath + "\",document,null,XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,null);\n" +
+                "var length = elements.snapshotLength;\n" +
+                "if(length == 0) null.click();\n" +
+                "for (var i = 0; i < length; i++) {\n" +
+                "   elements.snapshotItem(i).click();\n" +
+                "}";
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript(js);
+    }
 }

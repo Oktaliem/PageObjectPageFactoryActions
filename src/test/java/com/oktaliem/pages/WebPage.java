@@ -231,4 +231,8 @@ public class WebPage extends BasePage {
         performPageScreenshot(driver);
     }
 
+    public void clickOnReadTheTutorial() {
+        clickViaJsForXpath("//a[.='Read the Tutorial']");
+        wait(2000);
+    }
 }

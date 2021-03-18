@@ -377,4 +377,13 @@ public class UnitTest extends BaseTest{
         userIsOn.webPage().waitUntilPageLoaded(60);
     }
 
+
+    @Test(description = "General - Click xpath with javascript")
+    public void TC45(){
+        userIsOn.webPage().goToWeb("https://emberjs.com/");
+        userIsOn.webPage().clickOnReadTheTutorial();
+    }
+
+
+
 }

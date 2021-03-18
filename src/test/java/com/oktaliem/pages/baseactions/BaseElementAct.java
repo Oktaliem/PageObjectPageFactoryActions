@@ -141,6 +141,23 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         }
     }
 
+    @Override
+    public WebElement findElementByDoubleChain(By el1, By el2) {
+        WebElement els = driver.findElement(el1).findElement(el2);
+        log.info("Find element by: " + el1 + " and " + el2 + "succeed");
+        return els;
+    }
+
+    @Override
+    public String getDropDownListValueDisplayed(By el) {
+        WebElement element = driver.findElement(el);
+        waitUntilLocatorIsVisible(element, 10);
+        Select select = new Select(element);
+        String value = select.getFirstSelectedOption().getText();
+        log.info("Drop down list text displayed : " + value);
+        return value;
+    }
+
 
     /**
      * Page Factory for Page Actions
@@ -257,12 +274,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         log.info("Choose file name: " + fileName + " succeed");
     }
 
-    @Override
-    public WebElement findElementByDoubleChain(By el1, By el2) {
-        WebElement els = driver.findElement(el1).findElement(el2);
-        log.info("Find element by: " + el1 + " and " + el2 + "succeed");
-        return els;
-    }
+
 
     @Override
     public void clickBySortingTextElement(List<WebElement> elements, String text) {
@@ -274,6 +286,15 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
                 break;
             }
         }
+    }
+
+    @Override
+    public String getDropDownListValueDisplayed(WebElement element) {
+        waitUntilLocatorIsVisible(element, 10);
+        Select select = new Select(element);
+        String value = select.getFirstSelectedOption().getText();
+        log.info("Drop down list text displayed : " + value);
+        return value;
     }
 
 
