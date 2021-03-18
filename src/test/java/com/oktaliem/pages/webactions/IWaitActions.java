@@ -13,10 +13,15 @@ public interface IWaitActions {
     void wait(int milliseconds);
     void waitWithJSExecutor(int milliseconds);
     void robotWaitFor(int milliseconds) throws AWTException;
+    void waitUntilPageLoaded(int inSeconds);
+
+    void fluentWait(By by, int timeOut, int polling);
+    void waitUntilLocatorIsVisible(By by, int insSeconds);
+
+    void fluentWait(WebElement element, int timeOut, int polling);
     void waitForElementActionable(WebElement element, int inSeconds);
-    WebElement fluentWait(By by, int timeOut, int polling);
     void waitUntilLocatorIsVisible(WebElement element, int insSeconds);
     void waitUntilTextIsPresentInLocator(WebElement element, String text);
     void waitUntilLocatorIsInvisible(WebElement element, int inSeconds);
-    void waitUntilPageLoaded(int inSeconds);
+
 }

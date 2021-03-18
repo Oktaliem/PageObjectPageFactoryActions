@@ -110,7 +110,8 @@ public class UnitTest extends BaseTest{
     public void TC13(){
         userIsOn.loginPage().launchTheApplication();
         userIsOn.loginPage().login();
-        userIsOn.loginPage().getLoginPageURL();
+        String url = userIsOn.loginPage().getLoginPageURL();
+        System.out.println(url);
     }
 
     @Test(description = "General - Get Value with Regex")

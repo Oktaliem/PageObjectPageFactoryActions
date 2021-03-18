@@ -103,8 +103,8 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Login URL")
-    public void getLoginPageURL() {
-        getCurrentURL();
+    public String getLoginPageURL() {
+        return getCurrentURL();
     }
 
     @Step("value or Regex")
