@@ -236,6 +236,7 @@ public class LoginPage extends BasePage {
     public void waitingGame() throws AWTException {
         Assert.assertTrue(checkIfElementIsVisible(userName, 3));
         Assert.assertTrue(checkIfElementIsPresent(passwordLogin, 3));
+        waitUntilLocatorIsClickAble(popUpTitle, 5);
         Assert.assertTrue(checkIfElementIsClickAble(loginBtn, 2));
         robotWaitFor(2000);
         fluentWait(DBManage, 2000, 250);

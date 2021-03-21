@@ -17,11 +17,13 @@ public interface IWaitActions {
 
     void fluentWait(By by, int timeOut, int polling);
     void waitUntilLocatorIsVisible(By by, int insSeconds);
+    void waitUntilLocatorIsClickAble(By by, int insSeconds);
+
 
     void fluentWait(WebElement element, int timeOut, int polling);
     void waitForElementActionable(WebElement element, int inSeconds);
     void waitUntilLocatorIsVisible(WebElement element, int insSeconds);
     void waitUntilTextIsPresentInLocator(WebElement element, String text);
     void waitUntilLocatorIsInvisible(WebElement element, int inSeconds);
-
+    void waitUntilLocatorIsClickAble(WebElement element, int insSeconds);
 }

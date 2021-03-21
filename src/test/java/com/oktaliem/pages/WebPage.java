@@ -240,6 +240,8 @@ public class WebPage extends BasePage {
 
     public void buttonIsNotEqualToThisText(String text) {
         checkIfTextIsNotExpected(By.xpath("//a[.='Read the Tutorial']"), text);
+        fluentWait(tutorialBtn,3000,500);
+        waitUntilLocatorIsVisible(tutorialBtn,3000);
         checkIfTextIsNotExpected(tutorialBtn, text);
     }
 
@@ -250,7 +252,10 @@ public class WebPage extends BasePage {
     }
 
     public void deleteButton(String buttonName) {
-        deleteElementWithXpath("//a[.='" + buttonName + "']");
+        String button = "//a[.='" + buttonName + "']";
+        waitUntilLocatorIsVisible(By.xpath(button),3000);
+        waitUntilLocatorIsClickAble(By.xpath(button),3000);
+        deleteElementWithXpath(button);
         wait(3000);
     }
 }
