@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.io.IOException;
+
 import static org.testng.FileAssert.fail;
 
 public class W3CPage extends BasePage {
@@ -27,8 +29,9 @@ public class W3CPage extends BasePage {
     WebElement dialogLabel;
 
     @Step
-    public void clickOnAccordion(String accordion) {
+    public void clickOnAccordion(String accordion) throws IOException, InterruptedException {
         scrollUntilViewElement(this.accordion);
+        getSeleniumElementScreenShot(this.accordion,accordion);
         if (this.accordion.getText().equals(accordion)) {
             clickViaAction(this.accordion);
         } else {

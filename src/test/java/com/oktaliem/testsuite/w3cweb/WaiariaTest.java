@@ -3,12 +3,14 @@ package com.oktaliem.testsuite.w3cweb;
 import com.oktaliem.testsuite.BaseTest;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static com.oktaliem.constants.Url.*;
 
 public class WaiariaTest extends BaseTest {
 
     @Test
-    public void accordionTest(){
+    public void accordionTest() throws IOException, InterruptedException {
         userIsOn.w3CPage().goToWeb(W3C_ACCORDION_URL);
         userIsOn.w3CPage().clickOnAccordion("Shipping Address");
     }
