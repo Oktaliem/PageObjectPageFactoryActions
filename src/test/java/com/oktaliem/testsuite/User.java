@@ -6,7 +6,6 @@ import com.oktaliem.pages.WebPage;
 import com.oktaliem.pages.angularpage.coreui.AngularDashboardPage;
 import com.oktaliem.pages.angularpage.formio.FormBuilderPage;
 import com.oktaliem.pages.angularpage.formio.FormRendererPage;
-import com.oktaliem.pages.angularpage.primeng.PrimengV913ComponentPage;
 import com.oktaliem.pages.flutterPage.RallyLoginPage;
 import com.oktaliem.pages.reactpage.ReactDashboardPage;
 import com.oktaliem.pages.vuepage.VueDashboardPage;
@@ -32,10 +31,6 @@ public class User {
     public FormBuilderPage formBuilderPage(){return new FormBuilderPage(driver);}
 
     public RallyLoginPage rallyLoginPage(){return new RallyLoginPage(driver);}
-
-
-    //PRIMENG
-    public PrimengV913ComponentPage primengV913ComponentPage(){return new PrimengV913ComponentPage(driver);}
 
     //W3C WAI-ARIA
     public W3CPage w3CPage(){return new W3CPage(driver);}
