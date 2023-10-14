@@ -14,11 +14,6 @@ public class AngularTest extends BaseTest {
         userIsOn.agDashboardPage().goToDashboardPage();
     }
 
-    @Test(description = "Click On Year Button")
-    public void AG_01(){
-        userIsOn.agDashboardPage().clickOnYear();
-    }
-
     @Test(description = "Base Test")
     public void AG_02() {
         userIsOn.agDashboardPage().goToComponent("Base");

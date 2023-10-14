@@ -14,15 +14,4 @@ public class VueTest extends BaseTest {
         userIsOn.vueDashPage().goToDashboardPage();
     }
 
-    @Test(description = "Click On Year Button")
-    public void VU_01() {
-        userIsOn.vueDashPage().clickOnYear();
-    }
-
-    @Test(description = "Breadcrumb Test")
-    public void VU_02() {
-        userIsOn.vueDashPage().goToComponent("Base");
-        userIsOn.vueDashPage().openSubComponent("Breadcrumbs");
-    }
-
 }

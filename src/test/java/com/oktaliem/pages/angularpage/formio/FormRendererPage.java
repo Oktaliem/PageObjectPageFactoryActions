@@ -40,7 +40,7 @@ public class FormRendererPage extends BasePage {
     @Step
     public void error_message_displayed() {
         String errorMessage ="Email must be a valid email.";
-        String actualError = getTextElementViaJSExecutor("class","alert-danger",0);
+        String actualError = getTextElementViaJSExecutor("class","error",0);
         Assert.assertEquals(actualError,errorMessage);
         checkIfTextIsExpected(By.className("error"),errorMessage);
     }

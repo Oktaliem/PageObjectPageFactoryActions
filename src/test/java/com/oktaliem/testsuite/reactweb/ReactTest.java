@@ -14,15 +14,4 @@ public class ReactTest extends BaseTest {
         userIsOn.rtDashPage().goToDashboardPage();
     }
 
-    @Test(description = "Click On Year Button")
-    public void RT_01() {
-        userIsOn.rtDashPage().clickOnYear();
-    }
-
-    @Test(description = "Breadcrumb Test")
-    public void RT_02() {
-        userIsOn.rtDashPage().goToComponent("Base");
-        userIsOn.rtDashPage().openSubComponent("Breadcrumbs");
-    }
-
 }

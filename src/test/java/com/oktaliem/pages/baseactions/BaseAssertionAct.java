@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
 import java.util.List;
 
 /**
@@ -72,7 +73,7 @@ public class BaseAssertionAct extends BaseGeneralAct implements IAssertionAction
     @Override
     public boolean checkIfElementIsVisible(WebElement element, int inSeconds) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
             wait.until(ExpectedConditions.visibilityOf(element));
             log.info(element + " is visible");
             return true;
@@ -85,7 +86,7 @@ public class BaseAssertionAct extends BaseGeneralAct implements IAssertionAction
     @Override
     public boolean checkIfElementIsPresent(By by, int inSeconds) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
             wait.until(ExpectedConditions.presenceOfElementLocated(by));
             log.info(by + " is present");
             return true;
@@ -98,7 +99,7 @@ public class BaseAssertionAct extends BaseGeneralAct implements IAssertionAction
     @Override
     public boolean checkIfElementIsInvisible(WebElement element, int inSeconds) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
             wait.until(ExpectedConditions.invisibilityOf(element));
             log.info(element + " is invisible");
             return true;
@@ -111,7 +112,7 @@ public class BaseAssertionAct extends BaseGeneralAct implements IAssertionAction
     @Override
     public boolean checkIfElementIsClickAble(WebElement element, int inSeconds) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
             wait.until(ExpectedConditions.elementToBeClickable(element));
             log.info(element + " is clickable");
             return true;

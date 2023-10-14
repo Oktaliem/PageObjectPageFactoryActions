@@ -9,8 +9,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -18,7 +16,6 @@ import org.testng.annotations.BeforeMethod;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.net.URL;
 
 
 /**
@@ -33,12 +30,6 @@ public class BaseTest {
     @BeforeMethod
     public void initialization(Method method) {
         try {
-            if (System.getProperty("browser").equals("zalenium")) {
-                DesiredCapabilities capability = DesiredCapabilities.chrome();
-                capability.setBrowserName("chrome");
-                capability.setCapability("name", method.getName());
-                driver = new RemoteWebDriver(new URL(System.getProperty("grid_url")), capability);
-            }
             if (System.getProperty("browser").equals("chromePath")) {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver-mac");
                 log.info("I'm using Webdriver: "+System.getProperty("user.dir") + "/drivers/chromedriver-mac");
