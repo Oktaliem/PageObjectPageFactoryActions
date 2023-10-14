@@ -21,13 +21,6 @@ Martin Fowler :
    WebDriverManager.chromedriver().setup(); 
    driver = new ChromeDriver();
    ```
-   or initiate WebDriver by Zalenium (Selenium Grid in Docker)
-   ```
-   DesiredCapabilities capability = DesiredCapabilities.chrome();
-   capability.setBrowserName("chrome");
-   capability.setCapability("name", method.getName());
-   driver = new RemoteWebDriver(new URL(System.getProperty("grid_url")), capability);
-   ```
    or initiate Webdriver via binary
    ```
    System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver-mac");
@@ -92,10 +85,6 @@ Martin Fowler :
 
    via WebDriverManager :
    $ mvn clean test -Dsurfire.suiteXmlFiles=TestNG.xml
-
-   via Zalenium :
-   $ docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start
-   $ mvn clean test -Dbrowser="zalenium" -Dgrid_url="http://{your_ip_address}:4444/wd/hub" -Dsurfire.suiteXmlFiles=TestNG.xml
    
    run one method (testcase) or many methods (testcases)
    $ mvn clean test -Dtest=UnitTest#TC03
@@ -108,13 +97,11 @@ Martin Fowler :
    ```
    
    ### References 
-   https://github.com/bonigarcia/webdrivermanager
-   
-   https://github.com/zalando/zalenium
+   [TBA]
    
    ### Application Under Test
    https://hub.docker.com/r/bitnami/odoo/
    
-   ### Zalenium Proof of Concept (Youtube)
+   ### Zalenium Proof of Concept (Youtube) [DEPRECATED]
    <a href="https://youtu.be/OSnDyoI4Zc4" target="_blank"><img src="https://user-images.githubusercontent.com/26521948/72658109-63a1d400-39e7-11ea-9667-c652586b4508.png" 
    alt="CLICK HERE" width="140" height="80" border="10" /></a>

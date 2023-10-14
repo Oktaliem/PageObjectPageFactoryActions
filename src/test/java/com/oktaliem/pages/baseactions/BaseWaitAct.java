@@ -6,9 +6,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.awt.*;
-import java.util.NoSuchElementException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -35,7 +36,7 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
 
     @Override
     public void waitForElementActionable(WebElement element, int inSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
         wait.until(ExpectedConditions.or(
                 ExpectedConditions.visibilityOf(element),
                 ExpectedConditions.elementToBeClickable(element),
@@ -64,8 +65,8 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
     @Override
     public void fluentWait(By by, int timeOut, int polling) {
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(timeOut, TimeUnit.MILLISECONDS)
-                .pollingEvery(polling, TimeUnit.MILLISECONDS)
+                .withTimeout(Duration.ofSeconds(timeOut))
+                .pollingEvery(Duration.ofSeconds(polling))
                 .ignoring(NoSuchElementException.class);
         WebElement element = wait.until(driver -> driver.findElement(by));
         log.info("fluent wait is success waiting for " + element);
@@ -74,54 +75,54 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
     @Override
     public void fluentWait(WebElement element, int timeOut, int polling) {
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(timeOut, TimeUnit.MILLISECONDS)
-                .pollingEvery(polling, TimeUnit.MILLISECONDS)
+                .withTimeout(Duration.ofSeconds(timeOut))
+                .pollingEvery(Duration.ofSeconds(polling))
                 .ignoring(NoSuchElementException.class);
         WebElement el = wait.until(driver -> element);
         log.info("fluent wait is success waiting for " + el);
     }
 
     @Override
-    public void waitUntilLocatorIsVisible(WebElement element, int insSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, insSeconds);
+    public void waitUntilLocatorIsVisible(WebElement element, int inSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
         wait.until(ExpectedConditions.visibilityOf(element));
         log.info("wait until element: " + element + " is visible");
     }
 
     @Override
-    public void waitUntilLocatorIsVisible(By by, int insSeconds) {
+    public void waitUntilLocatorIsVisible(By by, int inSeconds) {
         WebElement element = driver.findElement(by);
-        WebDriverWait wait = new WebDriverWait(driver, insSeconds);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
         wait.until(ExpectedConditions.visibilityOf(element));
         log.info("wait until element: " + element + "is visible");
     }
 
     @Override
-    public void waitUntilLocatorIsClickAble(By by, int insSeconds) {
+    public void waitUntilLocatorIsClickAble(By by, int inSeconds) {
         WebElement element = driver.findElement(by);
-        WebDriverWait wait = new WebDriverWait(driver, insSeconds);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         log.info("wait until element: " + element + "is visible");
     }
 
 
     @Override
-    public void waitUntilLocatorIsClickAble(WebElement element, int insSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, insSeconds);
+    public void waitUntilLocatorIsClickAble(WebElement element, int inSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         log.info("wait until element: " + element + "is visible");
     }
 
     @Override
     public void waitUntilTextIsPresentInLocator(WebElement element, String text) {
-        WebDriverWait wait = new WebDriverWait(driver, 4);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.textToBePresentInElement(element, text));
         log.info("wait until text in element: " + element + " is present");
     }
 
     @Override
     public void waitUntilLocatorIsInvisible(WebElement element, int inSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
         wait.until(ExpectedConditions.invisibilityOf(element));
         log.info("wait until element: " + element + " is invisible");
     }
@@ -130,7 +131,7 @@ public class BaseWaitAct extends BaseAssertionAct implements IWaitActions {
 
     @Override
     public void waitUntilPageLoaded(int inSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, inSeconds);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
         wait.until((ExpectedCondition<Boolean>) driver -> ((JavascriptExecutor) driver)
                 .executeScript("return document.readyState").equals("complete"));
         log.info("wait until page is loaded");
