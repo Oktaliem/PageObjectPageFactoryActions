@@ -1,43 +1,32 @@
 <html style="height: 100%;"><head>
-                <meta charset="utf-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-                <title>Odoo</title>
-                <link type="image/x-icon" rel="shortcut icon" href="/web/static/src/img/favicon.ico">
-            <link type="text/css" rel="stylesheet" href="/web/content/422-63a0dae/web.assets_common.css">
-            <link type="text/css" rel="stylesheet" href="/web/content/423-7c1b46f/web.assets_frontend.css">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Odoo</title>
+        <link type="image/x-icon" rel="shortcut icon" href="/web/static/img/favicon.ico">
+        <link rel="preload" href="/web/static/src/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin="">
+        <link type="text/css" rel="stylesheet" href="/web/assets/15-23814c3/web.assets_frontend.min.css" data-asset-bundle="web.assets_frontend" data-asset-version="23814c3">
+        <script id="web.layout.odooscript" type="text/javascript">
+            var odoo = {
+                csrf_token: "06e2a06566ea82f1ceb8ca264c25411f969f03a1o1728866729",
+                debug: "",
+            };
+        </script>
+        <script type="text/javascript">
+            odoo.__session_info__ = {"is_admin": false, "is_system": false, "is_website_user": false, "user_id": false, "is_frontend": true, "profile_session": null, "profile_collectors": null, "profile_params": null, "show_effect": false, "bundle_params": {"lang": "en_GB"}};
+            if (!/(^|;\s)tz=/.test(document.cookie)) {
+                const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                document.cookie = `tz=${userTZ}; path=/`;
+            }
+        </script>
+        <script defer="defer" type="text/javascript" src="/web/assets/16-e3ab3c0/web.assets_frontend_minimal.min.js" data-asset-bundle="web.assets_frontend_minimal" data-asset-version="e3ab3c0"></script>
+        <script defer="defer" type="text/javascript" data-asset-bundle="web.assets_frontend_lazy" data-asset-version="e144caa" src="/web/assets/17-e144caa/web.assets_frontend_lazy.min.js"></script>
         
-
-                <script type="text/javascript">
-                    var odoo = {
-                        csrf_token: "0d00be24b66cc67a314385d2fc023152cadf8452o",
-                        debug: "",
-                    };
-                </script>
-            <script type="text/javascript">
-                odoo.session_info = {"is_admin": false, "is_system": false, "is_website_user": false, "user_id": false, "is_frontend": true};
-            </script>
-            <script defer="defer" type="text/javascript" src="/web/content/424-27ac039/web.assets_common_minimal_js.js"></script>
-            <script defer="defer" type="text/javascript" src="/web/content/425-c5f0283/web.assets_frontend_minimal_js.js"></script>
-            
-        
-    
-            <script defer="defer" type="text/javascript" src="/web/content/426-c8f1279/web.assets_common_lazy.js"></script>
-            <script defer="defer" type="text/javascript" data-src="/web/content/427-180726b/web.assets_frontend_lazy.js"></script>
-        
-
-                
-            </head>
-            <body class="bg-100">
-                <div id="wrapwrap" class="">
-                
+    </head>
+    <body class="bg-100 o_lazy_js_waiting">
+        <div id="wrapwrap" class="">
                 <main>
                     
-            
-            
-            
-            
 
             <div class="container py-5">
                 <div style="max-width: 300px;" class="card border-0 mx-auto bg-100  o_database_list">
@@ -46,27 +35,23 @@
                             <img alt="Logo" style="max-height:120px; max-width: 100%; width:auto" src="/web/binary/company_logo">
                         </div>
                         
-            <form class="oe_login_form" role="form" method="post" onsubmit="this.action = this.action + location.hash" action="/web/login">
-                <input type="hidden" name="csrf_token" value="2fbadb84a9c4570b177af918ab7bd2494f95e682o1591530614">
+            <form class="oe_login_form" role="form" method="post" onsubmit="this.action = '/web/login' + location.hash" action="/web/login">
+                <input type="hidden" name="csrf_token" value="06e2a06566ea82f1ceb8ca264c25411f969f03a1o1728866729">
 
-                
 
-                <div class="form-group field-login">
-                    <label for="login">Email</label>
+                <div class="mb-3 field-login">
+                    <label for="login" class="form-label">Email</label>
                     <input type="text" placeholder="Email" name="login" id="login" required="required" autofocus="autofocus" autocapitalize="off" class="form-control ">
                 </div>
 
-                <div class="form-group field-password">
-                    <label for="password">Password</label>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
                     <input type="password" placeholder="Password" name="password" id="password" required="required" autocomplete="current-password" maxlength="4096" class="form-control ">
                 </div>
 
-                
-                
 
-                <div class="clearfix oe_login_buttons text-center mb-1 pt-3">
-                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
-                    
+                <div class="clearfix oe_login_buttons text-center gap-1 d-grid mb-1 pt-3">
+                    <button type="submit" class="btn btn-primary">Log in</button>
                     <div class="o_login_auth"></div>
                 </div>
 
@@ -74,9 +59,7 @@
             </form>
         
                         <div class="text-center small mt-4 pt-3 border-top">
-                            
-                                <a class="border-right pr-2 mr-1" href="/web/database/manager">Manage Databases</a>
-                            
+                                <a class="border-end pe-2 me-1" href="/web/database/manager">Manage Databases</a>
                             <a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span>Odoo</span></a>
                         </div>
                     </div>
@@ -87,7 +70,4 @@
                 
             </div>
         
-        
-    
-    
-    </body></html>
+</body></html>

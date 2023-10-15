@@ -268,7 +268,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
             if (driver instanceof RemoteWebDriver) {
                 ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
             }
-        } catch (WebDriverException e) {
+        } catch (WebDriverException ignored) {
         }
         element.sendKeys(System.getProperty("user.dir") + "/src/main/resources/" + fileName);
         log.info("Choose file name: " + fileName + " succeed");
