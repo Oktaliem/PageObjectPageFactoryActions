@@ -1,14 +1,15 @@
-package com.oktaliem.pages.seleniumjavapage;
+package com.oktaliem.pages.seleniumwebpracticepage;
 
 import com.oktaliem.pages.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class homePage extends BasePage {
+public class HomePage extends BasePage {
 
-    public homePage(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
@@ -36,6 +37,11 @@ public class homePage extends BasePage {
 
     @FindBy(linkText = "Slow calculator")
     WebElement slowCalculator;
+
+    @Step
+    protected void goToWebForm(){
+        clickOn(webForm);
+    }
 
 
 }
