@@ -158,6 +158,14 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         return value;
     }
 
+    @Override
+    public void selectSlider(By el, Keys direction, int iteration) {
+        WebElement slider = driver.findElement(el);
+        for (int i = 0; i < iteration ; i++) {
+                slider.sendKeys(direction);
+        }
+    }
+
 
     /**
      * Page Factory for Page Actions
@@ -268,7 +276,7 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
             if (driver instanceof RemoteWebDriver) {
                 ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
             }
-        } catch (WebDriverException e) {
+        } catch (WebDriverException ignored) {
         }
         element.sendKeys(System.getProperty("user.dir") + "/src/main/resources/" + fileName);
         log.info("Choose file name: " + fileName + " succeed");
@@ -295,6 +303,14 @@ public class BaseElementAct extends BaseJSExecutorAct implements IElementActions
         String value = select.getFirstSelectedOption().getText();
         log.info("Drop down list text displayed : " + value);
         return value;
+    }
+
+    @Override
+    public void selectSlider(WebElement slider, Keys direction, int iteration) {
+        waitUntilLocatorIsVisible(slider, 4);
+        for (int i = 0; i < iteration ; i++) {
+            slider.sendKeys(direction);
+        }
     }
 
 

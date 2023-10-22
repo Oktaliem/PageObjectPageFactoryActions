@@ -11,6 +11,7 @@
     <properties>
         <aspectj.version>1.8.13</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <assertj.version>3.24.2</assertj.version>
     </properties>
 
     <dependencies>
@@ -110,7 +111,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.3.1</version>
+            <version>5.4.1</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.sikulix/sikulixapi -->
@@ -125,6 +126,13 @@
             <artifactId>ngwebdriver</artifactId>
             <version>1.1.5</version>
             <!-- You might want to delete the following line if you get "package com.paulhammant.ngwebdriver does not exist" errors -->
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
 
