@@ -1,6 +1,7 @@
 package com.oktaliem.pages.webactions;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public interface IElementActions {
     WebElement findElementByDoubleChain(By el1, By el2);
     void clickBySortingTextElement(By els, String text);
     String getDropDownListValueDisplayed(By el);
+    void selectSlider(By els, Keys direction, int iteration);
 
     /** Web Action - Page Factory **/
     void clickOn(WebElement element);
@@ -37,4 +39,5 @@ public interface IElementActions {
     void uploadFile(WebElement element, String fileName);
     void clickBySortingTextElement(List<WebElement> elements, String text);
     String getDropDownListValueDisplayed(WebElement element);
+    void selectSlider(WebElement element, Keys direction, int iteration);
 }

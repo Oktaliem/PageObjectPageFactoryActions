@@ -14,32 +14,32 @@ public class HomePage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(linkText = "Web form")
+    private @FindBy(linkText = "Web form")
     WebElement webForm;
 
-    @FindBy(linkText = "Navigation")
+    private @FindBy(linkText = "Navigation")
     WebElement navigation;
 
-    @FindBy(linkText = "Dropdown menu")
+    private @FindBy(linkText = "Dropdown menu")
     WebElement dropdownMenu;
 
-    @FindBy(linkText = "Mouse over")
+    private @FindBy(linkText = "Mouse over")
     WebElement mouseOver;
 
-    @FindBy(linkText = "Drag and drop")
+    private @FindBy(linkText = "Drag and drop")
     WebElement dragAndDrop;
 
-    @FindBy(linkText = "Draw in canvas")
+    private @FindBy(linkText = "Draw in canvas")
     WebElement drawInCanvas;
 
-    @FindBy(linkText = "Loading images")
+    private @FindBy(linkText = "Loading images")
     WebElement loadImages;
 
-    @FindBy(linkText = "Slow calculator")
+    private @FindBy(linkText = "Slow calculator")
     WebElement slowCalculator;
 
     @Step
-    protected void goToWebForm(){
+    public void goToWebForm(){
         clickOn(webForm);
     }
 

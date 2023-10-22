@@ -9,6 +9,7 @@ import com.oktaliem.pages.angularpage.formio.FormRendererPage;
 import com.oktaliem.pages.flutterPage.RallyLoginPage;
 import com.oktaliem.pages.reactpage.ReactDashboardPage;
 import com.oktaliem.pages.seleniumwebpracticepage.HomePage;
+import com.oktaliem.pages.seleniumwebpracticepage.WebFormPage;
 import com.oktaliem.pages.vuepage.VueDashboardPage;
 import com.oktaliem.pages.w3c.W3CPage;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +30,7 @@ public class User {
     public RallyLoginPage rallyLoginPage(){return new RallyLoginPage(driver);}
     public W3CPage w3CPage(){return new W3CPage(driver);}
     public HomePage homePage(){return new HomePage(driver);}
+    public WebFormPage webFormPage(){return new WebFormPage(driver);}
 
 
 
