@@ -1,6 +1,7 @@
 package com.oktaliem.pages.baseactions;
 
 import com.oktaliem.pages.webactions.IAssertionActions;
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,8 @@ import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author : Okta Liem
@@ -97,6 +100,12 @@ public class BaseAssertionAct extends BaseGeneralAct implements IAssertionAction
     }
 
     @Override
+    public void checkIfElementIsNotDisplayed(By by) {
+        WebElement hidden = driver. findElement(by);
+        Assertions.assertThat(hidden.isDisplayed()).isFalse();
+    }
+
+    @Override
     public boolean checkIfElementIsInvisible(WebElement element, int inSeconds) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(inSeconds));
@@ -131,6 +140,44 @@ public class BaseAssertionAct extends BaseGeneralAct implements IAssertionAction
                 break;
             }
         }
+    }
+
+    @Override
+    public void checkIfElementIsNotDisplayed(WebElement element) {
+        Assertions.assertThat(element.isDisplayed()).isFalse();
+    }
+
+    @Override
+    public void checkAttributeIsEqualTo(WebElement element, String attribute, String value) {
+        assertThat(element.getAttribute(attribute)).isEqualTo(value);
+    }
+
+    @Override
+    public void checkIfElementIsSelected(WebElement element) {
+        assertThat(element.isSelected()).isTrue();
+    }
+
+    @Override
+    public void checkAttributeIsEqualTo(By by, String attribute, String value) {
+        WebElement element = driver.findElement(by);
+        assertThat(element.getAttribute(attribute)).isEqualTo(value);
+    }
+
+    @Override
+    public void checkIfElementIsSelected(By by) {
+        WebElement element = driver.findElement(by);
+        assertThat(element.isSelected()).isTrue();
+    }
+
+    @Override
+    public void checkIfElementIsNotSelected(WebElement element) {
+        assertThat(element.isSelected()).isFalse();
+    }
+
+    @Override
+    public void checkIfElementIsNotSelected(By by) {
+        WebElement element = driver.findElement(by);
+        assertThat(element.isSelected()).isFalse();
     }
 
 }
