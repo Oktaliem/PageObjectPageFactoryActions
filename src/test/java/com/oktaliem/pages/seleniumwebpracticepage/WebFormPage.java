@@ -31,6 +31,16 @@ public class WebFormPage extends HomePage {
     @FindBy(name = "my-range")
     WebElement rangeSlider;
 
+    @FindBy(css = "input[type=hidden]")
+    WebElement hiddenInput;
+
+    @FindBy(css = "[type=checkbox]:checked")
+    WebElement chxBoxChecked;
+
+    @FindBy(css = "[type=checkbox]:not(:checked)")
+    WebElement chxBoxNotChecked;
+
+
     @Step
     public void inputTextInput(String s) {
         inputTextBox(textInput,s);
@@ -54,5 +64,22 @@ public class WebFormPage extends HomePage {
         String filename = tempFile.toAbsolutePath().toString();
         System.out.println(filename);
         inputTextBox(inputFile,filename);
+    }
+
+    @Step
+    public void checkHiddenWebElement() {
+        checkIfElementIsNotDisplayed(By.cssSelector("input[type=hidden]"));
+        checkIfElementIsNotDisplayed(hiddenInput);
+    }
+
+    @Step
+    public void checkBoxTest() {
+        checkAttributeIsEqualTo(chxBoxChecked,"id","my-check-1");
+        checkIfElementIsSelected(chxBoxChecked);
+        checkIfElementIsNotSelected(chxBoxNotChecked);
+        checkAttributeIsEqualTo(By.cssSelector("[type=checkbox]:checked"),"id","my-check-1");
+        checkIfElementIsSelected(By.cssSelector("[type=checkbox]:checked"));
+        checkIfElementIsNotSelected(By.cssSelector("[type=checkbox]:not(:checked)"));
+//        checkIfElementIsNotSelected(chxBoxChecked); //expected to fail
     }
 }
