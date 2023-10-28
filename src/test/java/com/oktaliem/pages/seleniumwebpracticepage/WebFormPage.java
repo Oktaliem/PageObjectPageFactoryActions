@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
 public class WebFormPage extends HomePage {
     public WebFormPage(WebDriver driver) {
@@ -39,6 +40,12 @@ public class WebFormPage extends HomePage {
 
     @FindBy(css = "[type=checkbox]:not(:checked)")
     WebElement chxBoxNotChecked;
+
+    @FindBy(name = "my-text")
+    WebElement inputText;
+
+    @FindBy(className = "form-control")
+    List<WebElement> formControl;
 
 
     @Step
@@ -81,5 +88,39 @@ public class WebFormPage extends HomePage {
         checkIfElementIsSelected(By.cssSelector("[type=checkbox]:checked"));
         checkIfElementIsNotSelected(By.cssSelector("[type=checkbox]:not(:checked)"));
 //        checkIfElementIsNotSelected(chxBoxChecked); //expected to fail
+    }
+
+    @Step
+    public void checkTextBoxIsEnabled() {
+        checkIfElementIsEnabled(By.name("my-text"));
+        checkIfElementIsEnabled(inputText);
+    }
+
+    @Step
+    public void checkHTMLAttributeValue() {
+        checkAttributeEqualTo(inputText,"type","text");
+        checkAttributeEqualTo(By.name("my-text"),"myprop","myvalue");
+    }
+
+    @Step
+    public void checkDOMAttributeValue() {
+        checkDOMAttributeEqualTo(inputText,"type","text");
+        checkDOMAttributeEqualTo(By.name("my-text"),"myprop","myvalue");
+    }
+
+    @Step
+    public void checkDOMProperty() {
+        checkDOMPropertyEqualTo(inputText,"type","text");
+        checkDOMPropertyEqualTo(By.name("my-text"),"type","text");
+    }
+
+    @Step
+    public void checkMultipleClassName() {
+        checkElementSizeIs(formControl,9);
+        checkElementSizeIs(By.className("form-control"),9);
+        checkAttributeEqualTo(formControl.get(0),"name","my-text");
+        checkAttributeEqualTo(formControl.get(1),"autocomplete","off");
+        checkAttributeEqualTo(formControl.get(2),"rows","3");
+        checkAttributeEqualTo(formControl.get(8),"class","form-control");
     }
 }

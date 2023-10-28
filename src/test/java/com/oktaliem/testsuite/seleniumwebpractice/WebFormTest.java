@@ -20,6 +20,11 @@ public class WebFormTest extends BaseTest {
         userIsOn.webFormPage().uploadFormFile();
         userIsOn.webFormPage().checkHiddenWebElement();
         userIsOn.webFormPage().checkBoxTest();
+        userIsOn.webFormPage().checkTextBoxIsEnabled();
+        userIsOn.webFormPage().checkHTMLAttributeValue();
+        userIsOn.webFormPage().checkDOMAttributeValue();
+        userIsOn.webFormPage().checkDOMProperty();
+        userIsOn.webFormPage().checkMultipleClassName();
     }
 
 

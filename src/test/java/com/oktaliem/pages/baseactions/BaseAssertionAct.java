@@ -3,6 +3,7 @@ package com.oktaliem.pages.baseactions;
 import com.oktaliem.pages.webactions.IAssertionActions;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -175,9 +176,64 @@ public class BaseAssertionAct extends BaseGeneralAct implements IAssertionAction
     }
 
     @Override
+    public void checkIfElementIsEnabled(WebElement element) {
+        assertThat(element.isEnabled()).isTrue();
+    }
+
+    @Override
     public void checkIfElementIsNotSelected(By by) {
         WebElement element = driver.findElement(by);
         assertThat(element.isSelected()).isFalse();
+    }
+
+    @Override
+    public void checkIfElementIsEnabled(By by) {
+        WebElement element = driver.findElement(by);
+        assertThat(element.isEnabled()).isTrue();
+    }
+
+    @Override
+    public void checkAttributeEqualTo(WebElement element, String attribute, String value) {
+        assertThat(element.getAttribute(attribute)).isEqualTo(value);
+    }
+
+    @Override
+    public void checkDOMAttributeEqualTo(WebElement element, String attribute, String value) {
+        assertThat(element.getDomAttribute(attribute)).isEqualTo(value);
+    }
+
+    @Override
+    public void checkDOMPropertyEqualTo(WebElement element, String attribute, String value) {
+        assertThat(element.getDomProperty(attribute)).isEqualTo(value);
+    }
+
+    @Override
+    public void checkElementSizeIs(List<WebElement> element, int number) {
+        Assert.assertEquals(element.size(),number);
+    }
+
+    @Override
+    public void checkAttributeEqualTo(By by, String attribute, String value) {
+        WebElement element = driver.findElement(by);
+        assertThat(element.getAttribute(attribute)).isEqualTo(value);
+    }
+
+    @Override
+    public void checkDOMAttributeEqualTo(By by, String attribute, String value) {
+        WebElement element = driver.findElement(by);
+        assertThat(element.getDomAttribute(attribute)).isEqualTo(value);
+    }
+
+    @Override
+    public void checkDOMPropertyEqualTo(By by, String attribute, String value) {
+        WebElement element = driver.findElement(by);
+        assertThat(element.getDomProperty(attribute)).isEqualTo(value);
+    }
+
+    @Override
+    public void checkElementSizeIs(By by, int number) {
+        List<WebElement> elements = driver.findElements(by);
+        Assert.assertEquals(elements.size(),number);
     }
 
 }
