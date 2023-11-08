@@ -2,7 +2,6 @@ package com.oktaliem.testsuite;
 
 import com.oktaliem.pages.Path;
 import org.openqa.selenium.Keys;
-import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
 
 import java.awt.*;
@@ -352,13 +351,6 @@ public class UnitTest extends BaseTest{
         userIsOn.loginPage().goToWeb("http://localhost/web/login");
         userIsOn.loginPage().inputUserNameByChainElements();
     }
-
-    @Test(description = "Sikuli - perform Sikuli action")
-    public void TC41() throws FindFailed {
-        userIsOn.loginPage().goToWeb("http://localhost/web/login");
-        userIsOn.loginPage().loginWithSikuli(); // return false positive , unable to click but test succeed,
-        // Sikuli works well for non-web UI
-        }
 
     @Test(description = "General - Several waiting Methods")
     public void TC42() throws AWTException {

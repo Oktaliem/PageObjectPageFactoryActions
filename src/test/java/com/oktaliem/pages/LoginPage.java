@@ -9,7 +9,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
-import org.sikuli.script.FindFailed;
 import org.testng.Assert;
 
 import java.awt.*;
@@ -220,16 +219,6 @@ public class LoginPage extends BasePage {
         wait(2000);
         inputTextBox(userNameChains, "akulah");
         wait(2000);
-    }
-
-    @Step
-    public void loginWithSikuli() throws FindFailed {
-        inputTextBox(userNameLogin, "user@example.com");
-        inputTextBox(passwordLogin, "bitnami");
-        clickOn(password);
-        wait(2000);
-        clickViaSikuli(sikuliPath, "login_button.png"); //test sukses tapi tapi berhasil, false positive
-        wait(5000);
     }
 
     @Step
