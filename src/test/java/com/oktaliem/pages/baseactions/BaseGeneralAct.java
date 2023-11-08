@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 /**
  * Author : Okta Liem
  */
-public class BaseGeneralAct extends BaseSikuliAct implements IGeneralActions {
+public class BaseGeneralAct extends BaseScreenshot implements IGeneralActions {
 
     public WebDriver driver;
     public static Logger log = Logger.getLogger("Library Test");

@@ -4,11 +4,10 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,6 +15,8 @@ import org.testng.annotations.BeforeMethod;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 /**
@@ -28,18 +29,20 @@ public class BaseTest {
     public static Logger log = Logger.getLogger("Test Preparation");
 
     @BeforeMethod
-    public void initialization(Method method) {
-        try {
-            if (System.getProperty("browser").equals("chromePath")) {
-                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver-mac");
-                log.info("I'm using Webdriver: "+System.getProperty("user.dir") + "/drivers/chromedriver-mac");
-                driver = new ChromeDriver();
-            }
-        } catch (Exception e) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            NgWebDriver ngWebDriver = new NgWebDriver((JavascriptExecutor) driver);
-            ngWebDriver.waitForAngularRequestsToFinish();
+    public void initialization(Method method) throws MalformedURLException {
+        String runner = "default"; //System.getProperty("browser")
+        switch (runner) {
+            case "grid-chrome":
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--start-maximized");
+                this.driver = new RemoteWebDriver(new URL("http://192.168.68.78:4444/"), options);
+            case "grid-firefox":
+                break;
+            default:
+                WebDriverManager.chromedriver().setup();
+                this.driver = new ChromeDriver();
+                NgWebDriver ngWebDriver = new NgWebDriver((JavascriptExecutor) driver);
+                ngWebDriver.waitForAngularRequestsToFinish();
         }
         driver.manage().window().maximize();
         userIsOn = new User(driver);
