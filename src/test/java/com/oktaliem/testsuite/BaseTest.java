@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -30,13 +31,17 @@ public class BaseTest {
 
     @BeforeMethod
     public void initialization(Method method) throws MalformedURLException {
-        String runner = "default"; //System.getProperty("browser")
+        String runner = "grid-edge"; //System.getProperty("browser")
+        String gridURL ="http://192.168.68.32:4444/";
         switch (runner) {
             case "grid-chrome":
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--start-maximized");
-                this.driver = new RemoteWebDriver(new URL("http://192.168.68.78:4444/"), options);
+                this.driver = new RemoteWebDriver(new URL(gridURL), options);
             case "grid-firefox":
+                this.driver = WebDriverManager.firefoxdriver().remoteAddress(gridURL).create();
+                break;
+            case "grid-edge":
                 break;
             default:
                 WebDriverManager.chromedriver().setup();

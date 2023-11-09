@@ -1,42 +1,229 @@
-<html style="height: 100%;"><head>
+<html lang="en-US" data-website-id="1" data-main-object="ir.ui.view(185,)" data-add2cart-redirect="1" data-logged="false"><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Odoo</title>
-        <link type="image/x-icon" rel="shortcut icon" href="/web/static/img/favicon.ico">
+        <meta name="generator" content="Odoo">
+            
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Login | My Website">
+        <meta property="og:site_name" content="My Company">
+        <meta property="og:url" content="http://192.168.68.78:7001/web/login">
+        <meta property="og:image" content="http://192.168.68.78:7001/web/image/website/1/logo?unique=7c3c2d3">
+            
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Login | My Website">
+        <meta name="twitter:image" content="http://192.168.68.78:7001/web/image/website/1/logo/300x300?unique=7c3c2d3">
+        
+        <link rel="canonical" href="http://192.168.68.78:7001/web/login">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <title> Login | My Website </title>
+        <link type="image/x-icon" rel="shortcut icon" href="/web/image/website/1/favicon?unique=7c3c2d3">
         <link rel="preload" href="/web/static/src/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin="">
-        <link type="text/css" rel="stylesheet" href="/web/assets/15-23814c3/web.assets_frontend.min.css" data-asset-bundle="web.assets_frontend" data-asset-version="23814c3">
+        <link type="text/css" rel="stylesheet" href="/web/assets/503-259aa75/1/web.assets_frontend.min.css" data-asset-bundle="web.assets_frontend" data-asset-version="259aa75">
         <script id="web.layout.odooscript" type="text/javascript">
             var odoo = {
-                csrf_token: "06e2a06566ea82f1ceb8ca264c25411f969f03a1o1728866729",
+                csrf_token: "7f538614ff4bafb1b4e3cce1e9eb2001b4f23ce2o1731027924",
                 debug: "",
             };
         </script>
         <script type="text/javascript">
-            odoo.__session_info__ = {"is_admin": false, "is_system": false, "is_website_user": false, "user_id": false, "is_frontend": true, "profile_session": null, "profile_collectors": null, "profile_params": null, "show_effect": false, "bundle_params": {"lang": "en_GB"}};
+            odoo.__session_info__ = {"is_admin": false, "is_system": false, "is_website_user": true, "user_id": false, "is_frontend": true, "profile_session": null, "profile_collectors": null, "profile_params": null, "show_effect": true, "bundle_params": {"lang": "en_US", "website_id": 1}, "translationURL": "/website/translations", "cache_hashes": {"translations": "3690f0ee2fc21f711b31f0aa1b3e5aa644da733f"}, "geoip_country_code": null, "geoip_phone_code": null, "lang_url_code": "en"};
             if (!/(^|;\s)tz=/.test(document.cookie)) {
                 const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
                 document.cookie = `tz=${userTZ}; path=/`;
             }
         </script>
-        <script defer="defer" type="text/javascript" src="/web/assets/16-e3ab3c0/web.assets_frontend_minimal.min.js" data-asset-bundle="web.assets_frontend_minimal" data-asset-version="e3ab3c0"></script>
-        <script defer="defer" type="text/javascript" data-asset-bundle="web.assets_frontend_lazy" data-asset-version="e144caa" src="/web/assets/17-e144caa/web.assets_frontend_lazy.min.js"></script>
+        <script defer="defer" type="text/javascript" src="/web/assets/475-fc6d8dd/1/web.assets_frontend_minimal.min.js" data-asset-bundle="web.assets_frontend_minimal" data-asset-version="fc6d8dd"></script>
+        <script defer="defer" type="text/javascript" data-asset-bundle="web.assets_frontend_lazy" data-asset-version="2cc8054" src="/web/assets/504-2cc8054/1/web.assets_frontend_lazy.min.js"></script>
         
-    </head>
-    <body class="bg-100 o_lazy_js_waiting">
-        <div id="wrapwrap" class="">
+        
+    <style id="conditional_visibility"></style></head>
+    <body class="o_lazy_js_waiting">
+        <div id="wrapwrap" class="   ">
+                <header id="top" data-anchor="true" data-name="Header" class="  o_header_standard">
+                    
+    <nav data-name="Navbar" class="navbar navbar-expand-lg navbar-light o_colored_level o_cc flex-lg-column shadow-sm py-0">
+        
+            <div id="top_menu_container" class="container align-items-center flex-lg-column flex-wrap">
+                <div class="d-flex flex-lg-row justify-content-between w-100 align-items-center flex-wrap flex-lg-nowrap">
+                    
+                    <div class="o_header_centered_logo">
+                        <div class="oe_structure oe_structure_solo" id="oe_structure_header_vertical_1">
+            <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
+                <div class="container">
+                    <div class="s_social_media no_icon_color o_not_editable" data-snippet="s_social_media" data-name="Social Media" contenteditable="false">
+                        <h6 class="s_social_media_title d-none" contenteditable="true">Follow us</h6>
+                        <a href="/website/social/facebook" class="s_social_media_facebook" target="_blank">
+                            <i class="fa fa-facebook m-1 o_editable_media"></i>
+                        </a>
+                        <a href="/website/social/twitter" class="s_social_media_twitter" target="_blank">
+                            <i class="fa fa-twitter m-1 o_editable_media"></i>
+                        </a>
+                        <a href="/website/social/linkedin" class="s_social_media_linkedin" target="_blank">
+                            <i class="fa fa-linkedin m-1 o_editable_media"></i>
+                        </a>
+                        <a href="/website/social/instagram" class="s_social_media_instagram" target="_blank">
+                            <i class="fa fa-instagram m-1 o_editable_media"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+                    
+    <a href="/" class="navbar-brand logo m-0">
+            
+            <span role="img" aria-label="Logo of My Website" title="My Website"><img src="/web/image/website/1/logo/My%20Website?unique=7c3c2d3" class="img img-fluid" width="95" height="40" alt="My Website" loading="lazy"></span>
+        </a>
+    
+                    
+                    <div class="o_header_centered_logo text-end">
+                        <div class="oe_structure oe_structure_solo" id="oe_structure_header_vertical_2">
+            <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
+                <div class="container">
+                    <small><i class="fa fa-1x fa-fw fa-phone me-2"></i><a href="tel:+1 (650) 555-0111">+1 (650) 555-0111</a></small>
+                </div>
+            </section>
+        </div>
+    </div>
+                    
+        <div class="oe_structure oe_structure_solo ms-1 d-block d-lg-none ms-auto me-4">
+            <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
+                <div class="container">
+                    <a href="/contactus" class="btn btn-primary btn_cta">Contact Us</a>
+                </div>
+            </section>
+        </div>
+                    
+    <button type="button" data-bs-toggle="collapse" data-bs-target="#top_menu_collapse" class="navbar-toggler my-3">
+        <span class="navbar-toggler-icon o_not_editable"></span>
+    </button>
+                </div>
+                <div class="d-lg-flex flex-lg-row align-items-center w-100">
+                    
+                    <div id="top_menu_collapse" class="collapse navbar-collapse flex-wrap">
+                        <div class="oe_structure oe_structure_solo w-100" id="oe_structure_header_vertical_3">
+            <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
+                <div class="container">
+                    <div class="s_hr w-100 text-start pt0 pb0" data-name="Separator">
+                        <hr class="w-100 mx-auto" style="border-top-width: 1px; border-top-style: solid; border-color: var(--300);">
+                    </div>
+                </div>
+            </section>
+        </div>
+    
+                        
+        <div class="o_offcanvas_menu_backdrop" data-bs-toggle="collapse" data-bs-target="#top_menu_collapse" aria-label="Toggle navigation"></div>
+    <ul id="top_menu" class="nav navbar-nav mx-auto order-first order-lg-5 nav-pills">
+        <li class="o_offcanvas_menu_toggler order-first navbar-toggler text-end border-0 o_not_editable">
+            <a href="#top_menu_collapse" class="nav-link px-3" data-bs-toggle="collapse">
+                <span class="fa-2x">×</span>
+            </a>
+        </li>
+        
+                            
+    <li class="nav-item">
+        <a role="menuitem" href="/" class="nav-link ">
+            <span>Home</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a role="menuitem" href="/shop" class="nav-link ">
+            <span>Shop</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a role="menuitem" href="/event" class="nav-link ">
+            <span>Events</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a role="menuitem" href="/slides" class="nav-link ">
+            <span>Courses</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a role="menuitem" href="/our-services" class="nav-link ">
+            <span>Services</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a role="menuitem" href="/pricing" class="nav-link ">
+            <span>Pricing</span>
+        </a>
+    </li>
+    <li class="nav-item dropdown  ">
+        <a data-bs-toggle="dropdown" href="#" class="nav-link dropdown-toggle ">
+            <span>Company</span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+    <li class="">
+        <a role="menuitem" href="/blog/2" class="dropdown-item ">
+            <span>News</span>
+        </a>
+    </li>
+    <li class="">
+        <a role="menuitem" href="/blog/3" class="dropdown-item ">
+            <span>Success Stories</span>
+        </a>
+    </li>
+    <li class="">
+        <a role="menuitem" href="/about-us" class="dropdown-item ">
+            <span>About Us</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a role="menuitem" href="/contactus" class="nav-link ">
+            <span>Contact us</span>
+        </a>
+    </li>
+        
+            <li class="nav-item ms-lg-3 divider d-none"></li> 
+            <li class="o_wsale_my_cart align-self-md-start  nav-item ms-lg-3">
+                <a href="/shop/cart" class="nav-link">
+                    <i class="fa fa-shopping-cart"></i>
+                    <sup class="my_cart_quantity badge text-bg-primary" data-order-id="">0</sup>
+                </a>
+            </li>
+        
+                            
+            <li class="nav-item ms-lg-3 o_no_autohide_item">
+                <a href="/web/login" class="nav-link">Sign in</a>
+            </li>
+                            
+        
+        
+                        
+        <li class="o_offcanvas_logo_container order-last navbar-toggler py-4 order-1 mt-auto text-center border-0">
+            <a href="/" class="o_offcanvas_logo logo">
+            <span role="img" aria-label="Logo of My Website" title="My Website"><img src="/web/image/website/1/logo/My%20Website?unique=7c3c2d3" class="img img-fluid" style="max-width: 200px" alt="My Website" loading="lazy"></span>
+        </a>
+    </li>
+    </ul>
+                        
+                        
+        <div class="oe_structure oe_structure_solo d-none d-lg-block order-lg-last">
+            <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
+                <div class="container">
+                    <a href="/contactus" class="btn btn-primary btn_cta">Contact Us</a>
+                </div>
+            </section>
+        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </nav>
+    
+        </header>
                 <main>
                     
-
-            <div class="container py-5">
-                <div style="max-width: 300px;" class="card border-0 mx-auto bg-100  o_database_list">
-                    <div class="card-body">
-                        <div class="text-center pb-3 border-bottom mb-4">
-                            <img alt="Logo" style="max-height:120px; max-width: 100%; width:auto" src="/web/binary/company_logo">
-                        </div>
-                        
+            <div class="oe_website_login_container">
             <form class="oe_login_form" role="form" method="post" onsubmit="this.action = '/web/login' + location.hash" action="/web/login">
-                <input type="hidden" name="csrf_token" value="06e2a06566ea82f1ceb8ca264c25411f969f03a1o1728866729">
+                <input type="hidden" name="csrf_token" value="7f538614ff4bafb1b4e3cce1e9eb2001b4f23ce2o1731027924">
 
 
                 <div class="mb-3 field-login">
@@ -52,22 +239,95 @@
 
                 <div class="clearfix oe_login_buttons text-center gap-1 d-grid mb-1 pt-3">
                     <button type="submit" class="btn btn-primary">Log in</button>
+                <div class="justify-content-between mt-2 d-flex small">
+                    <a href="/web/signup">Don't have an account?</a>
+                    <a href="/web/reset_password">Reset Password</a>
+                </div>
                     <div class="o_login_auth"></div>
                 </div>
 
                 <input type="hidden" name="redirect">
             </form>
+        </div>
         
-                        <div class="text-center small mt-4 pt-3 border-top">
-                                <a class="border-end pe-2 me-1" href="/web/database/manager">Manage Databases</a>
-                            <a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span>Odoo</span></a>
+                </main>
+                <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc  o_footer_slideout">
+                    <div id="footer" class="oe_structure oe_structure_solo">
+            <section class="s_text_block pt32" data-snippet="s_text_block" data-name="Text">
+                <div class="container s_allow_columns">
+                    <div class="s_social_media text-center mb-4 o_not_editable" data-snippet="s_social_media" data-name="Social Media" contenteditable="false">
+                        <h5 class="s_social_media_title d-none" contenteditable="true">Follow us</h5>
+                        <a href="/website/social/facebook" class="s_social_media_facebook" target="_blank">
+                            <i class="fa fa-facebook rounded-circle rounded shadow-sm o_editable_media"></i>
+                        </a>
+                        <a href="/website/social/twitter" class="s_social_media_twitter" target="_blank">
+                            <i class="fa fa-twitter rounded-circle rounded shadow-sm o_editable_media"></i>
+                        </a>
+                        <a href="/website/social/linkedin" class="s_social_media_linkedin" target="_blank">
+                            <i class="fa fa-linkedin rounded-circle rounded shadow-sm o_editable_media"></i>
+                        </a>
+                    </div>
+                    <p class="text-center mb-1">250 Executive Park Blvd, Suite 3400 • San Francisco CA 94134 • United States</p>
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item mx-3"><i class="fa fa-1x fa-fw fa-phone me-2"></i><span class="o_force_ltr"><a href="tel:1 (650) 555-0111">+1 (650) 555-0111</a></span></li>
+                        <li class="list-inline-item mx-3"><i class="fa fa-1x fa-fw fa-envelope me-2"></i><span><a href="mailto:info@yourcompany.example.com">info@yourcompany.example.com</a></span></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="s_text_block pt16 pb16" data-snippet="s_text_block" data-name="Logo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 offset-lg-5">
+                            <a href="/" class="o_footer_logo logo">
+                                <img src="/website/static/src/img/website_logo.svg" class="img-fluid mx-auto" aria-label="Logo of MyCompany" title="MyCompany" role="img" loading="lazy">
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+        </div>
+        <div id="o_footer_scrolltop_wrapper" class="container h-0 d-flex align-items-center justify-content-end">
+            <a id="o_footer_scrolltop" role="button" href="#top" title="Scroll To Top" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center">
+                <span class="fa fa-1x fa-chevron-up"></span>
+            </a>
+        </div>
+    <div class="o_footer_copyright o_colored_level o_cc" data-name="Copyright">
+                        <div class="container py-3">
+                            <div class="row">
+                                <div class="col-sm text-center text-sm-start text-muted">
+                                    <span class="o_footer_copyright_name me-2">Copyright © Company name</span>
         
-                </main>
+        
+                                </div>
+                                <div class="col-sm text-center text-sm-end o_not_editable">
+        <div class="o_brand_promotion">
+        Powered by 
+            <a target="_blank" class="badge text-bg-light" href="http://www.odoo.com?utm_source=db&amp;utm_medium=website">
+                <img alt="Odoo" src="/web/static/img/odoo_logo_tiny.png" width="62" height="20" style="width: auto; height: 1em; vertical-align: baseline;" loading="lazy">
+            </a>
+        - 
+                    The #1 <a target="_blank" href="http://www.odoo.com/app/ecommerce?utm_source=db&amp;utm_medium=website">Open Source eCommerce</a>
                 
+        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
+                    <script>
+            
+                window.addEventListener('load', function () {
+                    odoo.define('im_livechat.loaderData', function() {
+                        return {
+                            isAvailable: false,
+                            serverUrl: "http://192.168.68.78:7001",
+                            options: {},
+                        };
+                    });
+                });
+            
+                    </script>
+        
         
 </body></html>
