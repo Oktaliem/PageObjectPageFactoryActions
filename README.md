@@ -13,6 +13,8 @@ Martin Fowler :
 2. A page object should also provide an interface that's easy to program to and hides the underlying widgetry in the window  page."
 3. The page object should encapsulate the mechanics required to find and manipulate the data in the page itself. A good rule of thumb is to imagine changing the concrete page -in which case the page object interface shouldn't change."
 ```
+## Architecture Diagram
+![Image](https://github.com/user-attachments/assets/4ef0e1d2-a6f6-4064-9116-57fc35f9c0dd)
 
 ### Features :
 1. Initiate WebDriver by WebDriverManager
